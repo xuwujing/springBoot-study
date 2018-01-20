@@ -1,32 +1,34 @@
-package com.pancm.util;
+package com.pancm.config;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 /**
  * 
 * Title: MyProperties
 * Description:
-* 自定义配置的获取
-* 从application.properties 获取 
+* 从application.properties 获取 配置
 * Version:1.0.0  
 * @author pancm
 * @date 2018年1月11日
  */
 //表示这个类是获取配置文件
 @Component
+@ConfigurationProperties(prefix = "web.pancm")//前缀  
 public class MyProperties {
 	/**
 	 * 获取个人标题
 	 * 
 	 */
-	@Value("${com.pancm.title}")
+	@Value("${title}")
 	private String title;
 	
 	/**
 	 * 获取个人描述
 	 */
-	@Value("${com.pancm.description}")
+	@Value("${description}")
 	private String description;
 
 	/**  
@@ -60,5 +62,4 @@ public class MyProperties {
 	public void setDescription(String description) {
 		this.description = description;
 	} 
-	
 }

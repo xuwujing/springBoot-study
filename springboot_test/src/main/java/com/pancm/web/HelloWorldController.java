@@ -1,9 +1,11 @@
 package com.pancm.web;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.pancm.bean.User;
+import com.pancm.config.MyProperties;
 
 /**
  * 
@@ -18,10 +20,14 @@ import com.pancm.bean.User;
  */
 @RestController
 public class HelloWorldController {
+	@Autowired
+	MyProperties myProperties;
 	
     @RequestMapping("/hello")
     public String index() {
     	System.out.println("---------开始----------");
+    	System.out.println("title:"+myProperties.getTitle());
+    	System.out.println("describe:"+myProperties.getDescription());
         return "Hello World";
     }
     
