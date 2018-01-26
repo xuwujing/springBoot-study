@@ -2,13 +2,9 @@ package com.test.properties;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import com.pancm.config.MyConfig;
-import com.pancm.config.MyProperties;
 
 /**
  * 
@@ -28,7 +24,6 @@ public class getMyPropertiesTest {
 	
     @Test
     public void test() throws Exception {
-    	System.out.println("test测试");
     	System.out.println("==="+msg);
     }
     
