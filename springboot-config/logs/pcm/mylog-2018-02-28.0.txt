@@ -1,0 +1,102 @@
+2018-02-28 16:45:30 -Starting Application on HP with PID 6152 (D:\WorkSpace\springboot-config\target\classes started by Administrator in D:\WorkSpace\springboot-config)
+2018-02-28 16:45:30 -No active profile set, falling back to default profiles: default
+2018-02-28 16:45:30 -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@3d8bce81: startup date [Wed Feb 28 16:45:30 CST 2018]; root of context hierarchy
+2018-02-28 16:45:30 -HV000001: Hibernate Validator 5.3.6.Final
+2018-02-28 16:45:31 -Tomcat initialized with port(s): 8082 (http)
+2018-02-28 16:45:31 -Starting service [Tomcat]
+2018-02-28 16:45:31 -Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-02-28 16:45:31 -Initializing Spring embedded WebApplicationContext
+2018-02-28 16:45:31 -Root WebApplicationContext: initialization completed in 926 ms
+2018-02-28 16:45:31 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-02-28 16:45:31 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-02-28 16:45:31 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-02-28 16:45:31 -Mapping filter: 'requestContextFilter' to: [/*]
+2018-02-28 16:45:31 -Mapping filter: 'MyFilter' to urls: [/getUser, /hello]
+2018-02-28 16:45:31 -Mapping servlet: 'dispatcherServlet' to [/]
+2018-02-28 16:45:31 -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@3d8bce81: startup date [Wed Feb 28 16:45:30 CST 2018]; root of context hierarchy
+2018-02-28 16:45:31 -Mapped "{[/hello]}" onto public java.lang.String com.pancm.springboot_config.web.HelloWorldController.index()
+2018-02-28 16:45:31 -Mapped "{[/getUser]}" onto public com.pancm.springboot_config.bean.User com.pancm.springboot_config.web.HelloWorldController.getUser()
+2018-02-28 16:45:31 -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-02-28 16:45:31 -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-28 16:45:31 -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-28 16:45:31 -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-28 16:45:31 -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-28 16:45:31 -Registering beans for JMX exposure on startup
+2018-02-28 16:45:31 -Initializing ProtocolHandler ["http-nio-8082"]
+2018-02-28 16:45:31 -Starting ProtocolHandler ["http-nio-8082"]
+2018-02-28 16:45:31 -Using a shared selector for servlet write/read
+2018-02-28 16:45:31 -Tomcat started on port(s): 8082 (http)
+2018-02-28 16:45:31 -Started Application in 1.954 seconds (JVM running for 2.286)
+2018-02-28 16:45:35 -Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-02-28 16:45:35 -FrameworkServlet 'dispatcherServlet': initialization started
+2018-02-28 16:45:35 -FrameworkServlet 'dispatcherServlet': initialization completed in 15 ms
+2018-02-28 16:47:41 -Starting Application on HP with PID 7540 (D:\WorkSpace\springboot-config\target\classes started by Administrator in D:\WorkSpace\springboot-config)
+2018-02-28 16:47:41 -No active profile set, falling back to default profiles: default
+2018-02-28 16:47:41 -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7283edb3: startup date [Wed Feb 28 16:47:41 CST 2018]; root of context hierarchy
+2018-02-28 16:47:41 -HV000001: Hibernate Validator 5.3.6.Final
+2018-02-28 16:47:42 -Tomcat initialized with port(s): 8082 (http)
+2018-02-28 16:47:42 -Starting service [Tomcat]
+2018-02-28 16:47:42 -Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-02-28 16:47:42 -Initializing Spring embedded WebApplicationContext
+2018-02-28 16:47:42 -Root WebApplicationContext: initialization completed in 1087 ms
+2018-02-28 16:47:42 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-02-28 16:47:42 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-02-28 16:47:42 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-02-28 16:47:42 -Mapping filter: 'requestContextFilter' to: [/*]
+2018-02-28 16:47:42 -Mapping filter: 'MyFilter' to urls: [/getUser, /hello]
+2018-02-28 16:47:42 -Mapping servlet: 'dispatcherServlet' to [/]
+2018-02-28 16:47:42 -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7283edb3: startup date [Wed Feb 28 16:47:41 CST 2018]; root of context hierarchy
+2018-02-28 16:47:42 -Mapped "{[/hello]}" onto public java.lang.String com.pancm.springboot_config.web.HelloWorldController.index()
+2018-02-28 16:47:42 -Mapped "{[/getUser]}" onto public com.pancm.springboot_config.bean.User com.pancm.springboot_config.web.HelloWorldController.getUser()
+2018-02-28 16:47:42 -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-02-28 16:47:42 -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-28 16:47:42 -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-28 16:47:42 -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-28 16:47:42 -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-28 16:47:43 -Registering beans for JMX exposure on startup
+2018-02-28 16:47:43 -Initializing ProtocolHandler ["http-nio-8082"]
+2018-02-28 16:47:43 -Starting ProtocolHandler ["http-nio-8082"]
+2018-02-28 16:47:43 -Using a shared selector for servlet write/read
+2018-02-28 16:47:43 -Tomcat started on port(s): 8082 (http)
+2018-02-28 16:47:43 -Started Application in 2.274 seconds (JVM running for 2.67)
+2018-02-28 16:47:46 -Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-02-28 16:47:46 -FrameworkServlet 'dispatcherServlet': initialization started
+2018-02-28 16:47:46 -FrameworkServlet 'dispatcherServlet': initialization completed in 15 ms
+2018-02-28 16:48:11 -Starting Application on HP with PID 3388 (D:\WorkSpace\springboot-config\target\classes started by Administrator in D:\WorkSpace\springboot-config)
+2018-02-28 16:48:11 -No active profile set, falling back to default profiles: default
+2018-02-28 16:48:11 -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7ad7e37c: startup date [Wed Feb 28 16:48:11 CST 2018]; root of context hierarchy
+2018-02-28 16:48:11 -HV000001: Hibernate Validator 5.3.6.Final
+2018-02-28 16:48:12 -Tomcat initialized with port(s): 8082 (http)
+2018-02-28 16:48:12 -Starting service [Tomcat]
+2018-02-28 16:48:12 -Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-02-28 16:48:12 -Initializing Spring embedded WebApplicationContext
+2018-02-28 16:48:12 -Root WebApplicationContext: initialization completed in 1034 ms
+2018-02-28 16:48:12 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-02-28 16:48:12 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-02-28 16:48:12 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-02-28 16:48:12 -Mapping filter: 'requestContextFilter' to: [/*]
+2018-02-28 16:48:12 -Mapping filter: 'MyFilter' to urls: [/getUser, /hello]
+2018-02-28 16:48:12 -Mapping servlet: 'dispatcherServlet' to [/]
+2018-02-28 16:48:13 -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7ad7e37c: startup date [Wed Feb 28 16:48:11 CST 2018]; root of context hierarchy
+2018-02-28 16:48:13 -Mapped "{[/hello]}" onto public java.lang.String com.pancm.springboot_config.web.HelloWorldController.index()
+2018-02-28 16:48:13 -Mapped "{[/getUser]}" onto public com.pancm.springboot_config.bean.User com.pancm.springboot_config.web.HelloWorldController.getUser()
+2018-02-28 16:48:13 -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-02-28 16:48:13 -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-28 16:48:13 -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-28 16:48:13 -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-28 16:48:13 -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-28 16:48:13 -Registering beans for JMX exposure on startup
+2018-02-28 16:48:13 -Initializing ProtocolHandler ["http-nio-8082"]
+2018-02-28 16:48:13 -Starting ProtocolHandler ["http-nio-8082"]
+2018-02-28 16:48:13 -Using a shared selector for servlet write/read
+2018-02-28 16:48:13 -Tomcat started on port(s): 8082 (http)
+2018-02-28 16:48:13 -Started Application in 2.207 seconds (JVM running for 2.596)
+2018-02-28 16:48:15 -Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-02-28 16:48:15 -FrameworkServlet 'dispatcherServlet': initialization started
+2018-02-28 16:48:15 -FrameworkServlet 'dispatcherServlet': initialization completed in 15 ms
+2018-02-28 16:48:20 ----------开始----------
+2018-02-28 16:48:20 -title:SpringBoot
+2018-02-28 16:48:20 -describe:test
+2018-02-28 16:50:27 ----------开始----------
+2018-02-28 16:50:27 -title:SpringBoot
+2018-02-28 16:50:27 -describe:test
