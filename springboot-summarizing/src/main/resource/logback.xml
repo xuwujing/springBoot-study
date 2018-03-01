@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--scan: 当此属性设置为true时，配置文件如果发生改变，将会被重新加载，默认值为true。
+　　　　scanPeriod: 设置监测配置文件是否有修改的时间间隔，如果没有给出时间单位，默认单位是毫秒。当scan为true时，此属性生效。默认的时间间隔为1分钟。  -->
+<configuration  scan="true" scanPeriod="30 seconds" debug="true" >
+
+	<!--日志主级别  -->	
+	<root level="WARN">
+	</root>
+
+</configuration>
