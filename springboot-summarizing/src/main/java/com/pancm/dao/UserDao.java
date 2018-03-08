@@ -45,14 +45,8 @@ public interface UserDao {
      * 根据用户名称查询用户信息
      *
      */
-    @Select("SELECT id,name,age FROM t_user")
-    // 返回 Map 结果集
-    @Results({
-            @Result(property = "id", column = "id"),
-            @Result(property = "name", column = "name"),
-            @Result(property = "age", column = "age"),
-    })
-    User findByName(@Param("name") String userName);
+    @Select("SELECT id,name,age FROM t_user where name=#{userName}")
+    User findByName(String userName);
    
     /**
      * 根据用户ID查询用户信息

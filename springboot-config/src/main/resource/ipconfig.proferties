@@ -1,2 +1,2 @@
 ipconfig:  
-  ipWhiteList: 127.0.0.1
+  ipWhiteList: 127.0.0.1|0:0:0:0:0:0:0:1

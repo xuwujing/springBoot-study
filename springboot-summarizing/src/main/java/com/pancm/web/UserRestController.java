@@ -38,7 +38,7 @@ public class UserRestController {
     }
 	
 	@RequestMapping(value = "/deleteUser", method = RequestMethod.DELETE)
-    public boolean delete(@RequestParam(value = "userName", required = true) int userId) {
+    public boolean delete(@RequestParam(value = "userId", required = true) int userId) {
     	System.out.println("开始删除...");
         return userService.deleteUser(userId);
     }
@@ -58,6 +58,6 @@ public class UserRestController {
     @RequestMapping(value = "/userAge", method = RequestMethod.GET)
     public User findByUserAge(@RequestParam(value = "userAge", required = true) int userAge) {
     	System.out.println("开始查询...");
-        return userService.findUserById(userAge);
+        return userService.findUserByAge(userAge);
     }
 }
