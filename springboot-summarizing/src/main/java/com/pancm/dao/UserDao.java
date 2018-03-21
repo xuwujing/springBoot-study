@@ -51,7 +51,6 @@ public interface UserDao {
     /**
      * 查询所有用户信息
      */
-    @Select("SELECT id,name,age FROM t_user")     
     List<User> findAll();
     
 }
