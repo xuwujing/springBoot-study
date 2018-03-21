@@ -1,4 +1,4 @@
-package com.pancm.config;
+package com.pancm.filter;
 
 import java.io.IOException;
 import java.util.Calendar;
@@ -23,7 +23,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * 
-* Title: WebConfiguration
+* Title: MyWebFilter
 * Description:
 * 自定义过滤器 
 * Version:1.0.0  
@@ -31,7 +31,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 * @date 2018年1月4日
  */
 @Configuration
-public class WebConfiguration {
+public class MyWebFilter {
 //    @Bean
 //    public RemoteIpFilter remoteIpFilter() {
 //        return new RemoteIpFilter();
@@ -87,7 +87,6 @@ public class WebConfiguration {
 	              response.getWriter().write(writeValueAsString);
 	            return;
 	        }
-			
 			filterChain.doFilter(srequest, sresponse);
 		}
 

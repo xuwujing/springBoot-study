@@ -1,7 +1,10 @@
-/target/ 
+/target/
+/log/  
+/logs/ 
 .classpath
 .project
-.settings      
+.settings  
+.myeclipse    
  ##filter databfile¡¢sln file##
 *.mdb  
 *.ldb  
@@ -24,7 +27,8 @@
 *.zip  
 *.via
 *.tmp
-*.err 
+*.err
+*.log 
 # OS generated files #  
 .DS_Store  
 .DS_Store?  

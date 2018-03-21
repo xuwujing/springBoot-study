@@ -19,8 +19,6 @@ import com.pancm.config.MyConfig;
  */
 
 @SpringBootApplication
-//mapper 接口类扫描包配置
-@MapperScan("com.pancm.dao")
 public class Application implements CommandLineRunner  {
     
 	@Autowired  

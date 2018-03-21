@@ -1,5 +1,7 @@
 package com.pancm.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,9 +20,9 @@ import com.pancm.service.UserService;
  */
 @Service
 public class UserServiceImpl implements UserService {
+	
 	@Autowired
     private UserDao userDao;
-	
 	
 	@Override
 	public boolean addUser(User user) {
@@ -64,14 +66,11 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User findUserById(int userId) {
-		return userDao.findById(userId);
+	public List<User> findAll() {
+		return userDao.findAll();
 	}
 
-	@Override
-	public User findUserByAge(int userAge) {
-		return userDao.findByAge(userAge);
-	}
+	
 
 
 }

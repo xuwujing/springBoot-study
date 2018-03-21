@@ -1,5 +1,7 @@
 package com.pancm.web;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -49,15 +51,10 @@ public class UserRestController {
         return userService.findUserByName(userName);
     }
     
-    @RequestMapping(value = "/userId", method = RequestMethod.GET)
-    public User findByUserId(@RequestParam(value = "userId", required = true) int userId) {
-    	System.out.println("开始查询...");
-        return userService.findUserById(userId);
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public List<User> findAll() {
+    	System.out.println("开始查询所有信息...");
+        return userService.findAll();
     }
     
-    @RequestMapping(value = "/userAge", method = RequestMethod.GET)
-    public User findByUserAge(@RequestParam(value = "userAge", required = true) int userAge) {
-    	System.out.println("开始查询...");
-        return userService.findUserByAge(userAge);
-    }
 }

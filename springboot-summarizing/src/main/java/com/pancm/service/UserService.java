@@ -1,5 +1,7 @@
 package com.pancm.service;
 
+import java.util.List;
+
 import com.pancm.bean.User;
 
 
@@ -42,14 +44,9 @@ public interface UserService {
 	User findUserByName(String userName);
     
     /**
-     * 根据用户ID查询用户信息
-     * @param userId
+     * 查询所有
+     * 
      */
-	User findUserById(int userId);
-	
-	 /**
-     * 根据用户ID查询用户信息
-     * @param userAge
-     */
-	User findUserByAge(int userAge);
+	List<User> findAll();
+
 }

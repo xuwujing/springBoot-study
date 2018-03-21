@@ -1,10 +1,10 @@
 package com.pancm.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.data.repository.query.Param;
@@ -46,20 +46,12 @@ public interface UserDao {
      *
      */
     @Select("SELECT id,name,age FROM t_user where name=#{userName}")
-    User findByName(String userName);
+    User findByName(@Param("userName") String userName);
    
     /**
-     * 根据用户ID查询用户信息
-     *
+     * 查询所有用户信息
      */
     @Select("SELECT id,name,age FROM t_user")     
-    User findById(@Param("id") int userId);
-    
-    
-    /**
-     * 根据用户age查询用户信息
-     */
-    @Select("SELECT id,name,age FROM t_user where age = #{userAge}")     
-    User findByAge( int userAge);
+    List<User> findAll();
     
 }

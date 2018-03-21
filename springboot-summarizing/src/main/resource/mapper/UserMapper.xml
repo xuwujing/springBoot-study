@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pancm.dao.UserDao">
+	<resultMap id="BaseResultMap" type="com.pancm.bean.User">
+		<result column="id" property="id" />
+		<result column="name" property="userName" />
+		<result column="age" property="userAge" />
+	</resultMap>
+
+	<parameterMap id="User" type="com.pancm.bean.User"/>
+
+	<sql id="Base_Column_List">
+		id, name, age
+	</sql>
+	
+	<select id="find" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from t_user
+	</select>
+	
+	
+	<select id="findAll" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from t_user
+	</select>
+
+</mapper>
