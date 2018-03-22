@@ -57,25 +57,12 @@ public class MyWebInterceptor extends WebMvcConfigurerAdapter {
          */
         public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object arg2) throws Exception {
             String ip = getIpAddr(request);
-            // 获取可以访问系统的白名单
-            String ipStr = ipconfig.getIpWhiteList();
-            String[] ipArr = ipStr.split("\\|");
-            List<String> ipList = Arrays.asList(ipArr);
-
-            if (ipList.contains(ip)) {
+            String token=request.getParameter("token");
+            if (!ip.isEmpty()) {
             	 System.out.println("该IP: " + ip+"通过!");
                  return true;
             } else {
                 System.out.println("该IP: " + ip+"不通过!");
-	              response.setCharacterEncoding("UTF-8");
-	              response.setContentType("application/json; charset=utf-8");
-	              // 消息
-	              Map<String, Object> messageMap = new HashMap<>();
-	              messageMap.put("status", "1");
-	              messageMap.put("message", "您好，ip为" + ip + ",暂时没有访问权限，请联系管理员开通访问权限。");
-	              ObjectMapper objectMapper=new ObjectMapper();
-	              String writeValueAsString = objectMapper.writeValueAsString(messageMap);
-	              response.getWriter().write(writeValueAsString);
                 return false;
             }
         }

@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.pancm.bean.User;
 import com.pancm.dao.UserDao;
+import com.pancm.pojo.User;
 import com.pancm.service.UserService;
 
 /**
@@ -61,8 +61,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User findUserByName(String userName) {
-		return userDao.findByName(userName);
+	public User findUser(User user) {
+		return userDao.find(user);
 	}
 
 	@Override
@@ -70,7 +70,9 @@ public class UserServiceImpl implements UserService {
 		return userDao.findAll();
 	}
 
-	
-
+	@Override
+	public User findUserByName(String name) {
+		return userDao.findUserByName(name);
+	}
 
 }

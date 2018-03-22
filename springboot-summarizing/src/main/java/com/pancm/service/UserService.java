@@ -2,7 +2,7 @@ package com.pancm.service;
 
 import java.util.List;
 
-import com.pancm.bean.User;
+import com.pancm.pojo.User;
 
 
 /**
@@ -39,13 +39,19 @@ public interface UserService {
 	
 	 /**
      * 根据用户名字查询用户信息
-     * @param userName
      */
-	User findUserByName(String userName);
+	User findUserByName(String name);
+	
+	
+	/**
+	 * 根据条件查询
+	 * @param user
+	 * @return
+	 */
+	User findUser(User user);
     
     /**
      * 查询所有
-     * 
      */
 	List<User> findAll();
 

@@ -2,7 +2,7 @@ package com.pancm.service;
 
 import java.util.List;
 
-import com.pancm.bean.User;
+import com.pancm.pojo.User;
 
 
 /**

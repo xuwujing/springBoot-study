@@ -26,6 +26,7 @@
         <mysql-connector>5.1.39</mysql-connector>
         <druid>1.0.18</druid>
         <fastjson>1.2.41</fastjson>
+        <redis>2.9.0</redis>
 		
 	</properties>
 
@@ -96,6 +97,12 @@
 			<version>${fastjson}</version>
 		</dependency>
         
+        <!--redis 相关jar -->
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>${redis}</version>
+		</dependency>
 		
 	</dependencies>
 	

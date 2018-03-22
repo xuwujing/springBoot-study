@@ -9,7 +9,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.data.repository.query.Param;
 
-import com.pancm.bean.User;
+import com.pancm.pojo.User;
 
 /**
  * 

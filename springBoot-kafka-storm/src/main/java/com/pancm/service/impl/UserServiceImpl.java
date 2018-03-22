@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.pancm.bean.User;
 import com.pancm.dao.UserDao;
+import com.pancm.pojo.User;
 import com.pancm.service.UserService;
 
 /**

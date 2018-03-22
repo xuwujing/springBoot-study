@@ -1,13 +1,9 @@
 package com.pancm;
 
 
-import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import com.pancm.config.MyConfig;
 /**
  * 
 * Title: Application
@@ -21,8 +17,6 @@ import com.pancm.config.MyConfig;
 @SpringBootApplication
 public class Application implements CommandLineRunner  {
     
-	@Autowired  
-    private MyConfig myconfig; 
 	/*
 	 *  SpringApplication 则是用于从main方法启动Spring应用的类。默认，它会执行以下步骤：
 		1.创建一个合适的ApplicationContext实例 （取决于classpath）。
@@ -38,6 +32,6 @@ public class Application implements CommandLineRunner  {
 	
 	 @Override  
     public void run(String... strings) throws Exception {  
-        System.out.println("配置文件:"+myconfig.getTest());  
+        System.out.println("启动一个方法");  
     } 
 }

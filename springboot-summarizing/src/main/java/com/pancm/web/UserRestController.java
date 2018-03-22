@@ -3,12 +3,14 @@ package com.pancm.web;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pancm.bean.User;
+import com.pancm.pojo.User;
 import com.pancm.service.UserService;
 
 
@@ -28,13 +30,13 @@ public class UserRestController {
     private UserService userService;
  
 	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
-    public boolean addUser( User user) {
+    public boolean addUser(@RequestBody User user) {
     	System.out.println("开始新增...");
         return userService.addUser(user);
     }
     
 	@RequestMapping(value = "/updateUser", method = RequestMethod.PUT)
-    public boolean updateUser( User user) {
+    public boolean updateUser(@RequestBody User user) {
     	System.out.println("开始更新...");
         return userService.updateUser(user);
     }
@@ -45,10 +47,16 @@ public class UserRestController {
         return userService.deleteUser(userId);
     }
 	
-    @RequestMapping(value = "/userName", method = RequestMethod.GET)
-    public User findByUserName(@RequestParam(value = "userName", required = true) String userName) {
-    	System.out.println("开始查询...");
+	@RequestMapping(value = "/{userName}", method = RequestMethod.GET)
+    public User findByUserName(@PathVariable String userName) {
+    	System.out.println("通过名称开始查询...");
         return userService.findUserByName(userName);
+    }
+	
+    @RequestMapping(value = "/user", method = RequestMethod.GET)
+    public User findByUser(@RequestBody User user) {
+    	System.out.println("开始查询...");
+        return userService.findUser(user);
     }
     
     @RequestMapping(value = "/", method = RequestMethod.GET)

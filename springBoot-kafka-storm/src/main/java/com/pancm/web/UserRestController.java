@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pancm.bean.User;
 import com.pancm.constant.UserErrorInfoEnum;
+import com.pancm.pojo.User;
 import com.pancm.result.GlobalErrorInfoException;
 import com.pancm.service.UserService;
 import com.pancm.util.MyTools;

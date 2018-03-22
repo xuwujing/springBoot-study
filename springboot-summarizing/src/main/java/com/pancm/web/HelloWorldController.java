@@ -2,12 +2,10 @@ package com.pancm.web;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pancm.bean.User;
-import com.pancm.config.MyProperties;
+import com.pancm.pojo.User;
 
 /**
  * 
@@ -23,14 +21,10 @@ import com.pancm.config.MyProperties;
 @RestController
 public class HelloWorldController {
 	private static Logger LOG=LoggerFactory.getLogger(HelloWorldController.class);
-	@Autowired
-	MyProperties myProperties;
 	
     @RequestMapping("/hello")
     public String index() {
     	LOG.info("---------开始----------");
-    	LOG.info("title:"+myProperties.getTitle());
-    	LOG.info("describe:"+myProperties.getDescription());
         return "Hello World";
     }
     
