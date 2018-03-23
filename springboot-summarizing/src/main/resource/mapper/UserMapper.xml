@@ -47,10 +47,13 @@
 
 	<insert id="addUser" parameterMap="User" useGeneratedKeys="true" keyProperty="id">
 		insert into
-		t_user(id,name,age)
+		t_user(<include refid="Base_Column_List" />)
 		values
 		(#{id},#{name},#{age})
 	</insert>
+
+	
+	
 
 	<update id="updateUser" parameterMap="User">
 		update
