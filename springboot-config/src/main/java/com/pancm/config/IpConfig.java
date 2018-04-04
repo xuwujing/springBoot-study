@@ -16,7 +16,8 @@ import org.springframework.stereotype.Component;
 
 @Component//使用@Configuration也可以  
 @ConfigurationProperties(prefix = "ipconfig")//前缀  
-@PropertySource(value = "classpath:ipconfig.proferties")//配置文件路径  
+@PropertySource(value = "classpath:ipconfig.properties")//配置文件路径  在resource目录下
+//@PropertySource(value = "file:ipconfig.proferties")//配置文件路径  在当前目录下
 public class IpConfig {  
   
     @Value("${ipWhiteList}")//需要使用@value注解来注入，否则是null  

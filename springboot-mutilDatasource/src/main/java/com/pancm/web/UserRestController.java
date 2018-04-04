@@ -23,37 +23,37 @@ import com.pancm.service.UserService;
 * @date 2018年3月19日
  */
 @RestController
-@RequestMapping(value = "/api")
+@RequestMapping(value = "/api/user")
 public class UserRestController {
 	@Autowired
     private UserService userService;
  
-	@RequestMapping(value = "/user", method = RequestMethod.POST)
+	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
     public boolean addUser(User user) {
     	System.out.println("开始新增...");
         return userService.addUser(user);
     }
     
-	@RequestMapping(value = "/user", method = RequestMethod.PUT)
+	@RequestMapping(value = "/updateUser", method = RequestMethod.PUT)
     public boolean updateUser(User user) {
     	System.out.println("开始更新...");
         return userService.updateUser(user);
     }
 	
-	@RequestMapping(value = "/user", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/deleteUser", method = RequestMethod.DELETE)
     public boolean delete(@RequestParam(value = "userId", required = true) int userId) {
     	System.out.println("开始删除...");
         return userService.deleteUser(userId);
     }
 	
-    @RequestMapping(value = "/user", method = RequestMethod.GET)
+    @RequestMapping(value = "/userName", method = RequestMethod.GET)
     public User findByUserName(@RequestParam(value = "userName", required = true) String userName) {
     	System.out.println("开始查询...");
         return userService.findUserByName(userName);
     }
     
     
-    @RequestMapping(value = "/userAll", method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public List<User> findByUserAge() {
     	System.out.println("开始查询所有数据...");
         return userService.findAll();

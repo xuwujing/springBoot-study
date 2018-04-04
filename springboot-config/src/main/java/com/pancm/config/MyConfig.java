@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @ConfigurationProperties(prefix = "myconfig")//前缀  
-@PropertySource(value = "classpath:myconfig.proferties")//配置文件路径  
+@PropertySource(value = "classpath:myconfig.properties")//配置文件路径  
 public class MyConfig {  
   
     @Value("${test}")//需要使用@value注解来注入，否则是null  

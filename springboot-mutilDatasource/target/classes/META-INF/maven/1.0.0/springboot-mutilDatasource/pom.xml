@@ -3,18 +3,19 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>1.0.0</groupId>
-  <artifactId>springboot-restful</artifactId>
+  <artifactId>springboot-mutilDatasource</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>springboot-restful</name>
+  <name>springboot-mutilDatasource</name>
   <url>http://maven.apache.org</url>
 
-  <properties>
+   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <java.version>1.7</java.version>
     <mybatis-spring-boot>1.2.0</mybatis-spring-boot>
      <mysql-connector>5.1.44</mysql-connector>
+      <druid>1.1.8</druid>
   </properties>
   
    <parent>
@@ -60,6 +61,13 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql-connector}</version>
+        </dependency>
+        
+        <!-- Druid 数据连接池依赖 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>${druid}</version>
         </dependency>
   </dependencies>
 </project>

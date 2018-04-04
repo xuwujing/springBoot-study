@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @ConfigurationProperties(prefix = "ipconfig")
-@PropertySource(value = "classpath:ipconfig.properties")
+@PropertySource(value = "classpath:ipconfig.proferties")
 public class IpConfig {  
   
     @Value("${ipWhiteList}")
