@@ -31,7 +31,6 @@ import com.alibaba.fastjson.JSONObject;
  * Title: MyTools 
  * Description:常用工具类
  * Version:1.0.1
- * 增加JSON相关转换 ,增加HttpServletRequest转换JSON格式
  * @author pancm
  * @date 2017年9月26日
  */

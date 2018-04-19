@@ -32,6 +32,6 @@ public class Application implements CommandLineRunner  {
 	
 	 @Override  
     public void run(String... strings) throws Exception {  
-        System.out.println("启动一个方法");  
+        System.out.println("启动一个方法测试...");  
     } 
 }

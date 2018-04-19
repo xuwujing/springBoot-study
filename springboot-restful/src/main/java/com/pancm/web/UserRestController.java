@@ -3,6 +3,7 @@ package com.pancm.web;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,13 +30,13 @@ public class UserRestController {
     private UserService userService;
  
 	@RequestMapping(value = "/user", method = RequestMethod.POST)
-    public boolean addUser(User user) {
+    public boolean addUser(@RequestBody User user) {
     	System.out.println("开始新增...");
         return userService.addUser(user);
     }
     
 	@RequestMapping(value = "/user", method = RequestMethod.PUT)
-    public boolean updateUser(User user) {
+    public boolean updateUser(@RequestBody User user) {
     	System.out.println("开始更新...");
         return userService.updateUser(user);
     }

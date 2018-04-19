@@ -1,14 +1,8 @@
 package com.pancm.interceptor;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -16,8 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.pancm.config.IpConfig;
+import com.pancm.util.MyTools;
 
 
 /**
@@ -48,50 +41,21 @@ public class MyWebInterceptor extends WebMvcConfigurerAdapter {
     
      class MyInterceptor implements HandlerInterceptor {
     	
-    	@Autowired  
-        private IpConfig ipconfig; 
-    	
     	 /**
          * 在请求处理之前进行调用（Controller方法调用之前）调用,
          *  返回true 则放行， false 则将直接跳出方法
          */
         public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object arg2) throws Exception {
-            String ip = getIpAddr(request);
             String token=request.getParameter("token");
-            if (!ip.isEmpty()) {
-            	 System.out.println("该IP: " + ip+"通过!");
+            if (MyTools.isEmpty(token)) {
+            	 System.out.println("通过!");
                  return true;
             } else {
-                System.out.println("该IP: " + ip+"不通过!");
+                System.out.println("不通过!");
                 return false;
             }
         }
 
-        /**
-         * 获取访问的ip地址
-         * 
-         * @param request
-         * @return
-         */
-        public  String getIpAddr(HttpServletRequest request) {
-            String ip = request.getHeader("X-Forwarded-For");
-            if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-                ip = request.getHeader("Proxy-Client-IP");
-            }
-            if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-                ip = request.getHeader("WL-Proxy-Client-IP");
-            }
-            if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-                ip = request.getHeader("HTTP_CLIENT_IP");
-            }
-            if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-                ip = request.getHeader("HTTP_X_FORWARDED_FOR");
-            }
-            if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-                ip = request.getRemoteAddr();
-            }
-            return ip;
-        }
 
         //请求处理之后进行调用，但是在视图被渲染之前（Controller方法调用之后）
         @Override

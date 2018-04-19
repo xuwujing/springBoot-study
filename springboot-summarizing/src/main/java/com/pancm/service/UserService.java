@@ -1,7 +1,5 @@
 package com.pancm.service;
 
-import java.util.List;
-
 import com.pancm.pojo.User;
 
 
@@ -13,46 +11,8 @@ import com.pancm.pojo.User;
 * @author pancm
 * @date 2018年1月9日
  */
-public interface UserService {
-	
-	/**
-	 * 新增用户
-	 * @param user
-	 * @return
-	 */
-	boolean addUser(User user);
-	
-	/**
-	 * 修改用户
-	 * @param user
-	 * @return
-	 */
-	boolean updateUser(User user);
+public interface UserService extends BaseService<User>{
 	
 	
-	/**
-	 * 删除用户
-	 * @param id
-	 * @return
-	 */
-	boolean deleteUser(int id);
-	
-	 /**
-     * 根据用户名字查询用户信息
-     */
-	User findUserByName(String name);
-	
-	
-	/**
-	 * 根据条件查询
-	 * @param user
-	 * @return
-	 */
-	User findUser(User user);
-    
-    /**
-     * 查询所有
-     */
-	List<User> findAll();
 
 }

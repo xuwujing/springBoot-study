@@ -1,15 +1,35 @@
 package com.pancm.dao;
 
+import java.util.List;
+
+/**
+ * 
+* @Title: BaseDao
+* @Description:
+* 基础数据层 
+* @Version:1.0.0  
+* @author pancm
+* @date 2018年4月12日
+ */
 public interface BaseDao<T> {
 	/**
-	 * 插入数据
-	 *
+	 * 单条新增插入数据
 	 * @param entity
 	 * @return
 	 * @throws Exception
 	 * @throws
 	 */
-	public int insert(T entity) throws Exception;
+	void insert(T entity) throws Exception;
+	
+	
+	/**
+	 * 批量新增据插入数据
+	 * @param entityList
+	 * @return
+	 * @throws Exception
+	 * @throws
+	 */
+	int insertBatch(List<T> entityList) throws Exception;
 	
 	/**
 	 * 更新数据
@@ -19,25 +39,24 @@ public interface BaseDao<T> {
 	 * @throws Exception
 	 * @throws
 	 */
-	public int updateByPrimaryKey(T entity) throws Exception;
+	void update(T entity) throws Exception;
 	
 	/**
-	 * 删除数据
-	 *
+	 * 根据ID删除数据
 	 * @param id
 	 * @throws Exception
 	 * @throws
 	 */
-	public int deleteByPrimaryKey(int id) throws Exception;
+	 void deleteByPrimaryKey(int id) throws Exception;
 	
 	/**
 	 * 删除数据
-	 *
 	 * @param entity
 	 * @throws Exception
 	 * @throws
 	 */
-	public int delete(T entity) throws Exception;
+	 void delete(T entity) throws Exception;
+	
 	
 	/**
 	 * 根据id查询单个记录
@@ -47,7 +66,7 @@ public interface BaseDao<T> {
 	 * @throws Exception
 	 * @throws
 	 */
-	public T selectByPrimaryKey(int id);
+	 T findByPrimaryKey(int id);
 	
 	/**
 	 * 根据对象查询单个记录
@@ -57,8 +76,23 @@ public interface BaseDao<T> {
 	 * @throws Exception
 	 * @throws
 	 */
-	public T getOne(T entity);
+	 T findByEntity(T entity);
 	
+	 
+	 
+	/**
+	 * 根据对象查询多条记录
+	 * @param entity
+	 * @return
+	 */
+	 List<T> findByListEntity(T entity);
+	
+	/**
+	 * 查询所有记录
+	 * @return
+	 */
+	 List<T> findAll();
+	 
 	/**
 	 * 根据对象查询信息
 	 *
@@ -67,9 +101,7 @@ public interface BaseDao<T> {
 	 * @throws Exception
 	 * @throws
 	 */
-	public Object getObject(Object obj);
-	
-	
+	 Object findByObject(Object obj);
 	
 	
 	

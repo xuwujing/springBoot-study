@@ -44,7 +44,7 @@ public class StudenRestController {
     }
 	
     @RequestMapping(value = "/student", method = RequestMethod.GET)
-    public Student findByStudentName(Student student) {
+    public Student findByStudent(Student student) {
     	System.out.println("开始查询...");
         return service.findByEntity(student);
     }

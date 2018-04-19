@@ -46,7 +46,7 @@ public class MyWebFilter {
         FilterRegistrationBean registration = new FilterRegistrationBean();
         registration.setFilter(new MyFilter());
         //过滤掉 /api 和hello 的所有请求
-        registration.addUrlPatterns("/api/*","/hello");
+        registration.addUrlPatterns("/*");
         registration.addInitParameter("paramName", "paramValue");
         registration.setName("MyFilter");
         registration.setOrder(1);
