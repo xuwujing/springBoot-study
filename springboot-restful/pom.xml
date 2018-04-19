@@ -14,7 +14,6 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <java.version>1.7</java.version>
     <mybatis-spring-boot>1.2.0</mybatis-spring-boot>
-     <mysql-connector>5.1.44</mysql-connector>
   </properties>
   
    <parent>
@@ -59,7 +58,6 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>${mysql-connector}</version>
         </dependency>
   </dependencies>
 </project>
