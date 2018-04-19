@@ -12,6 +12,7 @@ GitHub工程地址](https://github.com/xuwujing/springBoot-study):https://github
 
 - [springboot-config](https://github.com/xuwujing/springBoot-study/tree/master/springboot-config): SpringBoot自定义配置和过滤器以及拦截器的版本。
 - [springboot-restful](https://github.com/xuwujing/springBoot-study/tree/master/springboot-restful):SpringBoot的Restful风格的服务，以及对MySql的crud版本。
+- [springboot-mutilDatasource](https://github.com/xuwujing/springBoot-study/tree/master/springboot-mutilDatasource):SpringBoot使用druid连接池的多数据源版本。
 - [springBoot-kafka-storm](https://github.com/xuwujing/springBoot-study/tree/master/springBoot-kafka-storm):SpringBoot集成kafka和Storm的版本。目前正在开发！
 - [springboot-summarizing](https://github.com/xuwujing/springBoot-study/tree/master/springboot-summarizing):SpringBoot的一个Web项目。目前正在开发！
 
