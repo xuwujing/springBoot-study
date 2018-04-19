@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.pancm.pojo.User;
@@ -28,31 +27,25 @@ public class UserRestController {
     private UserService userService;
  
 	@RequestMapping(value = "/user", method = RequestMethod.POST)
-    public int insert(@RequestBody User user) {
+    public boolean insert(@RequestBody User user) {
     	System.out.println("开始新增...");
-    	int i=-1;
-        try {
-        	i=userService.insert(user);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-        return i;
+        return userService.insert(user);
     }
     
 	@RequestMapping(value = "/user", method = RequestMethod.PUT)
-    public int update(@RequestBody User user) throws Exception {
+    public boolean update(@RequestBody User user) {
     	System.out.println("开始更新...");
         return userService.update(user);
     }
 	
 	@RequestMapping(value = "/user", method = RequestMethod.DELETE)
-    public int delete(@RequestParam(value = "userId", required = true) int userId) throws Exception {
+    public boolean delete(@RequestBody User user)  {
     	System.out.println("开始删除...");
-        return userService.deleteByPrimaryKey(userId);
+        return userService.delete(user);
     }
 	
     @RequestMapping(value = "/user", method = RequestMethod.GET)
-    public User findByUserName(User user) {
+    public User findByUser(User user) {
     	System.out.println("开始查询...");
         return userService.findByEntity(user);
     }

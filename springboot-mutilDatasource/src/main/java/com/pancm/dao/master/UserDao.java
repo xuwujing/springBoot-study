@@ -1,5 +1,7 @@
 package com.pancm.dao.master;
 
+import org.apache.ibatis.annotations.Mapper;
+
 import com.pancm.dao.BaseDao;
 import com.pancm.pojo.User;
 
@@ -12,6 +14,7 @@ import com.pancm.pojo.User;
 * @author pancm
 * @date 2018年1月9日
  */
+@Mapper
 public interface UserDao extends BaseDao<User>{
     
 }

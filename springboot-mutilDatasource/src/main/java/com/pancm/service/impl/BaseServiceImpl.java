@@ -24,48 +24,52 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
 	
 
 	@Override
-	public int insert(T entity)  {
-		int t=-1;
+	public boolean insert(T entity)  {
+		boolean falg=false;
 		try {
-			 t=getMapper().insert(entity);
+			getMapper().insert(entity);
+			falg=true;
 		} catch (Exception e) {
 			logger.error("新增"+entity.getClass()+"失败!原因是:",e);
 		}
-		return t;
+		return falg;
 	}
 	
 	
 	@Override
-	public int update(T entity){
-		int t=-1;
+	public boolean update(T entity){
+		boolean falg=false;
 		try {
-			 t= getMapper().update(entity);
+			 getMapper().update(entity);
+			 falg=true;
 		} catch (Exception e) {
 			logger.error("更新"+entity+"失败!原因是:",e);
 		}
-		return t;
+		return falg;
 	}
 	
 	@Override
-	public int deleteByPrimaryKey(int id)  {
-		int t=-1;
+	public boolean deleteByPrimaryKey(int id)  {
+		boolean falg=false;
 		try {
-			 t= getMapper().deleteByPrimaryKey(id);
+			 getMapper().deleteByPrimaryKey(id);
+			 falg=true;
 		} catch (Exception e) {
 			logger.error("id:"+id+"删除失败!原因是:",e);
 		}
-		return t;
+		return falg;
 	}
 	
 	@Override
-	public int delete(T entity){
-		int t=-1;
+	public boolean delete(T entity){
+		boolean falg=false;
 		try {
-			 t= getMapper().delete(entity);
+			getMapper().delete(entity);
+			falg=true;
 		} catch (Exception e) {
 			logger.error("删除"+entity+"失败!原因是:",e);
 		}
-		return t;
+		return falg;
 	}
 	
 	@Override

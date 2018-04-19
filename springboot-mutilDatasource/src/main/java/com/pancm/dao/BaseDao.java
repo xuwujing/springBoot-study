@@ -13,14 +13,23 @@ import java.util.List;
  */
 public interface BaseDao<T> {
 	/**
-	 * 插入数据
-	 *
+	 * 单条新增插入数据
 	 * @param entity
 	 * @return
 	 * @throws Exception
 	 * @throws
 	 */
-	 int insert(T entity) throws Exception;
+	void insert(T entity) throws Exception;
+	
+	
+	/**
+	 * 批量新增据插入数据
+	 * @param entityList
+	 * @return
+	 * @throws Exception
+	 * @throws
+	 */
+	int insertBatch(List<T> entityList) throws Exception;
 	
 	/**
 	 * 更新数据
@@ -30,7 +39,7 @@ public interface BaseDao<T> {
 	 * @throws Exception
 	 * @throws
 	 */
-	 int update(T entity) throws Exception;
+	void update(T entity) throws Exception;
 	
 	/**
 	 * 根据ID删除数据
@@ -38,7 +47,7 @@ public interface BaseDao<T> {
 	 * @throws Exception
 	 * @throws
 	 */
-	 int deleteByPrimaryKey(int id) throws Exception;
+	 void deleteByPrimaryKey(int id) throws Exception;
 	
 	/**
 	 * 删除数据
@@ -46,7 +55,7 @@ public interface BaseDao<T> {
 	 * @throws Exception
 	 * @throws
 	 */
-	 int delete(T entity) throws Exception;
+	 void delete(T entity) throws Exception;
 	
 	
 	/**

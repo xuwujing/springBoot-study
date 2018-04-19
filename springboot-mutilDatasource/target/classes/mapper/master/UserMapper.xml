@@ -20,7 +20,7 @@
 
 	<update id="update" parameterMap="User">
 		update
-		 	into t_user 
+		 	 t_user 
 		set
 		<if test="name!=null and name!=''">
 			 name = #{name}
