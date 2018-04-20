@@ -1,4 +1,4 @@
-package com.pancm.kafka;
+package com.pancm.kafka.demo;
 
 import java.util.ArrayList;
 import java.util.Arrays;

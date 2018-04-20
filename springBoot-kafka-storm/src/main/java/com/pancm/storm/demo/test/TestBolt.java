@@ -1,24 +1,20 @@
-package com.pancm.storm.test2;
+package com.pancm.storm.demo.test;
 
 import java.util.Map;
-
 import org.apache.storm.task.OutputCollector;
 import org.apache.storm.task.TopologyContext;
 import org.apache.storm.topology.OutputFieldsDeclarer;
 import org.apache.storm.topology.base.BaseRichBolt;
-import org.apache.storm.tuple.Fields;
 import org.apache.storm.tuple.Tuple;
-import org.apache.storm.tuple.Values;
-
 
 /**
  * 
 * Title: TestBolt
-* Description: 
-* 对单词进行分割
+* Description:
+* 用于处理消息
 * Version:1.0.0  
 * @author pancm
-* @date 2018年3月16日
+* @date 2018年3月6日
  */
 public class TestBolt extends BaseRichBolt{
 
@@ -28,7 +24,7 @@ public class TestBolt extends BaseRichBolt{
 	private static final long serialVersionUID = 4743224635827696343L;
 	
 	private OutputCollector collector;
-   
+    private long count=1;
 	/**
     * 在Bolt启动前执行，提供Bolt启动环境配置的入口
     * 一般对于不可序列化的对象进行实例化。
@@ -46,21 +42,31 @@ public class TestBolt extends BaseRichBolt{
 	 */
 	@Override
 	public void execute(Tuple tuple) {
-		String msg=tuple.getStringByField("word");
-	    System.out.println("开始分割单词:"+msg);
-        String[] words = msg.toLowerCase().split(" ");
-        for (String word : words) {
-            this.collector.emit(new Values(word));//向下一个bolt发射数据
-        } 
-	
+		/**
+		 * 接受消息可以使用这两种方式进行接收。
+		 * 个人推荐第二种。
+		 */
+//		String msg=tuple.getString(0);
+		String msg=tuple.getStringByField("test");
+		//这里我们就不做消息的处理，只打印
+	    System.out.println("Bolt第"+count+"接受的消息:"+msg);	
+	    count++;
+	    /**
+	     * 
+         * 没次调用处理一个输入的tuple，所有的tuple都必须在一定时间内应答。
+         * 可以是ack或者fail。否则，spout就会重发tuple。
+         * 如果继承的是IRichBolt，则需要手动ack。
+         * 这里就不用了,BaseRichBolt会自动帮我们应答。
+	     */
+//	    collector.ack(tuple);
 	}
 
 	/**
 	 * 声明数据格式
 	 */
 	@Override
-	public void declareOutputFields(OutputFieldsDeclarer declarer) {
-		declarer.declare(new Fields("count"));
+	public void declareOutputFields(OutputFieldsDeclarer arg0) {
+		
 	}
 	
 	/**
@@ -69,6 +75,6 @@ public class TestBolt extends BaseRichBolt{
 	 */
 	@Override
 	public void cleanup() {
-		System.out.println("TestBolt的资源释放");
+		System.out.println("资源释放");
 	}
 }

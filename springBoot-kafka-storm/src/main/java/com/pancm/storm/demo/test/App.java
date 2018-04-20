@@ -1,4 +1,4 @@
-package com.pancm.storm.test;
+package com.pancm.storm.demo.test;
 
 import org.apache.storm.Config;
 import org.apache.storm.LocalCluster;

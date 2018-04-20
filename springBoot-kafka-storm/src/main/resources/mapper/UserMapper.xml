@@ -1,61 +1,84 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.pancm.bean.dao.UserDao">
-	<resultMap id="BaseResultMap" type="com.pancm.bean.User">
+<mapper namespace="com.pancm.dao.UserDao">
+	<resultMap id="BaseResultMap" type="com.pancm.pojo.User">
 		<result column="id" property="id" />
 		<result column="name" property="name" />
 		<result column="age" property="age" />
 	</resultMap>
 
-	<parameterMap id="User" type="com.pancm.bean.User"/>
+	<parameterMap id="User" type="com.pancm.pojo.User"/>
 
 	<sql id="Base_Column_List">
 		id, name, age
 	</sql>
 
-	<select id="findByName" resultMap="BaseResultMap" parameterType="java.lang.String">
+	<insert id="insert" parameterMap="User">
+		insert into t_user (name,age)
+		values (#{name},#{age})
+	</insert>
+
+	<insert id="insertBatch" parameterMap="java.util.List">
+		insert into t_user (name,age)
+			values 
+		<foreach collection="list" item="item" index="index" separator="," >
+     	 	(#{name},#{age})
+   		 </foreach>
+		
+	</insert>
+
+	<update id="update" parameterMap="User">
+		update
+		 	 t_user 
+		set
+		<if test="name!=null and name!=''">
+			 name = #{name}, 
+		</if>
+		
+		<if test="age!=null and age!=''">
+			age = #{age}
+		</if>
+		  where id= #{id}
+	</update>
+
+	
+	<update id="updateBatch" parameterMap="java.util.List">
+		<foreach collection="list" item="item" index="index" separator=";">
+       update t_user
+       <set >
+          <if test="item.value != null" >
+            name = #{item.name},
+          </if>
+          <if test="item.filedClass != null" >
+            age = #{item.age},
+          </if>
+        </set>
+        where id= #{item.id}
+    </foreach> 
+	</update>
+
+
+	<delete id="delete" parameterType="java.lang.Long">
+		delete from  t_user where id=#{id}
+	</delete>
+	
+
+
+	<select id="findByEntity" resultMap="BaseResultMap"  parameterMap="User">
 		select
 		<include refid="Base_Column_List" />
 		from t_user
-		where city_name = #{cityName}
+		where 1=1
+		
+		<if test="name!=null and name!=''">
+			and name = #{name}
+		</if>
+		
+		<if test="age!=null and age!=''">
+			and age = #{age}
+		</if>
 	</select>
-
-
-		<select id="findAllCity" resultMap="BaseResultMap" >
-		select
-		<include refid="Base_Column_List" />
-		from city
-	</select>
-
-	<insert id="saveCity" parameterMap="City" useGeneratedKeys="true" keyProperty="id">
-		insert into
-			city(id,province_id,city_name,description)
-		values
-			(#{id},#{provinceId},#{cityName},#{description})
-	</insert>
-
-	<update id="updateCity" parameterMap="City">
-		update
-			city
-		set
-		<if test="provinceId!=null">
-			province_id = #{provinceId},
-		</if>
-		<if test="cityName!=null">
-			city_name = #{cityName},
-		</if>
-		<if test="description!=null">
-			description = #{description}
-		</if>
-		where
-			id = #{id}
-	</update>
-
-	<delete id="deleteCity" parameterType="java.lang.Long">
-		delete from
-			city
-		where
-			id = #{id}
-	</delete>
-
+	
+	
+	
 </mapper>

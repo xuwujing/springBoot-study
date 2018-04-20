@@ -1,4 +1,4 @@
-package com.pancm.storm.test2;
+package com.pancm.storm.demo.test;
 
 import java.util.Map;
 
@@ -13,7 +13,8 @@ import org.apache.storm.tuple.Values;
  * 
 * Title: TestSpout
 * Description:
-* 发送信息
+* Spout 发射器
+* 用于向Bolt发送消息
 * Version:1.0.0  
 * @author pancm
 * @date 2018年3月6日
@@ -23,13 +24,10 @@ public class TestSpout extends BaseRichSpout{
 	private static final long serialVersionUID = 225243592780939490L;
 
 	private SpoutOutputCollector collector;
-	private static final String field="word";
-	private int count=1;
-	private String[] message =  {
-            "My nickname is xuwujing",
-            "My blog address is http://www.panchengming.com/",
-            "My interest is playing games"
-    };
+	private String message="这是个测试消息!";
+	private static final String field="test";
+	private long count=1;
+	
 	
 	/**
      * open()方法中是在ISpout接口中定义，在Spout组件初始化时被调用。
@@ -50,10 +48,9 @@ public class TestSpout extends BaseRichSpout{
      */
 	@Override
 	public void nextTuple() {
-			
-		if(count<=message.length){
-			System.out.println("第"+count +"次开始发送数据...");
-			this.collector.emit(new Values(message[count-1]));
+		if(count<=2){
+			System.out.println("第"+count+"次开始发送数据...");
+			this.collector.emit(new Values(message));
 		}
 		count++;
 	}
@@ -92,5 +89,4 @@ public class TestSpout extends BaseRichSpout{
 	public void fail(Object obj) {
 		System.out.println("失败:"+obj);
 	}
-	
 }

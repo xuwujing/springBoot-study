@@ -23,67 +23,23 @@ public class UserServiceImpl implements UserService {
 	@Autowired
     private UserDao userDao;
 	
-	
+
 	@Override
-	public boolean addUser(User user) {
+	public boolean insertBatch(List<User> user) {
 		boolean flag=false;
-		try{
-			userDao.addUser(user);
+		try {
+			userDao.insertBatch(user);
 			flag=true;
-		}catch(Exception e){
+			System.out.println("批量新增"+user.size()+"条数据成功!");
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return flag;
 	}
 
 	@Override
-	public boolean updateUser(User user) {
-		boolean flag=false;
-		try{
-			userDao.updateUser(user);
-			flag=true;
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-		return flag;
-	}
-
-	@Override
-	public boolean deleteUser(int id) {
-		boolean flag=false;
-		try{
-			userDao.deleteUser(id);
-			flag=true;
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-		return flag;
-	}
-
-	@Override
-	public User findUserByName(String userName) {
-		return userDao.findByName(userName);
-	}
-
-	@Override
-	public User findUserById(int userId) {
-		return userDao.findById(userId);
-	}
-
-	@Override
-	public User findUserByAge(int userAge) {
-		return userDao.findByAge(userAge);
-	}
-
-	@Override
-	public User findUser(User user) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<User> findUserByAll() {
-		return userDao.findAll();
+	public User findByUser(User user) {
+		return userDao.findByUser(user);
 	}
 
 

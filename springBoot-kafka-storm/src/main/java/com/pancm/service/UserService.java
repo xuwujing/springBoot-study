@@ -15,49 +15,21 @@ import com.pancm.pojo.User;
  */
 public interface UserService {
 	
+	
 	/**
-	 * 新增用户
+	 * 批量新增用户
 	 * @param user
 	 * @return
 	 */
-	boolean addUser(User user);
+	boolean insertBatch(List<User> user);
+	
 	
 	/**
-	 * 修改用户
+	 * 查询用于
 	 * @param user
 	 * @return
 	 */
-	boolean updateUser(User user);
+	User findByUser(User user);
 	
 	
-	/**
-	 * 删除用户
-	 * @param id
-	 * @return
-	 */
-	boolean deleteUser(int id);
-	
-	 /**
-     * 根据用户名字查询用户信息
-     * @param userName
-     */
-	User findUserByName(String userName);
-    
-    /**
-     * 根据用户ID查询用户信息
-     * @param userId
-     */
-	User findUserById(int userId);
-	
-	 /**
-     * 根据用户ID查询用户信息
-     * @param userAge
-     */
-	User findUserByAge(int userAge);
-	
-	
-	User findUser(User user);
-	
-	
-	List<User> findUserByAll();
 }
