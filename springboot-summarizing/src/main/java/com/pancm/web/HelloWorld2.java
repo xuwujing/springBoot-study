@@ -29,7 +29,7 @@ public class HelloWorld2 {
 	     	// 直接获取界面会直接返回 {"id":2,"name":"李四"}
 	     	System.out.println("---------开始----------");
 	     	User user=new User();
-	     	user.setId(1);
+	     	user.setId(1L);
 	     	user.setName("张三");
 	         return user;
 	     }

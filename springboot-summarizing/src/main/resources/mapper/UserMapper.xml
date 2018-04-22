@@ -21,18 +21,18 @@
 	</select>
 	
 	
-	<select id="find" resultMap="BaseResultMap" parameterType="User">
+	<select id="findByEntity" resultMap="BaseResultMap" parameterType="User">
 		select
 		<include refid="Base_Column_List" />
 		from t_user 
 		where 1=1
-		<if test="id!=0">
+		<if test="id!=null">
 			and id = #{id}
 		</if>
 		<if test="name!=null">
 			and name = #{name}
 		</if>
-		<if test="age!=0">
+		<if test="age!=null">
 			and age = #{age}
 		</if>
 	</select>

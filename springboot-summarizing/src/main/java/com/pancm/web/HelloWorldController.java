@@ -34,7 +34,7 @@ public class HelloWorldController {
     	// 直接获取界面会直接返回 {"id":2,"name":"李四"}
     	LOG.info("---------开始----------");
     	User user=new User();
-    	user.setId(2);
+    	user.setId(2L);
     	user.setName("李四");
         return user;
     }
