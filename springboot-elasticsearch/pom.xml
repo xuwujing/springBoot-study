@@ -15,9 +15,6 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <java.version>1.8</java.version>
     <springBoot>1.5.9.RELEASE</springBoot>
-    <fastjson>1.2.41</fastjson>
-    <jest.version>5.3.3</jest.version>
-    <es.version>6.2.0</es.version>
   </properties>
 
 
@@ -45,26 +42,6 @@
              <version>${springBoot}</version>
         </dependency>  
         
-	<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>fastjson</artifactId>
-			<version>${fastjson}</version>
-	 </dependency>
-
-	<!--ES 依赖jar  -->
-	<!-- <dependency>
-    	<groupId>io.searchbox</groupId> 
-   		 <artifactId>jest</artifactId>
-    	<version>${jest.version}</version>
-	</dependency>
- 
-  
-	<dependency>
-    	<groupId>org.elasticsearch</groupId>
-    	<artifactId>elasticsearch</artifactId>
-    	<version>${es.version}</version>
-	</dependency> -->
-
         <!-- Junit -->
         <dependency>
             <groupId>junit</groupId>
