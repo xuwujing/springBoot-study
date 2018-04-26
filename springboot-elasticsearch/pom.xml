@@ -1,0 +1,75 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>1.0.0</groupId>
+  <artifactId>springboot-elasticsearch</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>springboot-elasticsearch</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <java.version>1.8</java.version>
+    <springBoot>1.5.9.RELEASE</springBoot>
+    <fastjson>1.2.41</fastjson>
+    <jest.version>5.3.3</jest.version>
+    <es.version>6.2.0</es.version>
+  </properties>
+
+
+    <dependencies>
+
+        <!-- Spring Boot Elasticsearch 依赖 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+             <version>${springBoot}</version>
+             
+        </dependency>
+
+        <!-- Spring Boot Web 依赖 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+             <version>${springBoot}</version>
+        </dependency>
+        
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional> 
+             <version>${springBoot}</version>
+        </dependency>  
+        
+	<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>${fastjson}</version>
+	 </dependency>
+
+	<!--ES 依赖jar  -->
+	<!-- <dependency>
+    	<groupId>io.searchbox</groupId> 
+   		 <artifactId>jest</artifactId>
+    	<version>${jest.version}</version>
+	</dependency>
+ 
+  
+	<dependency>
+    	<groupId>org.elasticsearch</groupId>
+    	<artifactId>elasticsearch</artifactId>
+    	<version>${es.version}</version>
+	</dependency> -->
+
+        <!-- Junit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+        </dependency>
+    </dependencies>
+</project>
