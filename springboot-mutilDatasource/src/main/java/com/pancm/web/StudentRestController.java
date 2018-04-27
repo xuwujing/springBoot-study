@@ -1,5 +1,7 @@
 package com.pancm.web;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +23,7 @@ import com.pancm.service.StudentService;
  */
 @RestController
 @RequestMapping(value = "/api")
-public class StudenRestController {
+public class StudentRestController {
 	@Autowired
     private StudentService service;
  
@@ -49,4 +51,9 @@ public class StudenRestController {
         return service.findByEntity(student);
     }
     
+    @RequestMapping(value = "/student/findAll", method = RequestMethod.GET)
+    public List<Student> findAll() {
+    	System.out.println("开始查询...");
+        return service.findAll();
+    }
 }

@@ -1,5 +1,7 @@
 package com.pancm.web;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -50,4 +52,9 @@ public class UserRestController {
         return userService.findByEntity(user);
     }
     
+    @RequestMapping(value = "/user/findAll", method = RequestMethod.GET)
+    public List<User> findAll() {
+    	System.out.println("开始查询所有用户");
+        return userService.findAll();
+    }
 }

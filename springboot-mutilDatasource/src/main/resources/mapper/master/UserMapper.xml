@@ -53,6 +53,11 @@
 		</if>
 	</select>
 	
-	
+	<select id="findAll" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from t_user
+		where 1=1
+	</select>
 	
 </mapper>

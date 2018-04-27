@@ -5,6 +5,8 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import com.pancm.dao.BaseDao;
 import com.pancm.service.BaseService;
 
@@ -109,7 +111,10 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
 	public List<T> findAll() {
 		List<T> list = null;
 		try {
-			list = getMapper().findAll();
+			Page<?> page =PageHelper.startPage(1,2); 
+			System.out.println("设置第一页两条数据!");
+			list =  getMapper().findAll();
+			System.out.println("总共有:"+page.getTotal()+"条数据,实际返回:"+list.size()+"两条数据!");
 		} catch (Exception e) {
 			logger.error("查询失败!原因是:",e);
 		}
