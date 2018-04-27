@@ -38,7 +38,7 @@
 	
 
 
-	<select id="findByEntity" resultMap="BaseResultMap"  parameterMap="User">
+	<select id="findByListEntity" resultMap="BaseResultMap"  parameterMap="User">
 		select
 		<include refid="Base_Column_List" />
 		from t_user
@@ -52,7 +52,6 @@
 			and age = #{age}
 		</if>
 	</select>
-	
 	
 	
 </mapper>

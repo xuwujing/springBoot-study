@@ -8,6 +8,8 @@ import org.slf4j.LoggerFactory;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.pancm.dao.BaseDao;
+import com.pancm.pojo.Student;
+import com.pancm.pojo.User;
 import com.pancm.service.BaseService;
 
 /**
@@ -32,7 +34,7 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
 			getMapper().insert(entity);
 			falg=true;
 		} catch (Exception e) {
-			logger.error("新增"+entity.getClass()+"失败!原因是:",e);
+			logger.error("新增"+getClassName(entity)+"失败!原因是:",e);
 		}
 		return falg;
 	}
@@ -45,7 +47,7 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
 			 getMapper().update(entity);
 			 falg=true;
 		} catch (Exception e) {
-			logger.error("更新"+entity+"失败!原因是:",e);
+			logger.error("更新"+getClassName(entity)+"失败!原因是:",e);
 		}
 		return falg;
 	}
@@ -69,7 +71,7 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
 			getMapper().delete(entity);
 			falg=true;
 		} catch (Exception e) {
-			logger.error("删除"+entity+"失败!原因是:",e);
+			logger.error("删除"+getClassName(entity)+"失败!原因是:",e);
 		}
 		return falg;
 	}
@@ -91,7 +93,7 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
 		try {
 			obj = getMapper().findByEntity(entity);
 		} catch (Exception e) {
-			logger.error("查询"+entity.getClass().getName()+"失败!原因是:",e);
+			logger.error("查询"+getClassName(entity)+"失败!原因是:",e);
 		}
 		return obj;
 	}
@@ -100,9 +102,12 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
 	public List<T> findByListEntity(T entity) {
 		List<T> list = null;
 		try {
+			Page<?> page =PageHelper.startPage(1,2); 
+			System.out.println(getClassName(entity)+"设置第一页两条数据!");
 			list = getMapper().findByListEntity(entity);
+			System.out.println("总共有:"+page.getTotal()+"条数据,实际返回:"+list.size()+"两条数据!");
 		} catch (Exception e) {
-			logger.error("查询"+entity.getClass().getName()+"失败!原因是:",e);
+			logger.error("查询"+getClassName(entity)+"失败!原因是:",e);
 		}
 		return list;
 	}
@@ -111,10 +116,7 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
 	public List<T> findAll() {
 		List<T> list = null;
 		try {
-			Page<?> page =PageHelper.startPage(1,2); 
-			System.out.println("设置第一页两条数据!");
 			list =  getMapper().findAll();
-			System.out.println("总共有:"+page.getTotal()+"条数据,实际返回:"+list.size()+"两条数据!");
 		} catch (Exception e) {
 			logger.error("查询失败!原因是:",e);
 		}
@@ -132,5 +134,13 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
 		return result;
 	}
 	
-	
+	private String getClassName(T t){
+		String str="";
+		if(t instanceof User){
+			str="User";
+		}else if(t instanceof Student){
+			str="Studnet";
+		}
+		return str;
+	}
 }

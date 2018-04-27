@@ -46,14 +46,8 @@ public class StudentRestController {
     }
 	
     @RequestMapping(value = "/student", method = RequestMethod.GET)
-    public Student findByStudent(Student student) {
+    public List<Student> findByStudent(Student student) {
     	System.out.println("开始查询...");
-        return service.findByEntity(student);
-    }
-    
-    @RequestMapping(value = "/student/findAll", method = RequestMethod.GET)
-    public List<Student> findAll() {
-    	System.out.println("开始查询...");
-        return service.findAll();
+        return service.findByListEntity(student);
     }
 }

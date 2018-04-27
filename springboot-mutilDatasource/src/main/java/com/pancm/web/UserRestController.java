@@ -47,14 +47,9 @@ public class UserRestController {
     }
 	
     @RequestMapping(value = "/user", method = RequestMethod.GET)
-    public User findByUser(User user) {
+    public List<User> findByUser(User user) {
     	System.out.println("开始查询...");
-        return userService.findByEntity(user);
+        return userService.findByListEntity(user);
     }
     
-    @RequestMapping(value = "/user/findAll", method = RequestMethod.GET)
-    public List<User> findAll() {
-    	System.out.println("开始查询所有用户");
-        return userService.findAll();
-    }
 }

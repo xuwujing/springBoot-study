@@ -12,10 +12,11 @@
 
    <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <java.version>1.7</java.version>
+    <java.version>1.8</java.version>
     <mybatis-spring-boot>1.2.0</mybatis-spring-boot>
-     <mysql-connector>5.1.44</mysql-connector>
-      <druid>1.1.8</druid>
+    <mysql-connector>5.1.44</mysql-connector>
+    <druid>1.1.8</druid>
+    <pagehelper>1.2.3</pagehelper>
   </properties>
   
    <parent>
@@ -70,6 +71,13 @@
             <version>${druid}</version>
         </dependency>
         
+        <!--pagehelper分页工具类  -->
+        
+        <dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper-spring-boot-starter</artifactId>
+			<version>${pagehelper}</version>
+		</dependency>
         
   </dependencies>
 </project>

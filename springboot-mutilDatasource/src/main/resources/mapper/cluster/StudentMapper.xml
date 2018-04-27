@@ -38,7 +38,7 @@
 	
 
 
-	<select id="findByEntity" resultMap="BaseResultMap"  parameterMap="Student">
+	<select id="findByListEntity" resultMap="BaseResultMap"  parameterMap="Student">
 		select
 		<include refid="Base_Column_List" />
 		from t_student
@@ -54,12 +54,6 @@
 	</select>
 	
 	
-	<select id="findAll" resultMap="BaseResultMap">
-		select
-		<include refid="Base_Column_List" />
-		from t_student
-		where 1=1
-	</select>
 	
 	
 </mapper>
