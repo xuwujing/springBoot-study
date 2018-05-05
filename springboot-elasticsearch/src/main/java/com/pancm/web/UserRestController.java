@@ -4,9 +4,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,8 +31,6 @@ import com.pancm.service.UserService;
 public class UserRestController {
 	@Autowired
     private UserService userService;
-	@Autowired
-	private UserDao userDao;
 	
     @PostMapping("/user")
     public boolean createUser(@RequestBody User user) {
@@ -38,11 +38,10 @@ public class UserRestController {
     }
 
     
-    @GetMapping("/user/content")
-    public List<User> search(@RequestParam(value = "content") String content) {
-		return userService.searchUser(content);
+    @GetMapping("/user/{name}")
+    public List<User> search(@PathVariable("name") String name) {
+		return userService.search(name);
     }
-    
     
     @GetMapping("/user")
     public List<User> searchUser(@RequestParam(value = "pageNumber") Integer pageNumber,

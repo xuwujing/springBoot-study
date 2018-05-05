@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.index.query.QueryStringQueryBuilder;
 import org.elasticsearch.index.query.functionscore.FunctionScoreQueryBuilder;
@@ -47,7 +48,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public List<User> searchUser(String searchContent) {
+	public List<User> search(String searchContent) {
 		  QueryStringQueryBuilder builder = new QueryStringQueryBuilder(searchContent);
 		  System.out.println("查询的语句:"+builder);
           Iterable<User> searchResult = userDao.search(builder);
@@ -90,6 +91,8 @@ public class UserServiceImpl implements UserService {
         Page<User> searchPageResults = userDao.search(searchQuery);
         return searchPageResults.getContent();
 	}
+
+	
 
 
 

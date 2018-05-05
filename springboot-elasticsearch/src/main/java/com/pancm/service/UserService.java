@@ -24,11 +24,11 @@ public interface UserService {
     boolean insert(User user);
 
     /**
-     * 根据关键字进行搜索
+     * 根据关键字进行全文搜索
      * @param searchContent
      * @return
      */
-    List<User> searchUser(String searchContent);
+    List<User> search(String searchContent);
     
     /**
      * 根据关键字进行搜索并分页
