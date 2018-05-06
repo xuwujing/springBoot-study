@@ -2,12 +2,9 @@ package com.pancm;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
-
 import com.pancm.pojo.User;
-
 import io.searchbox.client.JestClient;
 import io.searchbox.client.JestClientFactory;
 import io.searchbox.client.JestResult;
@@ -26,13 +23,15 @@ import io.searchbox.indices.mapping.PutMapping;
 public class JestTest {  
 	    private static JestClient jestClient;  
 	    private static String indexName = "userindex";  
+//	    private static String indexName = "userindex2";  
 	    private static String typeName = "user";  
 	    private static String elasticIps="http://192.169.2.98:9200";
+//	    private static String elasticIps="http://127.0.0.1:9200";
 		
 	    
 	    public static void main(String[] args) throws Exception {
 	        jestClient = getJestClient();  
-//	        insertBatch();
+	        insertBatch();
 	        serach1();
 	        serach2();
 	        serach3();
@@ -40,16 +39,12 @@ public class JestTest {
 	        
 		}
 	    
-	  
-	    
-	    
 	    private static  JestClient getJestClient() {  
 	    	JestClientFactory factory = new JestClientFactory();  
 			factory.setHttpClientConfig(new HttpClientConfig.Builder(elasticIps).connTimeout(60000).readTimeout(60000).multiThreaded(true).build());  
 	        return factory.getObject();  
 	    }  
 	    
-
 	    public static void insertBatch() {
 			List<Object> objs = new ArrayList<Object>();
 			objs.add(new User(1L, "张三", 20, "张三是个Java开发工程师","2018-4-25 11:07:42"));

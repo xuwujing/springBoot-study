@@ -4,15 +4,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pancm.dao.UserDao;
 import com.pancm.pojo.User;
 import com.pancm.service.UserService;
 
@@ -38,9 +35,9 @@ public class UserRestController {
     }
 
     
-    @GetMapping("/user/{name}")
-    public List<User> search(@PathVariable("name") String name) {
-		return userService.search(name);
+    @GetMapping("/user/searchContent")
+    public List<User> search(@RequestParam(value = "searchContent") String searchContent) {
+		return userService.search(searchContent);
     }
     
     @GetMapping("/user")
@@ -52,10 +49,8 @@ public class UserRestController {
     
     
     @GetMapping("/user2")
-    public List<User> searchUserByWeight(@RequestParam(value = "pageNumber") Integer pageNumber,
-                                 @RequestParam(value = "pageSize", required = false) Integer pageSize,
-                                 @RequestParam(value = "searchContent") String searchContent) {
-     return userService.searchUserByWeight(pageNumber, pageSize, searchContent);
+    public List<User> searchUserByWeight(@RequestParam(value = "searchContent") String searchContent) {
+     return userService.searchUserByWeight(searchContent);
     }
     
     

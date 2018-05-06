@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.index.query.QueryStringQueryBuilder;
 import org.elasticsearch.index.query.functionscore.FunctionScoreQueryBuilder;
@@ -34,7 +33,6 @@ import com.pancm.service.UserService;
 public class UserServiceImpl implements UserService {
 	@Autowired
     private UserDao userDao;
-
 	@Override
 	public boolean insert(User user) {
 		boolean falg=false;
@@ -75,25 +73,22 @@ public class UserServiceImpl implements UserService {
 	
 
 	@Override
-	public List<User> searchUserByWeight(Integer pageNumber, Integer pageSize,
-			String searchContent) {
-		Pageable pageable = new PageRequest(pageNumber, pageSize);
-		 
+	public List<User> searchUserByWeight(String searchContent) {
         // 根据权重进行查询
         FunctionScoreQueryBuilder functionScoreQueryBuilder = QueryBuilders.functionScoreQuery()
                 .add(QueryBuilders.boolQuery().should(QueryBuilders.matchQuery("name", searchContent)),
                     ScoreFunctionBuilders.weightFactorFunction(10))
                 .add(QueryBuilders.boolQuery().should(QueryBuilders.matchQuery("description", searchContent)),
-                        ScoreFunctionBuilders.weightFactorFunction(100));
- 
-        SearchQuery searchQuery = new NativeSearchQueryBuilder().withPageable(pageable).withQuery(functionScoreQueryBuilder).build();
-        System.out.println("查询的语句:" + searchQuery.getQuery().toString());
-        Page<User> searchPageResults = userDao.search(searchQuery);
-        return searchPageResults.getContent();
+                        ScoreFunctionBuilders.weightFactorFunction(100)).setMinScore(2);
+        System.out.println("查询的语句:" + functionScoreQueryBuilder.toString());
+        Iterable<User> searchResult = userDao.search(functionScoreQueryBuilder);
+        Iterator<User> iterator = searchResult.iterator();
+        List<User> list=new ArrayList<User>();
+        while (iterator.hasNext()) {
+     	   	list.add(iterator.next());
+        }
+        return list;
 	}
-
-	
-
 
 
 }

@@ -41,12 +41,10 @@ public interface UserService {
 	
     /**
      * 根据关键词权重进行查询
-     * @param pageNumber
-     * @param pageSize
      * @param searchContent
      * @return
      */
-    List<User> searchUserByWeight(Integer pageNumber, Integer pageSize, String searchContent);
+    List<User> searchUserByWeight(String searchContent);
 	
     
 }
