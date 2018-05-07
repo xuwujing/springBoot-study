@@ -16,6 +16,8 @@ GitHub工程地址](https://github.com/xuwujing/springBoot-study):https://github
  
 - [springboot-mutilDatasource](https://github.com/xuwujing/springBoot-study/tree/master/springboot-mutilDatasource):SpringBoot+Mybatis+ Druid+PageHelper实现多数据源并分页。
  
+- [springboot-elasticsearch](https://github.com/xuwujing/springBoot-study/tree/master/springboot-elasticsearch):SpringBoot整合elasticsearch，实现全文搜索、精确搜索、区间查询、分页查询、权重查询，使用JestClient实现多版本的兼容。
+- 
 - [springBoot-kafka-storm](https://github.com/xuwujing/springBoot-study/tree/master/springBoot-kafka-storm):SpringBoot集成kafka和Storm的版本。目前正在开发！
  
 - [springboot-summarizing](https://github.com/xuwujing/springBoot-study/tree/master/springboot-summarizing):SpringBoot的一个Web项目。目前正在开发！
@@ -27,3 +29,4 @@ GitHub工程地址](https://github.com/xuwujing/springBoot-study):https://github
 
 - [SpringBoot的Restful风格的服务](http://www.panchengming.com/2018/01/10/pancm67/)
 - [SpringBoot+Mybatis+ Druid+PageHelper实现多数据源并分页](http://www.panchengming.com/2018/04/27/pancm81/)
+- [SpringBoot整合ElasticSearch实现多版本的兼容](http://www.panchengming.com/2018/05/07/pancm82/)
