@@ -10,12 +10,6 @@
   <name>springBoot-kafka-storm</name>
   <url>http://maven.apache.org</url>
 
- <!--  <parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.9.RELEASE</version>
-		<relativePath/> 
-	</parent> -->
 
      <properties>
      	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -26,8 +20,9 @@
 		<slf4j.version>1.7.25</slf4j.version>
 	    <logback.version>1.2.3</logback.version>
 	    <kafka.version>1.0.0</kafka.version>
-	    <storm.version>1.1.1</storm.version>
+	    <storm.version>1.2.1</storm.version>
 	    <fastjson.version>1.2.41</fastjson.version>
+	    <druid>1.1.8</druid>
 	</properties>
 
 
@@ -37,25 +32,13 @@
             <artifactId>spring-boot-starter-web</artifactId>
              <version>${springboot.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
-             <version>${springboot.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-             <version>${springboot.version}</version>
-        </dependency>
-        
-        
        
-        <dependency>
+       <!--  <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <version>${springboot.version}</version>
             <optional>true</optional>
-        </dependency>
+        </dependency> -->
 		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -78,12 +61,6 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql-connector}</version>
         </dependency>
-		
-		<!--权限控制  -->
-		<!-- <dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency> -->
 		
 		
 	<dependency>
@@ -187,11 +164,18 @@
 		<version>${fastjson.version}</version>
 	</dependency>	
 		
+	<!-- Druid 数据连接池依赖 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>${druid}</version>
+        </dependency>	
+		
 	</dependencies>
 	
-	<build>
+	<!-- <build>
 		<plugins>
-		<!--运用SpringBoot 插件  使用spring-boot-devtools模块的应用,当classpath中的文件有改变时，会自动重启！ -->
+		运用SpringBoot 插件  使用spring-boot-devtools模块的应用,当classpath中的文件有改变时，会自动重启！
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
@@ -200,5 +184,5 @@
 	            </configuration>
 			</plugin>
 		</plugins>
-	</build>
+	</build> -->
 </project>

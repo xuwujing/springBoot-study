@@ -3,10 +3,10 @@ package com.pancm.web;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.storm.shade.org.eclipse.jetty.util.ajax.JSON;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -33,20 +33,20 @@ public class UserRestController {
 	@Autowired
 	ApplicationConfiguration app;
 	
-    @RequestMapping(value = "/user", method = RequestMethod.GET)
+    @GetMapping("/user")
     public User findByUserName(@RequestParam User user) {
     	System.out.println("开始查询...");
         return userService.findByUser(user);
     }
     
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @PostMapping("/user")
     public boolean findByUserName(@RequestParam(value = "count", required = true) int count) {
     	List<String> list=new ArrayList<String>();
-    	for(int i=0;i<count;i++){
+    	for(int i=1;i<=count;i++){
     	 	User user=new User();
     	 	user.setName("张三"+i);
     	 	user.setAge(i);
-    	 	list.add(JSON.toString(user));
+    	 	list.add(user.toString());
     	}
     	KafkaProducerUtil.sendMessage(list, app.getServers(), app.getTopicName());
         return true;

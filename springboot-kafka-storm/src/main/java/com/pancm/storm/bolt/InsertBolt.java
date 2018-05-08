@@ -11,11 +11,12 @@ import org.apache.storm.task.TopologyContext;
 import org.apache.storm.topology.OutputFieldsDeclarer;
 import org.apache.storm.topology.base.BaseRichBolt;
 import org.apache.storm.tuple.Tuple;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.alibaba.fastjson.JSON;
 import com.pancm.pojo.User;
 import com.pancm.service.UserService;
+import com.pancm.util.GetSpringBean;
 
 /**
  * @Title: InsertBolt
@@ -25,6 +26,7 @@ import com.pancm.service.UserService;
  * @author pancm
  * @date 2018年4月19日
  */
+@Component
 public class InsertBolt extends BaseRichBolt{
 
 		/**
@@ -32,19 +34,22 @@ public class InsertBolt extends BaseRichBolt{
 		 */
 		private static final long serialVersionUID = 6542256546124282695L;
 
-		private static final String field="insert";
+		private static final String FIELD="insert";
 		
-		@Autowired
+//		@Autowired
 		private UserService userService;
 		
+		@SuppressWarnings("rawtypes")
 		@Override
 		public void prepare(Map map, TopologyContext arg1, OutputCollector collector) {
+		
+			userService=GetSpringBean.getBean(UserService.class);
 		}
 	  
-		
+		   
 		@Override
 		public void execute(Tuple tuple) {
-			String msg=tuple.getStringByField(field);
+			String msg=tuple.getStringByField(FIELD);
 			List<User> user =JSON.parseArray(msg,User.class);
 			if(user!=null){
 				userService.insertBatch(user);

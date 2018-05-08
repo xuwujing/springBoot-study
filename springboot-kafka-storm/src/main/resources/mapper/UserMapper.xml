@@ -18,31 +18,17 @@
 		values (#{name},#{age})
 	</insert>
 
-	<insert id="insertBatch" parameterMap="java.util.List">
+	<insert id="insertBatch" parameterType="java.util.List" useGeneratedKeys="true">
 		insert into t_user (name,age)
 			values 
 		<foreach collection="list" item="item" index="index" separator="," >
-     	 	(#{name},#{age})
+     	 	(#{item.name},#{item.age})
    		 </foreach>
 		
 	</insert>
 
-	<update id="update" parameterMap="User">
-		update
-		 	 t_user 
-		set
-		<if test="name!=null and name!=''">
-			 name = #{name}, 
-		</if>
-		
-		<if test="age!=null and age!=''">
-			age = #{age}
-		</if>
-		  where id= #{id}
-	</update>
 
-	
-	<update id="updateBatch" parameterMap="java.util.List">
+	<update id="updateBatch" parameterType="java.util.List">
 		<foreach collection="list" item="item" index="index" separator=";">
        update t_user
        <set >

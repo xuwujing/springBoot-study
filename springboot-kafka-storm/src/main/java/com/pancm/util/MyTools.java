@@ -172,22 +172,6 @@ public final class MyTools {
 		return new SimpleDateFormat(format).format(lo);
 	}
 
-	/**
-	 * 获取设置的时间
-	 * @param hour
-	 * @param minute
-	 * @param second
-	 * @return
-	 */
-	 @SuppressWarnings("static-access")
-	public static Date getSetTime(int hour,int minute,int second){
-		 Calendar calendar = Calendar.getInstance();
-		 calendar.set(calendar.HOUR_OF_DAY, hour); // 控制时
-		 calendar.set(calendar.MINUTE, minute); // 控制分
-		 calendar.set(calendar.SECOND, second); // 控制秒
-		return calendar.getTime();
-		 
-	 }
 	
 	/**
 	 *  String类型的时间转换成 long

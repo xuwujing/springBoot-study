@@ -18,10 +18,12 @@ import org.apache.storm.tuple.Fields;
 import org.apache.storm.tuple.Values;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import com.alibaba.fastjson.JSON;
 import com.pancm.config.ApplicationConfiguration;
+import com.pancm.pojo.User;
+import com.pancm.util.GetSpringBean;
+import com.pancm.util.MyTools;
 
 
 /**
@@ -48,12 +50,15 @@ public class KafkaInsertDataSpout extends BaseRichSpout{
 	
 	private ConsumerRecords<String, String> msgList;
 	
-	private static final String field="insert";
-	@Autowired
-	ApplicationConfiguration app;
+	private static final String FIELD="insert";
 	
+	private ApplicationConfiguration app;
+	
+	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void open(Map map, TopologyContext arg1, SpoutOutputCollector collector) {
+		app=GetSpringBean.getBean(ApplicationConfiguration.class);
 		kafkaInit();
 		this.collector = collector;
 	}
@@ -63,10 +68,10 @@ public class KafkaInsertDataSpout extends BaseRichSpout{
 	public void nextTuple() {
 		for (;;) {
 			try {
-					msgList = consumer.poll(100);
+				msgList = consumer.poll(100);
 				if (null != msgList && !msgList.isEmpty()) {
 					String msg = "";
-					List list=new ArrayList();
+					List<User> list=new ArrayList<User>();
 					long tmpOffset=0;
 					long maxOffset=0;
 					for (ConsumerRecord<String, String> record : msgList) {
@@ -75,15 +80,14 @@ public class KafkaInsertDataSpout extends BaseRichSpout{
 						if (null == msg || "".equals(msg.trim())) {
 							continue;
 						}
-						list.add(msg);
+						list.add(MyTools.toBean(msg, User.class));
 						tmpOffset=record.offset();
 						if(maxOffset<tmpOffset){
 							maxOffset=tmpOffset;
-						}
-					
+						 }
+				     } 
 					logger.info("写入的数据:"+list.get(0));
 					logger.info("消费的offset:"+maxOffset);
-				} 
 				this.collector.emit(new Values(JSON.toJSONString(list)));
 				
 				}
@@ -102,7 +106,7 @@ public class KafkaInsertDataSpout extends BaseRichSpout{
 	
 	@Override
 	public void declareOutputFields(OutputFieldsDeclarer declarer) {
-		declarer.declare(new Fields(field));
+		declarer.declare(new Fields(FIELD));
 	}
 	
 	/**
