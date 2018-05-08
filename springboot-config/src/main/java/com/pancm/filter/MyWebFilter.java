@@ -59,14 +59,14 @@ public class MyWebFilter {
 	        Calendar ca = Calendar.getInstance();
 	        int hour = ca.get(Calendar.HOUR_OF_DAY);
 	        // 设置限制运行时间 
-	        if (0<hour && hour < 15) {
+	        if (0<hour && hour < 2) {
 	              HttpServletResponse response = (HttpServletResponse) sresponse;
 	              response.setCharacterEncoding("UTF-8");
 	              response.setContentType("application/json; charset=utf-8");
 	              // 消息
 	              Map<String, Object> messageMap = new HashMap<>();
 	              messageMap.put("status", "1");
-	              messageMap.put("message", "此接口可以请求时间为:18-24点");
+	              messageMap.put("message", "此接口可以请求时间为:2-24点");
 	              ObjectMapper objectMapper=new ObjectMapper();
 	              String writeValueAsString = objectMapper.writeValueAsString(messageMap);
 	              response.getWriter().write(writeValueAsString);

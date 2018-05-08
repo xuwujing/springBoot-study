@@ -61,7 +61,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>${mysql-connector}</version>
+        <!--     <version>${mysql-connector}</version> -->
         </dependency>
         
         <!-- Druid 数据连接池依赖 -->

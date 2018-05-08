@@ -1,9 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+<!--scan: 当此属性设置为true时，配置文件如果发生改变，将会被重新加载，默认值为true。
+　　　　scanPeriod: 设置监测配置文件是否有修改的时间间隔，如果没有给出时间单位，默认单位是毫秒。当scan为true时，此属性生效。默认的时间间隔为1分钟。  -->
 <configuration  scan="true" scanPeriod="30 seconds" debug="true" >
-
+<!--日志目录  -->
+	<property name="LOG_HOME" value="logs/pcm"/>
+	<!--负责写日志的组件，它有两个必要属性name和class。name指定appender名称，class指定appender的全限定名  -->
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>
+				<!-- %d{yyyy-MM-dd HH:mm:ss} %c %-5level - %msg%n -->
+				<!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符--> 
+				%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n
+			</Pattern>
+		</layout>
+	</appender>
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<!-- rollover daily -->
+			<fileNamePattern>${LOG_HOME}/mylog-%d{yyyy-MM-dd}.%i.txt</fileNamePattern>
+			<!-- each file should be at most 10MB, keep 31 days worth of history, but at most 10GB -->
+			<maxFileSize>10MB</maxFileSize>
+			<maxHistory>31</maxHistory>
+			<totalSizeCap>10GB</totalSizeCap>
+		</rollingPolicy>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>
+				%d{yyyy-MM-dd HH:mm:ss} -%msg%n
+			</Pattern>
+		</layout>
+	</appender>
+	
+	<!--自定义一个请求的日志输出文件  -->
+    <appender name="ONE_INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<!-- rollover daily -->
+			<fileNamePattern>${LOG_HOME}/oneInfo/%d{yyyy-MM-dd}/oneInfo.%i.txt</fileNamePattern>
+			<!-- each file should be at most 10MB, keep 31 days worth of history, but at most 10GB -->
+			<maxFileSize>10MB</maxFileSize>
+			<maxHistory>31</maxHistory>
+			<totalSizeCap>10GB</totalSizeCap>
+		</rollingPolicy>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>
+				%d{yyyy-MM-dd HH:mm:ss} -%msg%n
+			</Pattern>
+		</layout>
+	</appender>
+	
+	<!--自定义一个请求的日志输出文件  -->
+    <appender name="TWO_INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<!-- rollover daily -->
+			<fileNamePattern>${LOG_HOME}/twoInfo/%d{yyyy-MM-dd}/twoInfo.%i.txt</fileNamePattern>
+			<!-- each file should be at most 10MB, keep 31 days worth of history, but at most 10GB -->
+			<maxFileSize>10MB</maxFileSize>
+			<maxHistory>31</maxHistory>
+			<totalSizeCap>10GB</totalSizeCap>
+		</rollingPolicy>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>
+				%d{yyyy-MM-dd HH:mm:ss} -%msg%n
+			</Pattern>
+		</layout>
+	</appender>
+	
+	<!-- 自定义定义日志文件可以从这获取 例如 logTest -->
+	<logger name="oneInfo" level="DEBUG" additivity="false">
+	   <appender-ref ref="ONE_INFO" />
+	</logger>
+	<logger name="twoInfo" level="WARN" additivity="true">
+	   <appender-ref ref="TWO_INFO" />
+	</logger>
+	
 	<!--日志主级别  -->	
 	<root level="INFO">
+		<appender-ref ref="STDOUT"/>
+		<appender-ref ref="FILE" />
 	</root>
 
 </configuration>

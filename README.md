@@ -18,7 +18,7 @@ GitHub工程地址](https://github.com/xuwujing/springBoot-study):https://github
  
 - [springboot-elasticsearch](https://github.com/xuwujing/springBoot-study/tree/master/springboot-elasticsearch):SpringBoot整合elasticsearch，实现全文搜索、精确搜索、区间查询、分页查询、权重查询，使用JestClient实现多版本的兼容。
 
-- [springBoot-kafka-storm](https://github.com/xuwujing/springBoot-study/tree/master/springBoot-kafka-storm):SpringBoot集成kafka和Storm的版本。目前正在开发！
+- [springboot-kafka-storm](https://github.com/xuwujing/springBoot-study/tree/master/springboot-kafka-storm):SpringBoot集成kafka和Storm的版本。目前正在开发！
  
 - [springboot-summarizing](https://github.com/xuwujing/springBoot-study/tree/master/springboot-summarizing):SpringBoot的一个Web项目。目前正在开发！
 
