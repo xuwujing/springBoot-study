@@ -34,6 +34,7 @@ public class TestBolt extends BaseRichBolt{
     * 一般对于不可序列化的对象进行实例化。
     * 注:如果是可以序列化的对象，那么最好是使用构造函数。
     */
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void prepare(Map map, TopologyContext arg1, OutputCollector collector) {
 		System.out.println("prepare:"+map.get("test"));

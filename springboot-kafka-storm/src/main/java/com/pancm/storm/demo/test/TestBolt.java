@@ -23,17 +23,16 @@ public class TestBolt extends BaseRichBolt{
 	 */
 	private static final long serialVersionUID = 4743224635827696343L;
 	
-	private OutputCollector collector;
-    private long count=1;
+	private long count=1;
 	/**
     * 在Bolt启动前执行，提供Bolt启动环境配置的入口
     * 一般对于不可序列化的对象进行实例化。
     * 注:如果是可以序列化的对象，那么最好是使用构造函数。
     */
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void prepare(Map map, TopologyContext arg1, OutputCollector collector) {
 		System.out.println("prepare:"+map.get("test"));
-		this.collector=collector;
 	}
   
 	/**

@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import com.pancm.constant.Constants;
 import com.pancm.storm.bolt.InsertBolt;
 import com.pancm.storm.spout.KafkaInsertDataSpout;
 
@@ -24,25 +25,27 @@ public class TopologyApp {
 	private  final Logger logger = LoggerFactory.getLogger(TopologyApp.class);
 
 	
-	private  final String KAFKA_SPOUT="KAFKA_SPOUT"; 
-	private  final String INSERT_BOLT="INSERT_BOLT"; 
-	
-	
+	/*
+	 * 1 软件版本 storm0.10 +spring 4.36，网上的例子很少经过摸索除了sport和bolt无法注入其他类都可以了
+		2 类似于springmvc的结构，bolt  service  dao
+		3 因为bolt是由 nimbus 端实例化然后通过序列化传输 到supervisor再反向序列化， 所以bolt和sport无法通过spring注入 
+	 */
 	public  void runStorm(String[] args) {
 		// 定义一个拓扑
 		TopologyBuilder builder = new TopologyBuilder();
 		// 设置1个Executeor(线程)，默认一个
-		builder.setSpout(KAFKA_SPOUT, new KafkaInsertDataSpout(), 1);
+		builder.setSpout(Constants.KAFKA_SPOUT, new KafkaInsertDataSpout(), 1);
 		// shuffleGrouping:表示是随机分组
 		// 设置1个Executeor(线程)，和两个task
-		builder.setBolt(INSERT_BOLT, new InsertBolt(), 1).setNumTasks(1).shuffleGrouping(KAFKA_SPOUT);
+		builder.setBolt(Constants.INSERT_BOLT, new InsertBolt(), 1).setNumTasks(1).shuffleGrouping(Constants.KAFKA_SPOUT);
 		Config conf = new Config();
 		try {
-			// 运行拓扑
-			if (args != null && args.length > 0) { // 有参数时，表示向集群提交作业，并把第一个参数当做topology名称
+			// 有参数时，表示向集群提交作业，并把第一个参数当做topology名称
+			// 没有参数时，本地提交
+			if (args != null && args.length > 0) { 
 				logger.info("运行远程模式");
 				StormSubmitter.submitTopology(args[0], conf, builder.createTopology());
-			} else {// 没有参数时，本地提交
+			} else {
 				// 启动本地模式
 				logger.info("运行本地模式");
 				LocalCluster cluster = new LocalCluster();

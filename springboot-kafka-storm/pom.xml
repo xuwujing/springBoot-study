@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>1.0.0</groupId>
-  <artifactId>springBoot-kafka-storm</artifactId>
+  <artifactId>springboot-kafka-storm</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>springBoot-kafka-storm</name>
+  <name>springboot-kafka-storm</name>
   <url>http://maven.apache.org</url>
 
 

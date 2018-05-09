@@ -21,9 +21,9 @@ import org.slf4j.LoggerFactory;
 
 import com.alibaba.fastjson.JSON;
 import com.pancm.config.ApplicationConfiguration;
+import com.pancm.constant.Constants;
 import com.pancm.pojo.User;
 import com.pancm.util.GetSpringBean;
-import com.pancm.util.MyTools;
 
 
 /**
@@ -50,7 +50,6 @@ public class KafkaInsertDataSpout extends BaseRichSpout{
 	
 	private ConsumerRecords<String, String> msgList;
 	
-	private static final String FIELD="insert";
 	
 	private ApplicationConfiguration app;
 	
@@ -80,7 +79,7 @@ public class KafkaInsertDataSpout extends BaseRichSpout{
 						if (null == msg || "".equals(msg.trim())) {
 							continue;
 						}
-						list.add(MyTools.toBean(msg, User.class));
+						list.add(JSON.parseObject(msg, User.class));
 						tmpOffset=record.offset();
 						if(maxOffset<tmpOffset){
 							maxOffset=tmpOffset;
@@ -88,11 +87,15 @@ public class KafkaInsertDataSpout extends BaseRichSpout{
 				     } 
 					logger.info("写入的数据:"+list.get(0));
 					logger.info("消费的offset:"+maxOffset);
-				this.collector.emit(new Values(JSON.toJSONString(list)));
-				
+					//发送到bolt中
+					this.collector.emit(new Values(JSON.toJSONString(list)));
+					 consumer.commitAsync();
+				}else{
+					TimeUnit.SECONDS.sleep(3);
+					logger.info("未拉取到数据...");
 				}
 			} catch (Exception e) {
-				logger.error("消息队列处理异常:", e);
+				logger.error("消息队列处理异常!", e);
 				try {
 					TimeUnit.SECONDS.sleep(10);
 				} catch (InterruptedException e1) {
@@ -100,13 +103,12 @@ public class KafkaInsertDataSpout extends BaseRichSpout{
 				}
 			}
 		}
-		
 	}
 	
 	
 	@Override
 	public void declareOutputFields(OutputFieldsDeclarer declarer) {
-		declarer.declare(new Fields(FIELD));
+		declarer.declare(new Fields(Constants.FIELD));
 	}
 	
 	/**

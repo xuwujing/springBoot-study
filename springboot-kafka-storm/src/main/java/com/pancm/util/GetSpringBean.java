@@ -6,8 +6,13 @@ import org.springframework.context.ApplicationContextAware;
 
 
 /**
- * spring动态获取bean实现
- * @author xuwujing 
+ * 
+* @Title: GetSpringBean
+* @Description:
+* spring动态获取bean实现 
+* @Version:1.0.0  
+* @author pancm
+* @date 2018年5月8日
  */
 public class GetSpringBean implements ApplicationContextAware{
 

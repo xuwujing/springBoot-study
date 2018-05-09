@@ -48,7 +48,6 @@ public class UserRestController {
     	 	user.setAge(i);
     	 	list.add(user.toString());
     	}
-    	KafkaProducerUtil.sendMessage(list, app.getServers(), app.getTopicName());
-        return true;
+        return KafkaProducerUtil.sendMessage(list, app.getServers(), app.getTopicName());
     }
 }

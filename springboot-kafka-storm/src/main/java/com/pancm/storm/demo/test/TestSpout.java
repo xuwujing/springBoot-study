@@ -36,6 +36,7 @@ public class TestSpout extends BaseRichSpout{
      * 2.topology中组件的信息;
      * 3.发射tuple的方法;
      */
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void open(Map map, TopologyContext arg1, SpoutOutputCollector collector) {
 		System.out.println("open:"+map.get("test"));
