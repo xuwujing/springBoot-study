@@ -27,7 +27,7 @@ public interface UserDao {
 	  void addUser(User user); 
 	 
 	
-	 @Update("update t_user set name=#{name},password=#{password} age=#{age} where id=#{id}")
+	 @Update("update t_user set name=#{name},password=#{password}, age=#{age} where id=#{id}")
 	  void updateUser(User user);
 
 	 

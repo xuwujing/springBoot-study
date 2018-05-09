@@ -1,10 +1,5 @@
 package com.pancm.pojo;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
 /**
  * 
 * Title: User
@@ -13,21 +8,15 @@ import javax.persistence.Id;
 * @author pancm
 * @date 2017年9月26日
  */
-@Entity
 public class User {
 	
 	 /** 编号 */
-	 @Id
-	 @GeneratedValue
 	 private int id;
 	 /** 姓名 */
-	 @Column(nullable = false, unique = true)
 	 private String name;
 	 /** 密码*/
-	 @Column(nullable = false)
 	 private String password;
 	 /** 年龄 */
-	 @Column(nullable = false)
 	 private int age;
 	 
 	 public User(){
