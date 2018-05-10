@@ -54,6 +54,7 @@ public class KafkaInsertDataSpout extends BaseRichSpout{
 	private ApplicationConfiguration app;
 	
 	
+	
 	@SuppressWarnings("rawtypes")
 	@Override
 	public void open(Map map, TopologyContext arg1, SpoutOutputCollector collector) {
@@ -71,22 +72,20 @@ public class KafkaInsertDataSpout extends BaseRichSpout{
 				if (null != msgList && !msgList.isEmpty()) {
 					String msg = "";
 					List<User> list=new ArrayList<User>();
-					long tmpOffset=0;
-					long maxOffset=0;
 					for (ConsumerRecord<String, String> record : msgList) {
 						// 原始数据
 						msg = record.value();
 						if (null == msg || "".equals(msg.trim())) {
 							continue;
 						}
-						list.add(JSON.parseObject(msg, User.class));
-						tmpOffset=record.offset();
-						if(maxOffset<tmpOffset){
-							maxOffset=tmpOffset;
-						 }
+						try{
+							list.add(JSON.parseObject(msg, User.class));
+						}catch(Exception e){
+							logger.error("数据格式不符!数据:{}",msg);
+							continue;
+						}
 				     } 
-					logger.info("写入的数据:"+list.get(0));
-					logger.info("消费的offset:"+maxOffset);
+					logger.info("Spout发射的数据:"+list);
 					//发送到bolt中
 					this.collector.emit(new Values(JSON.toJSONString(list)));
 					 consumer.commitAsync();

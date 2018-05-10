@@ -3,6 +3,7 @@
  */
 package com.pancm.storm.bolt;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -11,6 +12,8 @@ import org.apache.storm.task.TopologyContext;
 import org.apache.storm.topology.OutputFieldsDeclarer;
 import org.apache.storm.topology.base.BaseRichBolt;
 import org.apache.storm.tuple.Tuple;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alibaba.fastjson.JSON;
 import com.pancm.constant.Constants;
@@ -34,12 +37,15 @@ public class InsertBolt extends BaseRichBolt{
 		private static final long serialVersionUID = 6542256546124282695L;
 
 		
+		private static final Logger logger = LoggerFactory.getLogger(InsertBolt.class);
+
+		
 		private UserService userService;
+		
 		
 		@SuppressWarnings("rawtypes")
 		@Override
 		public void prepare(Map map, TopologyContext arg1, OutputCollector collector) {
-		
 			userService=GetSpringBean.getBean(UserService.class);
 		}
 	  
@@ -47,9 +53,24 @@ public class InsertBolt extends BaseRichBolt{
 		@Override
 		public void execute(Tuple tuple) {
 			String msg=tuple.getStringByField(Constants.FIELD);
-			List<User> user =JSON.parseArray(msg,User.class);
-			if(user!=null){
-				userService.insertBatch(user);
+			try{
+				List<User> listUser =JSON.parseArray(msg,User.class);
+				//移除age小于10的数据
+				if(listUser!=null&&listUser.size()>0){
+					Iterator<User> iterator = listUser.iterator();
+					 while (iterator.hasNext()) {
+						 User user = iterator.next();
+						 if (user.getAge()<10) {
+							 logger.warn("Bolt移除的数据:{}",user);
+							 iterator.remove();
+						 }
+					 }
+					if(listUser!=null&&listUser.size()>0){
+						userService.insertBatch(listUser);
+					}
+				}
+			}catch(Exception e){
+				logger.error("Bolt的数据处理失败!数据:{}",msg,e);
 			}
 		}
 
@@ -66,5 +87,6 @@ public class InsertBolt extends BaseRichBolt{
 		public void declareOutputFields(OutputFieldsDeclarer arg0) {
 				
 		}
+		
 	
 }

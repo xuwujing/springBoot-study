@@ -1,13 +1,12 @@
 package com.pancm.web;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.pancm.config.ApplicationConfiguration;
@@ -34,20 +33,13 @@ public class UserRestController {
 	ApplicationConfiguration app;
 	
     @GetMapping("/user")
-    public User findByUserName(@RequestParam User user) {
+    public List<User> findByUser(User user) {
     	System.out.println("开始查询...");
         return userService.findByUser(user);
     }
     
     @PostMapping("/user")
-    public boolean findByUserName(@RequestParam(value = "count", required = true) int count) {
-    	List<String> list=new ArrayList<String>();
-    	for(int i=1;i<=count;i++){
-    	 	User user=new User();
-    	 	user.setName("张三"+i);
-    	 	user.setAge(i);
-    	 	list.add(user.toString());
-    	}
-        return KafkaProducerUtil.sendMessage(list, app.getServers(), app.getTopicName());
+    public boolean sendKafka(@RequestBody User user) {
+        return KafkaProducerUtil.sendMessage(user.toString(), app.getServers(), app.getTopicName());
     }
 }

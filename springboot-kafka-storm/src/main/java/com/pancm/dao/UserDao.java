@@ -35,6 +35,6 @@ public interface UserDao {
 	 * @return
 	 * @throws Exception
 	 */
-	User findByUser(User user) ;
+	List<User> findByUser(User user) ;
     
 }

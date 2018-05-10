@@ -13,7 +13,7 @@
 
      <properties>
      	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<java.version>1.7</java.version>
+		<java.version>1.8</java.version>
 		<springboot.version>1.5.9.RELEASE</springboot.version>
         <mybatis-spring-boot>1.2.0</mybatis-spring-boot>
         <mysql-connector>5.1.44</mysql-connector>
@@ -33,7 +33,7 @@
              <version>${springboot.version}</version>
         </dependency>
        
-       <!--  <dependency>
+     <!--    <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <version>${springboot.version}</version>
@@ -173,9 +173,8 @@
 		
 	</dependencies>
 	
-	<!-- <build>
+<!-- 	<build>
 		<plugins>
-		运用SpringBoot 插件  使用spring-boot-devtools模块的应用,当classpath中的文件有改变时，会自动重启！
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>

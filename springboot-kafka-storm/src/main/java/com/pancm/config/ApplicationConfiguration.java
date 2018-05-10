@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 * @author pancm
 * @date 2018年4月19日
  */
-@Component
+@Component("applicationConfiguration")
 public class ApplicationConfiguration {
 	@Value("${kafka.topicName}")
     private String topicName; 

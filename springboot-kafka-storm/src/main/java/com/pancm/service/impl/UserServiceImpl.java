@@ -1,5 +1,6 @@
 package com.pancm.service.impl;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -21,8 +22,13 @@ import com.pancm.service.UserService;
 * @author pancm
 * @date 2018年1月9日
  */
-@Service
-public class UserServiceImpl implements UserService {
+@Service("userServiceImpl")
+public class UserServiceImpl implements UserService,Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3931100428563125997L;
 
 	private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 	
@@ -43,7 +49,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User findByUser(User user) {
+	public List<User> findByUser(User user) {
 		return userDao.findByUser(user);
 	}
 

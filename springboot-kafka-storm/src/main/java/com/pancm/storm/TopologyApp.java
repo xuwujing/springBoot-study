@@ -24,12 +24,6 @@ import com.pancm.storm.spout.KafkaInsertDataSpout;
 public class TopologyApp {
 	private  final Logger logger = LoggerFactory.getLogger(TopologyApp.class);
 
-	
-	/*
-	 * 1 软件版本 storm0.10 +spring 4.36，网上的例子很少经过摸索除了sport和bolt无法注入其他类都可以了
-		2 类似于springmvc的结构，bolt  service  dao
-		3 因为bolt是由 nimbus 端实例化然后通过序列化传输 到supervisor再反向序列化， 所以bolt和sport无法通过spring注入 
-	 */
 	public  void runStorm(String[] args) {
 		// 定义一个拓扑
 		TopologyBuilder builder = new TopologyBuilder();
@@ -39,6 +33,10 @@ public class TopologyApp {
 		// 设置1个Executeor(线程)，和两个task
 		builder.setBolt(Constants.INSERT_BOLT, new InsertBolt(), 1).setNumTasks(1).shuffleGrouping(Constants.KAFKA_SPOUT);
 		Config conf = new Config();
+		//设置一个应答者
+		conf.setNumAckers(1);
+		//设置一个work
+		conf.setNumWorkers(1);
 		try {
 			// 有参数时，表示向集群提交作业，并把第一个参数当做topology名称
 			// 没有参数时，本地提交
@@ -50,9 +48,6 @@ public class TopologyApp {
 				logger.info("运行本地模式");
 				LocalCluster cluster = new LocalCluster();
 				cluster.submitTopology("TopologyApp", conf, builder.createTopology());
-//				Thread.sleep(20000);
-				// //关闭本地集群
-//				cluster.shutdown();
 			}
 		} catch (Exception e) {
 			logger.error("storm启动失败!程序退出!",e);

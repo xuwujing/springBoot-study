@@ -30,7 +30,9 @@ public class GetSpringBean implements ApplicationContextAware{
 	@Override
 	public void setApplicationContext(ApplicationContext applicationContext)
 			throws BeansException {
-		context = applicationContext;
+		if(applicationContext!=null){
+			context = applicationContext;
+		}
 	}
 
 }

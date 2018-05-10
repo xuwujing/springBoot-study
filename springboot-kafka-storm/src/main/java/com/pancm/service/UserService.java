@@ -29,7 +29,7 @@ public interface UserService {
 	 * @param user
 	 * @return
 	 */
-	User findByUser(User user);
+	List<User> findByUser(User user);
 	
 	
 }
