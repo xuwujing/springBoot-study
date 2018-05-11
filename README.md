@@ -33,3 +33,5 @@ GitHub工程地址](https://github.com/xuwujing/springBoot-study):https://github
 - [SpringBoot+Mybatis+ Druid+PageHelper实现多数据源并分页](http://www.panchengming.com/2018/04/27/pancm81/)
 
 - [SpringBoot整合ElasticSearch实现多版本的兼容](http://www.panchengming.com/2018/05/07/pancm82/)
+
+- [SpringBoot整合Kafka和Storm](http://www.panchengming.com/2018/05/10/pancm83/)
