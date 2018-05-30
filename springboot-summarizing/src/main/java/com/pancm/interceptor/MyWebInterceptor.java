@@ -45,7 +45,8 @@ public class MyWebInterceptor extends WebMvcConfigurerAdapter {
          * 在请求处理之前进行调用（Controller方法调用之前）调用,
          *  返回true 则放行， false 则将直接跳出方法
          */
-        public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object arg2) throws Exception {
+        @Override
+		public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object arg2) throws Exception {
             String token=request.getParameter("token");
             if (MyTools.isEmpty(token)) {
             	 System.out.println("通过!");

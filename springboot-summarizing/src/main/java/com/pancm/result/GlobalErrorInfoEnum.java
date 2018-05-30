@@ -22,11 +22,13 @@ public enum GlobalErrorInfoEnum implements ErrorInfoInterface{
         this.message = message;
     }
 
-    public String getCode(){
+    @Override
+	public String getCode(){
         return this.code;
     }
 
-    public String getMessage(){
+    @Override
+	public String getMessage(){
         return this.message;
     }
 }

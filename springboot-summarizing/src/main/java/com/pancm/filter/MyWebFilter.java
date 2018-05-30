@@ -35,10 +35,6 @@ import com.pancm.config.IpConfig;
  */
 @Configuration
 public class MyWebFilter {
-//    @Bean
-//    public RemoteIpFilter remoteIpFilter() {
-//        return new RemoteIpFilter();
-//    }
 	@Autowired  
     private IpConfig ipconfig; 
     @Bean
