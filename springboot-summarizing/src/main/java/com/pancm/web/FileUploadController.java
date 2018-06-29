@@ -17,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 * @Title: FileUpload
 * @Description:
 * 文件上传 
+* 访问 http://localhost:8180/gouploadimg 即可实现文件上传
 * @Version:1.0.0  
 * @author pancm
 * @date 2018年5月11日
