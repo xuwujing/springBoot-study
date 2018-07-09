@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>userList</title>
+    <title>用户列表</title>
     <link rel="stylesheet" th:href="@{/css/bootstrap.css}"></link>
 </head>
 <body class="container">
@@ -28,7 +28,7 @@
             <td th:text="${user.password}">123456</td>
             <td th:text="${user.age}">16</td>
             <td><a th:href="@{/toEdit(id=${user.id})}">编辑</a></td>
-            <td><a th:href="@{/delete(id=${user.id})}">删除</a></td>
+            <td><a th:href="@{/toDelete(id=${user.id})}">删除</a></td>
         </tr>
         </tbody>
     </table>

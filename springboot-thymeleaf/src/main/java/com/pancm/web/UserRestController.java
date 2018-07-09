@@ -64,7 +64,7 @@ public class UserRestController {
 	    }
 
 
-	    @RequestMapping("/delete")
+	    @RequestMapping("/toDelete")
 	    public String delete(int id) {
 	        userService.deleteUser(id);
 	        return "redirect:/list";
