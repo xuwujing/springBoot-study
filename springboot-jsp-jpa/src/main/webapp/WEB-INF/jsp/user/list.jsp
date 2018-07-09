@@ -13,6 +13,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
+  <div class="with:80%">
 	<table border="1">
 		<tbody>
 			<tr>
@@ -30,13 +31,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<td>${user.name}</td>
 						<td>${user.password}</td>
 						<td>${user.age}</td>
-						<td><a href="<%=basePath%>user/toEdit?id=${user.id}">编辑</a></td>
-						<td><a href="<%=basePath%>user/toDelete?id=${user.id}">删除</a></td>
+						<td><a href="<%=basePath%>/toEdit?id=${user.id}">编辑</a></td>
+						<td><a href="<%=basePath%>/toDelete?id=${user.id}">删除</a></td>
 					</tr>				
 				</c:forEach>
 			</c:if>
 		</tbody>
-		 <h6><a href="<%=basePath%>user/toAdd">添加用户</a></h6>
+		 <h6><a href="<%=basePath%>/toAdd">添加用户</a></h6>
 	</table>
+</div>	
   </body>
 </html>

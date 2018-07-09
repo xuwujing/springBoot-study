@@ -8,16 +8,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
     <base href="<%=basePath%>">
-    
     <title>编辑用户</title>
-    
+       <h1>编辑用户</h1>
   </head>
   
   <body>
-    <h1>编辑用户</h1>
 	<form action="/edit" name="userForm" method="post">
 		<input type="hidden" name="id" value="${user.id }"/>
-		姓名：<input type="text" name="userName" value="${user.userName }"/>
+		姓名：<input type="text" name="name" value="${user.name }"/>
+		密码：<input type="text" name="name" value="${user.password }"/>
 		年龄：<input type="text" name="age" value="${user.age }"/>
 		<input type="submit" value="提交" />
 		 &nbsp; &nbsp; &nbsp;
