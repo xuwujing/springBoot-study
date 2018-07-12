@@ -23,7 +23,9 @@ GitHub工程地址](https://github.com/xuwujing/springBoot-study):https://github
 - [springboot-kafka-storm](https://github.com/xuwujing/springBoot-study/tree/master/springboot-kafka-storm):SpringBoot集成kafka和Storm的版本。
 
 - [springboot-jsp-jpa](https://github.com/xuwujing/springBoot-study/tree/master/springboot-jsp-jpa):SpringBoot整合Jsp和Jpa，实现CRUD功能。
- 
+
+- [springboot-netty-protobuf](https://github.com/xuwujing/springBoot-study/tree/master/springboot-netty-protobuf):SpringBoot整合Netty，通过protobuf进行数据传输。
+
 - [springboot-summarizing](https://github.com/xuwujing/springBoot-study/tree/master/springboot-summarizing):SpringBoot的一个Web项目。目前正在开发！
 
 ## 文章列表
