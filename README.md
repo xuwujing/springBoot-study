@@ -24,6 +24,9 @@ GitHub工程地址](https://github.com/xuwujing/springBoot-study):https://github
 
 - [springboot-jsp-jpa](https://github.com/xuwujing/springBoot-study/tree/master/springboot-jsp-jpa):SpringBoot整合Jsp和Jpa，实现CRUD功能。
 
+- [springboot-jsp-thymeleaf](https://github.com/xuwujing/springBoot-study/tree/master/springboot-jsp-thymeleaf):SpringBoot整合Jsp和Thymeleaf实现两个模块的兼容。
+
+
 - [springboot-netty-protobuf](https://github.com/xuwujing/springBoot-study/tree/master/springboot-netty-protobuf):SpringBoot整合Netty，通过protobuf进行数据传输。
 
 - [springboot-summarizing](https://github.com/xuwujing/springBoot-study/tree/master/springboot-summarizing):SpringBoot的一个Web项目。目前正在开发！
@@ -41,3 +44,5 @@ GitHub工程地址](https://github.com/xuwujing/springBoot-study):https://github
 - [SpringBoot整合Kafka和Storm](http://www.panchengming.com/2018/05/10/pancm83/)
 
 - [SpringBoot整合Jsp和Thymeleaf](https://www.cnblogs.com/xuwujing/p/9297165.html)
+
+- [SpringBoot整合Netty并使用Protobuf进行数据传输](https://www.cnblogs.com/xuwujing/p/9321395.html)
