@@ -26,8 +26,9 @@ GitHub工程地址](https://github.com/xuwujing/springBoot-study):https://github
 
 - [springboot-jsp-thymeleaf](https://github.com/xuwujing/springBoot-study/tree/master/springboot-jsp-thymeleaf):SpringBoot整合Jsp和Thymeleaf实现两个模块的兼容。
 
-
 - [springboot-netty-protobuf](https://github.com/xuwujing/springBoot-study/tree/master/springboot-netty-protobuf):SpringBoot整合Netty，通过protobuf进行数据传输。
+
+- [springboot-package](https://github.com/xuwujing/springBoot-study/tree/master/springboot-package):SpringBoot打包项目，可以通过点击build.bat一键打包。
 
 - [springboot-summarizing](https://github.com/xuwujing/springBoot-study/tree/master/springboot-summarizing):SpringBoot的一个Web项目。目前正在开发！
 

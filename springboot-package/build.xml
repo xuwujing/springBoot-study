@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="datastore" default="copyAll" basedir=".">
+	<property name="build" value="build" />
+	<property name="target" value="target" />
+	<target name="clean">
+		<delete dir="${target}" />
+		<delete dir="${build}" />
+	</target>
+
+	<target name="create-path" depends="clean">
+		<mkdir dir="${build}" />
+	</target>
+
+	<target name="mvn_package" depends="create-path">
+		<exec executable="cmd" failonerror="true">
+			<arg line="/c mvn install:install-file -Dfile=lib/pancmtools.jar -DgroupId=com.panncm.utils -DartifactId=pancm-utils -Dversion=1.0 -Dpackaging=jar" />
+		</exec>
+		<exec executable="cmd" failonerror="true">
+			<arg line="/c mvn clean package" />
+		</exec>
+	</target>
+
+	<target name="copyAll" depends="mvn_package">
+		<copy todir="${build}" file="${target}/springboot-package.jar"></copy> 
+		<copy todir="${build}" file="logback.xml"></copy>
+		<copy todir="${build}" file="application.properties"></copy>
+	</target>
+</project>

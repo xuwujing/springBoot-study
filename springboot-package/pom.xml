@@ -1,0 +1,117 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>1.0.0</groupId>
+	<artifactId>springboot-package</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>springboot-package</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<mybatis-spring-boot>1.2.0</mybatis-spring-boot>
+		<springboot.version>1.5.9.RELEASE</springboot.version>
+		<mysql-connector>5.1.44</mysql-connector>
+		<logback>1.2.3</logback>
+		<slf4j>1.7.25</slf4j>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+
+
+
+	<dependencies>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<version>${springboot.version}</version>
+		</dependency>
+
+		<!-- Spring Boot Mybatis 依赖 -->
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>${mybatis-spring-boot}</version>
+		</dependency>
+		<!-- MySQL 连接驱动依赖 -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql-connector}</version>
+		</dependency>
+
+		<!--日志 -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+			<version>${logback}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.panncm.utils</groupId>
+			<artifactId>pancm-utils</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+	</dependencies>
+
+
+	<!-- <build> <resources> <resource> <directory>src/main/resource/mapper</directory> 
+		<includes> <include>*.xml</include> </includes> <targetPath>${project.build.directory}/classes/mapper</targetPath> 
+		<filtering>false</filtering> </resource> </resources> <defaultGoal>compile</defaultGoal> 
+		<sourceDirectory>src</sourceDirectory> <finalName>springboot-package</finalName> 
+		<plugins> <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-assembly-plugin</artifactId> 
+		<configuration> <appendAssemblyId>false</appendAssemblyId> <descriptorRefs> 
+		<descriptorRef>jar-with-dependencies</descriptorRef> </descriptorRefs> <archive> 
+		<manifest> <mainClass>com.pancm.App</mainClass> </manifest> </archive> </configuration> 
+		<executions> <execution> <id>make-assembly</id> <phase>package</phase> <goals> 
+		<goal>assembly</goal> </goals> </execution> </executions> </plugin> </plugins> 
+		</build> -->
+
+	<build>
+		<defaultGoal>compile</defaultGoal>
+		<sourceDirectory>src</sourceDirectory>
+		<finalName>springboot-package</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin </artifactId>
+				<configuration>
+					<fork>true</fork>
+					<mainClass>com.pancm.App</mainClass>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+
+	<!-- <repositories> <repository> <id>spring-milestone</id> <url>http://repo.spring.io/libs-release</url> 
+		</repository> </repositories> -->
+
+</project>
