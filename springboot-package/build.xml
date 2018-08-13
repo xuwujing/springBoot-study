@@ -24,5 +24,6 @@
 		<copy todir="${build}" file="${target}/springboot-package.jar"></copy> 
 		<copy todir="${build}" file="logback.xml"></copy>
 		<copy todir="${build}" file="application.properties"></copy>
+		<copy todir="${build}" file="run.bat"></copy>
 	</target>
 </project>

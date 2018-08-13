@@ -65,7 +65,7 @@
 			<artifactId>logback-core</artifactId>
 			<version>${logback}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.panncm.utils</groupId>
 			<artifactId>pancm-utils</artifactId>
@@ -75,17 +75,7 @@
 	</dependencies>
 
 
-	<!-- <build> <resources> <resource> <directory>src/main/resource/mapper</directory> 
-		<includes> <include>*.xml</include> </includes> <targetPath>${project.build.directory}/classes/mapper</targetPath> 
-		<filtering>false</filtering> </resource> </resources> <defaultGoal>compile</defaultGoal> 
-		<sourceDirectory>src</sourceDirectory> <finalName>springboot-package</finalName> 
-		<plugins> <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-assembly-plugin</artifactId> 
-		<configuration> <appendAssemblyId>false</appendAssemblyId> <descriptorRefs> 
-		<descriptorRef>jar-with-dependencies</descriptorRef> </descriptorRefs> <archive> 
-		<manifest> <mainClass>com.pancm.App</mainClass> </manifest> </archive> </configuration> 
-		<executions> <execution> <id>make-assembly</id> <phase>package</phase> <goals> 
-		<goal>assembly</goal> </goals> </execution> </executions> </plugin> </plugins> 
-		</build> -->
+	 
 
 	<build>
 		<defaultGoal>compile</defaultGoal>
@@ -111,7 +101,5 @@
 	</build>
 
 
-	<!-- <repositories> <repository> <id>spring-milestone</id> <url>http://repo.spring.io/libs-release</url> 
-		</repository> </repositories> -->
 
 </project>
