@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="datastore" default="copyAll" basedir=".">
+<project name="springboot-package" default="copyAll" basedir=".">
 	<property name="build" value="build" />
 	<property name="target" value="target" />
 	<target name="clean">
