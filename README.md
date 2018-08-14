@@ -47,3 +47,5 @@ GitHub工程地址](https://github.com/xuwujing/springBoot-study):https://github
 - [SpringBoot整合Jsp和Thymeleaf](https://www.cnblogs.com/xuwujing/p/9297165.html)
 
 - [SpringBoot整合Netty并使用Protobuf进行数据传输](https://www.cnblogs.com/xuwujing/p/9321395.html)
+
+- [SpringBoot简单打包部署](https://www.cnblogs.com/xuwujing/p/9471802.html)   
