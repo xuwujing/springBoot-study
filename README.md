@@ -1,10 +1,11 @@
 ## springBoot-study
-springBoot 学习的一些工程！
+springBoot 是本人在学习SpringBoot的一些工程！
+秉着开箱即用的原则，这些工程只需下载之后，更改相应的配置，运行main方法，即可启动！
 
-[
-GitHub工程地址](https://github.com/xuwujing/springBoot-study):https://github.com/xuwujing/springBoot-study
+[GitHub工程地址](https://github.com/xuwujing/springBoot-study):https://github.com/xuwujing/springBoot-study
 
 [码云工程地址](https://gitee.com/XuWuJing/springBoot-study):https://gitee.com/XuWuJing/springBoot-study
+
 ## 工程说明
 
 
