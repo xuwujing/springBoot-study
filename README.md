@@ -31,6 +31,8 @@ springBoot 是本人在学习SpringBoot的一些工程！
 
 - [springboot-package](https://github.com/xuwujing/springBoot-study/tree/master/springboot-package):SpringBoot打包项目，可以通过点击build.bat一键打包。Windows双击run.bat一键启动，Linux输入./start.sh启动。
 
+- [springboot-redis](https://github.com/xuwujing/springBoot-study/tree/master/springboot-redis):SpringBoot整合redis的项目，可以实现CRUD功能。
+
 - [springboot-summarizing](https://github.com/xuwujing/springBoot-study/tree/master/springboot-summarizing):SpringBoot的一个Web项目。目前正在开发！
 
 ## 文章列表
