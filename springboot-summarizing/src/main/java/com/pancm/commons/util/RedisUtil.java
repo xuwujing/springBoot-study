@@ -1,4 +1,4 @@
-package com.pancm.util;
+package com.pancm.commons.util;
 
 import java.util.List;
 import java.util.Map;

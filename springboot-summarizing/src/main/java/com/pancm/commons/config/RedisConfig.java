@@ -1,4 +1,4 @@
-package com.pancm.config;
+package com.pancm.commons.config;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -14,8 +14,8 @@ import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSeriali
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.stereotype.Component;
 
-import com.pancm.util.MyTools;
-import com.pancm.util.RedisUtil;
+import com.pancm.commons.util.MyTools;
+import com.pancm.commons.util.RedisUtil;
 
 import redis.clients.jedis.JedisPoolConfig;
 

@@ -23,7 +23,7 @@ import com.pancm.pojo.User;
 public class HelloWorld2 {
 	 
 	   
-		@RequestMapping("/")
+		@RequestMapping("/2")
 	    @ResponseBody
 	 	 public User getUser() {
 	     	// 直接获取界面会直接返回 {"id":2,"name":"李四"}

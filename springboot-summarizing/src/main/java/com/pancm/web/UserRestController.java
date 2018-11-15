@@ -1,12 +1,17 @@
 package com.pancm.web;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.pancm.commons.annotation.Check;
 import com.pancm.pojo.User;
 import com.pancm.service.UserService;
 
@@ -28,31 +33,39 @@ import io.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping(value = "/api")
 public class UserRestController {
+	
+	private  final Logger logger = LoggerFactory.getLogger(this.getClass());
 	@Autowired
     private UserService userService;
 	
 	/**
-	 * @ApiOperation注解来给API增加说明、通过@ApiImplicitParams、@ApiImplicitParam注解来给参数增加说明。
+	 * @ApiOperation注解来给API增加说明、通过@ApiImplicitParams注解来给参数增加说明。
+	 * value 是标题,notes是详细说明
 	 * @param user
 	 * @return
 	 */
 	@ApiOperation(value="创建用户", notes="根据User对象创建用户")
     @ApiImplicitParam(name = "user", value = "用户详细实体user", required = true, dataType = "User")
-	@RequestMapping(value = "/user", method = RequestMethod.POST)
+	@PostMapping("/user")
+	@Check("name")
     public boolean insert(@RequestBody User user) {
-    	System.out.println("开始新增...");
+		logger.info("开始新增用户信息！请求参数:{}",user);
         return userService.insert(user);
     }
     
-	@RequestMapping(value = "/user", method = RequestMethod.PUT)
+	@ApiOperation(value="更新用户", notes="根据User对象更新用户")
+    @ApiImplicitParam(name = "user", value = "用户详细实体user", required = true, dataType = "User")
+	@PutMapping("/user")
     public boolean update(@RequestBody User user) {
-    	System.out.println("开始更新...");
+    	logger.info("开始更新用户信息！请求参数:{}",user);
         return userService.update(user);
     }
 	
-	@RequestMapping(value = "/user", method = RequestMethod.DELETE)
+	@ApiOperation(value="删除用户", notes="根据User对象删除用户")
+    @ApiImplicitParam(name = "user", value = "用户详细实体user", required = true, dataType = "User")
+	@DeleteMapping("/user")
     public boolean delete(@RequestBody User user)  {
-    	System.out.println("开始删除...");
+    	logger.info("开始删除用户信息！请求参数:{}",user);
         return userService.delete(user);
     }
 	
@@ -62,10 +75,11 @@ public class UserRestController {
 	 * @param user
 	 * @return
 	 */
-	@ApiOperation(value="获取用户列表", notes="")
+	@ApiOperation(value="获取用户列表", notes="根据User对象查询用户信息")
+	@ApiImplicitParam(name = "user", value = "用户详细实体user", required = true, dataType = "User")
     @GetMapping("/user")
     public User findByUser(User user) {
-    	System.out.println("开始查询...");
+    	logger.info("开始查询用户列表，请求参数:{}",user);
         return userService.findByEntity(user);
     }
     

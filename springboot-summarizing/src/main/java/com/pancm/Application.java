@@ -1,6 +1,8 @@
 package com.pancm;
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,6 +19,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Application implements CommandLineRunner  {
     
+	private static final Logger logger = LoggerFactory.getLogger(Application.class);
 	/*
 	 *  SpringApplication 则是用于从main方法启动Spring应用的类。默认，它会执行以下步骤：
 		1.创建一个合适的ApplicationContext实例 （取决于classpath）。
@@ -27,11 +30,11 @@ public class Application implements CommandLineRunner  {
 	public static void main(String[] args) {
 		// 启动嵌入式的 Tomcat 并初始化 Spring 环境及其各 Spring 组件
 		SpringApplication.run(Application.class, args);
-		System.out.println("程序正在运行...");
+		logger.info("程序启动成功!");
 	}
 	
 	 @Override  
     public void run(String... strings) throws Exception {  
-        System.out.println("启动一个方法测试...");  
+		 logger.debug("启动一个方法测试...");  
     } 
 }

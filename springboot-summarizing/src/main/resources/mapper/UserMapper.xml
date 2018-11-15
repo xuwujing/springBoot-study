@@ -7,74 +7,71 @@
 		<result column="age" property="age" />
 	</resultMap>
 
-	<parameterMap id="User" type="com.pancm.pojo.User"/>
+	<parameterMap id="User" type="com.pancm.pojo.User" />
 
 	<sql id="Base_Column_List">
-		id, name, age
+		name, age
 	</sql>
-	
-	<select id="findUserByName" resultMap="BaseResultMap" parameterType="User">
-		select
-		<include refid="Base_Column_List" />
-		from t_user 
-		where name = #{name}
-	</select>
-	
-	
+
+
 	<select id="findByEntity" resultMap="BaseResultMap" parameterType="User">
 		select
 		<include refid="Base_Column_List" />
 		from t_user 
-		where 1=1
-		<if test="id!=null">
-			and id = #{id}
-		</if>
-		<if test="name!=null">
-			and name = #{name}
-		</if>
-		<if test="age!=null">
-			and age = #{age}
-		</if>
-	</select>
-	
-	
-	<select id="findAll" resultMap="BaseResultMap">
-		select
-		<include refid="Base_Column_List" />
-		from t_user
+		<where>
+			<if test="id!=null and id!=''">
+				and id = #{id}
+			</if>
+			<if test="name!=null and name!=''">
+				and name = #{name}
+			</if>
+			<if test="age!=null and age!=''">
+				and age = #{age}
+			</if>
+		</where>
 	</select>
 
 
-	<insert id="addUser" parameterMap="User" useGeneratedKeys="true" keyProperty="id">
+
+
+	<insert id="insert" parameterMap="User" useGeneratedKeys="true" keyProperty="id">
 		insert into
-		t_user(<include refid="Base_Column_List" />)
+		t_user(
+		<include refid="Base_Column_List" />
+	   	)
 		values
-		(#{id},#{name},#{age})
+		(#{name},#{age})
+		
+		 <selectKey resultClass="int" type="post" keyProperty="id" >  
+       		 select LAST_INSERT_ID() as value  
+    	</selectKey>  
+		
 	</insert>
 
-	
-	
 
-	<update id="updateUser" parameterMap="User">
+
+	<update id="update" parameterMap="User">
 		update
 		t_user
-		set
-		<if test="name!=null">
-			name = #{name},
-		</if>
-		<if test="age!=null">
-			age = #{age},
-		</if>
+		<trim prefix="set" suffixOverrides=",">
+			<if test="name!=null">
+				name = #{name},
+			</if>
+			<if test="age!=null">
+				age = #{age},
+			</if>
+		</trim>
 		where
 		id = #{id}
 	</update>
 
-	<delete id="deleteUser" parameterType="java.lang.Integer">
+	<delete id="delete" parameterType="java.lang.Integer">
 		delete from
 		t_user
 		where
-		id = #{id}
+		id =
+		#{id}
 	</delete>
-	
+
 
 </mapper>
