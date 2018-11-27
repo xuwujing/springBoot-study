@@ -107,8 +107,8 @@ public class SetSystemProperty {
 		InputStream in = null;
 		try {
 			// props.load(new FileInputStream(profilepath));
-			in = new FileInputStream(new File(profilepath));
-//			in = this.getClass().getClassLoader().getResourceAsStream(profilepath);
+//			in = new FileInputStream(new File(profilepath));
+			in = this.getClass().getClassLoader().getResourceAsStream(profilepath);
 			props.load(in);
 			// 调用 Hashtable 的方法 put，使用 getProperty 方法提供并行性。
 			// 强制要求为属性的键和值使用字符串。返回值是 Hashtable 调用 put 的结果。

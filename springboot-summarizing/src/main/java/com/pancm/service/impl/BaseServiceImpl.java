@@ -27,10 +27,11 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
 	public boolean insert(T entity)  {
 		boolean falg=false;
 		try {
-			getMapper().insert(entity);
+			int i=getMapper().insert(entity);
+			System.out.println("自增id:"+i);
 			falg=true;
 		} catch (Exception e) {
-			logger.error("新增"+entity.getClass()+"失败!原因是:",e);
+			logger.error("新增"+entity.getClass().getName()+"失败!原因是:",e);
 		}
 		return falg;
 	}

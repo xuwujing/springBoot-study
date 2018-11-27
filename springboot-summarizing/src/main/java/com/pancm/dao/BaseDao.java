@@ -19,7 +19,7 @@ public interface BaseDao<T> {
 	 * @throws Exception
 	 * @throws
 	 */
-	void insert(T entity) throws Exception;
+	int insert(T entity) throws Exception;
 	
 	
 	/**

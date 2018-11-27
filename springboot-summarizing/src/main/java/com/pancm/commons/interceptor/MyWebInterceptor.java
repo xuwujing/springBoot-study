@@ -12,6 +12,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 import com.pancm.commons.util.MyTools;
 
+import lombok.extern.slf4j.Slf4j;
+
 
 /**
  * 
@@ -23,6 +25,7 @@ import com.pancm.commons.util.MyTools;
 * @date 2018年3月20日
  */
 @Configuration
+@Slf4j
 public class MyWebInterceptor extends WebMvcConfigurerAdapter {
 
     @Bean   
@@ -49,10 +52,10 @@ public class MyWebInterceptor extends WebMvcConfigurerAdapter {
 		public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object arg2) throws Exception {
             String token=request.getParameter("token");
             if (MyTools.isEmpty(token)) {
-            	 System.out.println("通过!");
+            	log.info("通过!");
                  return true;
             } else {
-                System.out.println("不通过!");
+            	log.info("不通过!");
                 return false;
             }
         }

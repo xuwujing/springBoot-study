@@ -47,7 +47,7 @@ public class UserRestController {
 	@ApiOperation(value="创建用户", notes="根据User对象创建用户")
     @ApiImplicitParam(name = "user", value = "用户详细实体user", required = true, dataType = "User")
 	@PostMapping("/user")
-	@Check("name")
+	@Check(value="name")
     public boolean insert(@RequestBody User user) {
 		logger.info("开始新增用户信息！请求参数:{}",user);
         return userService.insert(user);

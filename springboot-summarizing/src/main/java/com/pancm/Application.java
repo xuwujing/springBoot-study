@@ -8,10 +8,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * 
-* Title: Application
-* Description:
+* @Title: Application
+* @Description:
 * springBoot 主程序 
-* Version:1.0.0  
+* @Version:1.0.0  
 * @author pancm
 * @date 2018年1月5日
  */
