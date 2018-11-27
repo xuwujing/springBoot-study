@@ -1,4 +1,4 @@
-package com.pancm.commons.util;
+package com.pancm.commons.aspect;
 
 
 import java.lang.reflect.Method;
@@ -22,6 +22,7 @@ import org.springframework.util.CollectionUtils;
 import com.pancm.commons.annotation.Check;
 import com.pancm.commons.enums.CommonEnum;
 import com.pancm.commons.result.ResultBody;
+import com.pancm.commons.util.ReflectionUtil;
 
 /**
  * 
@@ -94,6 +95,7 @@ public class CheckParamAspect {
          //   throw new BizException(msg);
         	return   ResultBody.error(CommonEnum.BODY_NOT_MATCH);
         }
+        LOG.info("参数校验通过!");
         // 通过校验，继续执行原有方法
         obj = point.proceed();
         return obj;
