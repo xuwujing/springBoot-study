@@ -24,7 +24,7 @@ springBoot-study 是本人在学习SpringBoot的一些工程！
 
 
 - [springboot-hello](https://github.com/xuwujing/springBoot-study/tree/master/springboot-mutil-datasource):SpringBoot 的 Hello World 版本。
-启动程序，然后在浏览器输入http://localhost:8080//hello，即可查看相关信息。
+启动程序，然后在浏览器输入`http://localhost:8080//hello`，即可查看相关信息。
 
 - [springboot-config](https://github.com/xuwujing/springBoot-study/tree/master/springboot-config): SpringBoot自定义配置获取，过滤器以及拦截器的使用版本。
 
