@@ -1,0 +1,18 @@
+server:
+  port: 8181 
+management:
+  security:
+    enabled: false #关掉安全认证
+  port: 8888 #管理端口
+  context-path: /monitor #actuator的访问路径
+
+# 是否允许关闭  
+endpoints:
+  shutdown:
+    enabled: true
+
+
+info:
+  app:
+   name:springboot-actuator
+   version:1.0
