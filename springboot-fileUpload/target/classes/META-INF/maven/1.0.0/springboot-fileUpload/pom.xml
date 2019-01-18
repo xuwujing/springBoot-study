@@ -1,0 +1,60 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>1.0.0</groupId>
+  <artifactId>springboot-fileUpload</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>springboot-fileUpload</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+		<springboot>1.5.9.RELEASE</springboot>
+		<mybatis-spring-boot>1.2.0</mybatis-spring-boot>
+		<mysql-connector>5.1.39</mysql-connector>
+		<druid>1.1.10</druid>
+		<fastjson>1.2.41</fastjson>
+		<quartz>2.3.0</quartz>
+		<commonslang3>3.7</commonslang3>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+
+
+	<dependencies> 
+	
+		<!-- Spring Boot Web 依赖 核心 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<version>${springboot}</version>
+		</dependency>
+		<!-- Spring Boot thymeleaf 模板 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+			<version>${springboot}</version>
+		</dependency>
+
+		<!-- Spring Boot 热部署 class文件之后会自动重启 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
+			<version>${springboot}</version>
+		</dependency>
+		<!-- Spring Boot Test 依赖 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<version>${springboot}</version>
+			<scope>test</scope>
+		</dependency> 
+
+
+	</dependencies>
+</project>
