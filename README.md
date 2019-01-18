@@ -48,7 +48,10 @@ springBoot-study 是本人在学习SpringBoot的一些工程！
 
 - [springboot-redis](https://github.com/xuwujing/springBoot-study/tree/master/springboot-redis):SpringBoot整合redis的项目，使用Restful风格实现的CRUD功能。
 
-- [springboot-summarizing](https://github.com/xuwujing/springBoot-study/tree/master/springboot-summarizing):SpringBoot的一个Web项目。目前正在开发！
+- [springboot-actuator](https://github.com/xuwujing/springBoot-study/tree/master/springboot-actuator):SpringBoot整合actuato的项目，实现对项目进行监控。
+
+- [springboot-fileUpload](https://github.com/xuwujing/springBoot-study/tree/master/springboot-fileUpload):SpringBoot实现文件上传的功能。
+
 
 ## 文章列表
 
