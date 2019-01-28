@@ -53,6 +53,9 @@ springBoot-study 是本人在学习SpringBoot的一些工程！
 - [springboot-fileUpload](https://github.com/xuwujing/springBoot-study/tree/master/springboot-fileUpload):SpringBoot实现文件上传的功能。
 
 
+- [springboot-mail](https://github.com/xuwujing/springBoot-study/tree/master/springboot-mail):SpringBoot实现邮件发送功能，包括普通文本发送、图片、附件发送功能。
+
+
 ## 文章列表
 
 [SpringBoot系列博客:](https://www.cnblogs.com/xuwujing/category/1145997.html)
