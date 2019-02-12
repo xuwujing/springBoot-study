@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
@@ -18,15 +19,17 @@
 		<springboot>1.5.9.RELEASE</springboot>
 		<mybatis-spring-boot>1.2.0</mybatis-spring-boot>
 		<mysql-connector>5.1.39</mysql-connector>
-		<druid>1.0.18</druid>
+		<druid>1.1.10</druid>
 		<fastjson>1.2.41</fastjson>
 		<quartz>2.3.0</quartz>
 		<commonslang3>3.7</commonslang3>
-
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 
 
 	<dependencies>
+
 		<!-- Spring Boot Web 依赖 核心 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -66,6 +69,13 @@
 		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-security</artifactId> 
 			<version>${springboot}</version> </dependency> -->
 
+
+		<!-- shiro 配置  -->
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-spring-boot-web-starter</artifactId>
+			<version>1.4.0</version>
+		</dependency>
 
 
 		<!--邮件 -->
@@ -130,6 +140,12 @@
 			<version>${mybatis-spring-boot}</version>
 		</dependency>
 
+		<!--pagehelper分页工具类 -->
+		<dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper</artifactId>
+			<version>4.1.0</version>
+		</dependency>
 		<!-- Druid 数据连接池依赖 -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
@@ -158,11 +174,48 @@
 			<version>${quartz}</version>
 		</dependency>
 
+		<!--使用lombok 在pojo中可以免去写getter和setter -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.16.18</version>
+		</dependency>
+
+		<!-- MyBatis 增强工具包，简化 CRUD 操作 -->
+		<!-- SpringBoot 版本 -->
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatis-plus-boot-starter</artifactId>
+			<version>3.0.5</version>
+		</dependency>
+		<!-- springmvc 版本 -->
+		<!-- <dependency> <groupId>com.baomidou</groupId> <artifactId>mybatis-plus</artifactId> 
+			<version>3.0.5</version> </dependency> -->
 
 	</dependencies>
 
+
 	<build>
+		<defaultGoal>compile</defaultGoal>
+		<sourceDirectory>src</sourceDirectory>
+		<finalName>springboot-summarizing</finalName>
 		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin </artifactId>
+				<configuration>
+					<fork>true</fork>
+					<mainClass>com.pancm.App</mainClass>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
 			<!--运用SpringBoot 插件 使用spring-boot-devtools模块的应用,当classpath中的文件有改变时，会自动重启！ -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -173,6 +226,10 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<!-- <repositories> <repository> <id>spring-milestone</id> <url>http://repo.spring.io/libs-release</url> 
+		</repository> </repositories> -->
+
 
 
 </project>
