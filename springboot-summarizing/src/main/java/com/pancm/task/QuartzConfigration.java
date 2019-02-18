@@ -7,6 +7,9 @@ import org.springframework.scheduling.quartz.CronTriggerFactoryBean;
 import org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean;
 import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 
+/**
+ *   定时任务线程
+ */
 @Configuration
 public class QuartzConfigration {
 

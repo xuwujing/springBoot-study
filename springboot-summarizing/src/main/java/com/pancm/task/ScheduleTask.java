@@ -4,10 +4,11 @@ import java.util.Date;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
-import org.springframework.stereotype.Component;
 
+/*
+ * 时间设置
+ */
 @Configuration
-@Component
 @EnableScheduling // 该注解必须要加
 public class ScheduleTask { 
      public void scheduleTest() {
