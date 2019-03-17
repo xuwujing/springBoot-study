@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: springboot-swagger
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: pancm
+Implementation-Vendor-Id: com.pancm
+Build-Jdk: 1.8.0_152
+Implementation-URL: http://projects.spring.io/spring-boot/springboot-s
+ wagger/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+
