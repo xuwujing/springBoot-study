@@ -55,6 +55,8 @@ springBoot-study 是本人在学习SpringBoot的一些工程！
 
 - [springboot-mail](https://github.com/xuwujing/springBoot-study/tree/master/springboot-mail):SpringBoot实现邮件发送功能，包括普通文本发送、图片、附件发送功能。
 
+- [springboot-swagger](https://github.com/xuwujing/springBoot-study/tree/master/springboot-swagger):SpringBoot实现可视化 RESTful风格的Web服务。
+
 
 ## 文章列表
 
