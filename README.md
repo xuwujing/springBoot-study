@@ -57,6 +57,7 @@ springBoot-study 是本人在学习SpringBoot的一些工程！
 
 - [springboot-swagger](https://github.com/xuwujing/springBoot-study/tree/master/springboot-swagger):SpringBoot实现可视化 RESTful风格的Web服务。
 
+- [springboot-task](https://github.com/xuwujing/springBoot-study/tree/master/springboot-task):SpringBoot使用注解实现线程池的配置和自定义线程的使用示例。
 
 ## 文章列表
 
