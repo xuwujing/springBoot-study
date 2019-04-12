@@ -1,14 +1,17 @@
 server:
-    port: 8280 
+    port: 8280
 
     
 spring:
     application:
              name: springboot2
              
-             
+
 management:
-  security:
-    enabled: false #关掉安全认证
-  port: 8888 #管理端口
-  context-path: /monitor #actuator的访问路径             
+  endpoint:
+    shutdown:
+      enabled: true
+
+
+
+

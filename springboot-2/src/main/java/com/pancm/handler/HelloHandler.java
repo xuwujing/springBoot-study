@@ -1,4 +1,4 @@
-package com.pancm.web;
+package com.pancm.handler;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
