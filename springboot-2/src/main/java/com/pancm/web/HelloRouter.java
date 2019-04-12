@@ -27,7 +27,7 @@ springboot2.x的配置说明:https://github.com/spring-projects/spring-boot/wiki
 public class HelloRouter {
 
 	@Bean
-	public RouterFunction<ServerResponse> routeCity(HelloHandler hander) {
+	public RouterFunction<ServerResponse> route(HelloHandler hander) {
 		/**
 		 * RouterFunctions:对请求路由处理类，即将请求路由到处理器。
 		 * RouterFunctions.route(RequestPredicate, HandlerFunction) 方法，对应的入参是请求参数和处理函数，如果请求匹配，就调用对应的处理器函数。
