@@ -48,7 +48,7 @@ springBoot-study 是本人在学习SpringBoot的一些工程！
 
 - [springboot-redis](https://github.com/xuwujing/springBoot-study/tree/master/springboot-redis):SpringBoot整合redis的项目，使用Restful风格实现的CRUD功能。
 
-- [springboot-actuator](https://github.com/xuwujing/springBoot-study/tree/master/springboot-actuator):SpringBoot整合actuato的项目，实现对项目进行监控。
+- [springboot-actuator](https://github.com/xuwujing/springBoot-study/tree/master/springboot-actuator):SpringBoot整合actuato的项目，实现对项目进行监控并查看相关信息。
 
 - [springboot-fileUpload](https://github.com/xuwujing/springBoot-study/tree/master/springboot-fileUpload):SpringBoot实现文件上传的功能。
 
@@ -61,9 +61,9 @@ springBoot-study 是本人在学习SpringBoot的一些工程！
 
 - [springboot-2](https://github.com/xuwujing/springBoot-study/tree/master/springboot-2):SpringBoo2.x 结合webflux(异步非阻塞开发框架)的 版本使用示例。
 
-- [springboot2-elasticsearch](https://github.com/xuwujing/springBoot-study/tree/master/springboot2-elasticsearch):SpringBoo2.x 结合ElasticSearch6.x 版本使用的示例。
+- [springboot2-elasticsearch](https://github.com/xuwujing/springBoot-study/tree/master/springboot2-elasticsearch):SpringBoo2.x 结合ElasticSearch 6.x 版本使用的示例。
 
-- [springboot2-docker](https://github.com/xuwujing/springBoot-study/tree/master/springboot2-docker):SpringBoo2.x 结合Docker 版本使用的示例。
+- [springboot2-docker](https://github.com/xuwujing/springBoot-study/tree/master/springboot2-docker):SpringBoo2.x 结合Docker版本使用的示例。
 
 ## 文章列表
 
