@@ -83,7 +83,9 @@ springBoot-study 是本人在学习SpringBoot的一些工程！
 
 - [SpringBoot整合Netty并使用Protobuf进行数据传输](https://www.cnblogs.com/xuwujing/p/9321395.html)
 
-- [SpringBoot简单打包部署](https://www.cnblogs.com/xuwujing/p/9471802.html)   
+- [SpringBoot简单打包部署](https://www.cnblogs.com/xuwujing/p/9471802.html)  
+
+-  [SpringBoot整合Redis使用Restful风格实现CRUD功能](https://www.cnblogs.com/xuwujing/p/10835571.html) 
 
 
 

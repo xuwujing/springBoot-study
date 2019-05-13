@@ -2,6 +2,7 @@
 /classes/
 /log/  
 /logs/ 
+.idea
 .classpath
 .project
 .settings  
