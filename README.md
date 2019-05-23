@@ -52,12 +52,13 @@ springBoot-study 是本人在学习SpringBoot的一些工程！
 
 - [springboot-fileUpload](https://github.com/xuwujing/springBoot-study/tree/master/springboot-fileUpload):SpringBoot实现文件上传的功能。
 
-
 - [springboot-mail](https://github.com/xuwujing/springBoot-study/tree/master/springboot-mail):SpringBoot实现邮件发送功能，包括普通文本发送、图片、附件发送功能。
 
 - [springboot-swagger](https://github.com/xuwujing/springBoot-study/tree/master/springboot-swagger):SpringBoot实现可视化 RESTful风格的Web服务。
 
 - [springboot-task](https://github.com/xuwujing/springBoot-study/tree/master/springboot-task):SpringBoot使用注解实现线程池的配置和自定义线程的使用示例。
+
+- [springboot-exceptionHandler](https://github.com/xuwujing/springBoot-study/tree/master/springboot-exceptionHandler):SpringBoot实现全局异常的统一处理的项目,可以对自定的异常以及系统异常进行分类处理。
 
 - [springboot2-webflux](https://github.com/xuwujing/springBoot-study/tree/master/springboot2-webflux):SpringBoo2.x 结合webflux(异步非阻塞开发框架)的 版本使用示例。
 
