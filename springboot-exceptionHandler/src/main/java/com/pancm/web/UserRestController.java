@@ -5,6 +5,7 @@ import com.pancm.exception.BizException;
 import com.pancm.pojo.User;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -44,18 +45,21 @@ public class UserRestController {
     @DeleteMapping("/user")
     public boolean delete(@RequestBody User user)  {
         System.out.println("开始删除...");
-        if(user.getId()==null){
-            throw  new BizException(CommonEnum.BODY_NOT_MATCH);
-        }
+        //这里故意造成一个异常，并且不进行处理
+        Integer.parseInt("abc123");
         return true;
     }
 
     @GetMapping("/user")
     public List<User> findByUser(User user) {
     	System.out.println("开始查询...");
-    	//这里故意造成一个异常，并且不进行处理
-        Integer.parseInt("abc123");
-        return null;
+        List<User> userList =new ArrayList<>();
+        User user2=new User();
+        user2.setId(1L);
+        user2.setName("xuwujing");
+        user2.setAge(18);
+        userList.add(user2);
+        return userList;
     }
     
 }
