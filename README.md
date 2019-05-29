@@ -88,5 +88,9 @@ springBoot-study 是本人在学习SpringBoot的一些工程！
 
 -  [SpringBoot整合Redis使用Restful风格实现CRUD功能](https://www.cnblogs.com/xuwujing/p/10835571.html) 
 
+- [SpringBoot优雅的全局异常处理](https://www.cnblogs.com/xuwujing/p/10933082.html)   
+
+-  [SpringBoot项目实现文件上传和邮件发送](https://www.cnblogs.com/xuwujing/p/10945698.html) 
+
 
 
