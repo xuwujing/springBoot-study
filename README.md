@@ -71,14 +71,15 @@ springBoot-study 是本人在学习SpringBoot的一些工程！
 [SpringBoot系列博客:](https://www.cnblogs.com/xuwujing/category/1145997.html)
 
 
-- [SpringBoot配置文件的读取以及过滤器和拦截器的使用](http://www.panchengming.com/2018/02/28/pancm73/)
+- [SpringBoot的Restful风格的服务](https://www.cnblogs.com/xuwujing/p/8260935.html)
 
-- [SpringBoot的Restful风格的服务](http://www.panchengming.com/2018/01/10/pancm67/)
-- [SpringBoot+Mybatis+ Druid+PageHelper实现多数据源并分页](http://www.panchengming.com/2018/04/27/pancm81/)
+- [SpringBoot配置文件的读取以及过滤器和拦截器的使用](https://www.cnblogs.com/xuwujing/p/8485832.html)
 
-- [SpringBoot整合ElasticSearch实现多版本的兼容](http://www.panchengming.com/2018/05/07/pancm82/)
+- [SpringBoot+Mybatis+ Druid+PageHelper实现多数据源并分页](https://www.cnblogs.com/xuwujing/p/8964927.html)
 
-- [SpringBoot整合Kafka和Storm](http://www.panchengming.com/2018/05/10/pancm83/)
+- [SpringBoot整合ElasticSearch实现多版本的兼容](https://www.cnblogs.com/xuwujing/p/8998168.html)
+
+- [SpringBoot整合Kafka和Storm](https://www.cnblogs.com/xuwujing/p/9021561.html)
 
 - [SpringBoot整合Jsp和Thymeleaf](https://www.cnblogs.com/xuwujing/p/9297165.html)
 
