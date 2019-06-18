@@ -31,8 +31,9 @@
 
 		<!-- Spring Boot Elasticsearch 依赖 -->
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-elasticsearch</artifactId>
+			<version>3.1.9.RELEASE</version>
 		</dependency>
 
 		<!--Jest工具包 -->
@@ -69,4 +70,6 @@
 			<version>4.12</version>
 		</dependency>
 	</dependencies>
+
+
 </project>
