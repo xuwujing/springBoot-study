@@ -93,5 +93,7 @@ springBoot-study 是本人在学习SpringBoot的一些工程！
 
 -  [SpringBoot项目实现文件上传和邮件发送](https://www.cnblogs.com/xuwujing/p/10945698.html) 
 
+-  [SpringBoot整合Swagger和Actuator](https://www.cnblogs.com/xuwujing/p/11042674.html) 
+
 
 
