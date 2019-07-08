@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pancm.dao.cluster.StudentDao">
+	<resultMap id="BaseResultMap" type="com.pancm.pojo.Student">
+		<result column="id" property="id" />
+		<result column="name" property="name" />
+		<result column="age" property="age" />
+	</resultMap>
+
+	<parameterMap id="Student" type="com.pancm.pojo.Student"/>
+
+	<sql id="Base_Column_List">
+		id, name, age
+	</sql>
+
+	<insert id="insert" parameterMap="Student">
+		insert into t_student (name,age)
+		values (#{name},#{age})
+	</insert>
+
+	<update id="update" parameterMap="Student">
+		update
+		  t_student 
+		set
+		<if test="name!=null and name!=''">
+			 name = #{name}
+		</if>
+		
+		<if test="age!=null and age!=''">
+			, age = #{age}
+		</if>
+		  where id= #{id}
+	</update>
+
+	<delete id="delete" parameterType="java.lang.Long">
+		delete from  t_user where id=#{id}
+	</delete>
+	
+
+
+	<select id="findByListEntity" resultMap="BaseResultMap"  parameterMap="Student">
+		select
+		<include refid="Base_Column_List" />
+		from t_student
+		where 1=1
+		
+		<if test="name!=null and name!=''">
+			and name = #{name}
+		</if>
+		
+		<if test="age!=null and age!=''">
+			and age = #{age}
+		</if>
+	</select>
+	
+	
+	
+	
+</mapper>
