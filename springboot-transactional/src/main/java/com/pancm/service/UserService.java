@@ -1,5 +1,7 @@
 package com.pancm.service;
 
+import com.pancm.pojo.User;
+
 /**
  * 
 * @Title: UserService
@@ -11,15 +13,15 @@ package com.pancm.service;
  */
 public interface UserService {
 
-	boolean test1() throws Exception ;
+	boolean test1(User user) throws Exception ;
 
-	boolean test2();
+	boolean test2(User user);
 	
-	boolean test3();
+	boolean test3(User user);
 	
-	boolean test4();
+	boolean test4(User user);
 	
-	boolean test5();
+	boolean test5(User user);
 	
 	
 	

@@ -1,6 +1,10 @@
 package com.pancm.dao;
 
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.pancm.pojo.User;
 
@@ -15,39 +19,21 @@ import com.pancm.pojo.User;
  */
 @Mapper
 public interface UserDao{
-    /**
-     * 单条新增插入数据
-     * @param entity
-     * @return
-     * @throws Exception
-     * @throws
-     */
-    void insert(User entity) throws Exception;
+	
+	
+	  @Insert("insert into t_user(id,name,age) values (#{id},#{name},#{age})")
+	  void insert(User user); 
+	 
+	
+	 @Update("update t_user set name=#{name}, age=#{age} where id=#{id}")
+	  void update(User user);
 
+	 
+	 @Delete("delete from t_user where id=#{id}")
+	 void delete(long id);
 
-    User findById(long id);
-    
-    User findByListEntity(User entity);
-    
-    /**
-     * 更新数据
-     *
-     * @param entity
-     * @return
-     * @throws Exception
-     * @throws
-     */
-    void update(User entity) throws Exception;
-
-
-
-    /**
-     * 删除数据
-     * @param entity
-     * @throws Exception
-     * @throws
-     */
-    void delete(User entity) throws Exception;
-
+	 @Select("SELECT * FROM t_user where id=#{id}")
+	 User findById(long id);
+  
 
 }
