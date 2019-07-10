@@ -111,29 +111,37 @@ public class UserServiceImpl implements UserService {
 		/*
 		 * 手动进行事物控制
 		 */
-		TransactionStatus transactionStatus=null;		
+		TransactionStatus transactionStatus=null;
+		boolean isCommit = false;
 		try {
 			transactionStatus = dataSourceTransactionManager.getTransaction(transactionDefinition);
 			System.out.println("查询的数据1:" + udao.findById(user.getId()));
-			// 进行新增/修改/删除
+			// 进行新增/修改
 			udao.insert(user);
 			System.out.println("查询的数据2:" + udao.findById(user.getId()));
-			user.setAge(20);
-			udao.update(user);
-			System.out.println("查询的数据3:" + udao.findById(user.getId()));
-			if("xuwujing".equals(user.getName())) {
-				udao.delete(user.getId());
+			if(user.getAge()<20) {
+				user.setAge(user.getAge()+2);
+				udao.update(user);
+				System.out.println("查询的数据3:" + udao.findById(user.getId()));
 			}else {
 				throw new Exception("模拟一个异常!");
-			}	
+			}
+			udao.update(user);
 			System.out.println("查询的数据4:" + udao.findById(user.getId()));
 			//手动提交
-			dataSourceTransactionManager.commit(transactionStatus);	
+			dataSourceTransactionManager.commit(transactionStatus);
+			isCommit= true;
 			System.out.println("手动提交事物成功!");
-		} catch (Exception e) {		
-			System.out.println("发生异常,进行手动回滚！");
-			//手动回滚事物
-			dataSourceTransactionManager.rollback(transactionStatus);
+			throw new Exception("模拟第二个异常!");
+
+		} catch (Exception e) {
+			//如果未提交就进行回滚
+			if(!isCommit){
+				System.out.println("发生异常,进行手动回滚！");
+				//手动回滚事物
+				dataSourceTransactionManager.rollback(transactionStatus);
+			}
+
 			e.printStackTrace();
 		}
 		return false;
