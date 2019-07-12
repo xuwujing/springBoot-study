@@ -66,10 +66,5 @@ public class UserRestController {
         return true;
     }
 	
-	@PostMapping("/test5")
-    public boolean test5(@RequestBody User user) {	
-		userService.test5(user);
-		System.out.println("最后查询的数据:" + userDao.findById(user.getId()));
-        return true;
-    }
+
 }

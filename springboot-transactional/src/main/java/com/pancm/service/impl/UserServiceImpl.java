@@ -25,7 +25,8 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserDao udao;
-	
+
+
 	@Autowired
 	private DataSourceTransactionManager dataSourceTransactionManager;
 	@Autowired
@@ -83,22 +84,22 @@ public class UserServiceImpl implements UserService {
 			deal1(user);
 			deal2(user);
 		} catch (Exception e) {
-			e.printStackTrace();
 			// 手动回滚事物
 			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+			e.printStackTrace();
 		} 
 		return false;
 
 	}
 
 	@Transactional(rollbackFor = Exception.class)
-	private void deal1(User user) throws Exception {
+	public void deal1(User user) throws Exception {
 		udao.insert(user);
 		System.out.println("查询的数据2:" + udao.findById(user.getId()));
 	}
 
 	@Transactional(rollbackFor = Exception.class)
-	private void deal2(User user) throws Exception {
+	public void deal2(User user) throws Exception {
 		user.setAge(19);
 		user.setName("xuwujing2");
 		udao.update(user);
@@ -126,8 +127,6 @@ public class UserServiceImpl implements UserService {
 			}else {
 				throw new Exception("模拟一个异常!");
 			}
-			udao.update(user);
-			System.out.println("查询的数据4:" + udao.findById(user.getId()));
 			//手动提交
 			dataSourceTransactionManager.commit(transactionStatus);
 			isCommit= true;

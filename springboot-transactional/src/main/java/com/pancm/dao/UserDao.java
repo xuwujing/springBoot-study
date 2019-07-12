@@ -8,6 +8,8 @@ import org.apache.ibatis.annotations.Update;
 
 import com.pancm.pojo.User;
 
+import java.sql.SQLException;
+
 /**
  * 
 * @Title: UserDao
@@ -22,18 +24,12 @@ public interface UserDao{
 	
 	
 	  @Insert("insert into t_user(id,name,age) values (#{id},#{name},#{age})")
-	  void insert(User user); 
-	 
-	
+	  void insert(User user) throws SQLException;
+
 	 @Update("update t_user set name=#{name}, age=#{age} where id=#{id}")
-	  void update(User user);
+	  void update(User user) throws SQLException;
 
-	 
-	 @Delete("delete from t_user where id=#{id}")
-	 void delete(long id);
-
-	 @Select("SELECT * FROM t_user where id=#{id}")
+	@Select("SELECT * FROM t_user where id=#{id}")
 	 User findById(long id);
-  
 
 }

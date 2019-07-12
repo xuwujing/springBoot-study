@@ -20,9 +20,7 @@ public interface UserService {
 	boolean test3(User user);
 	
 	boolean test4(User user);
-	
-	boolean test5(User user);
-	
+
 	
 	
 }
