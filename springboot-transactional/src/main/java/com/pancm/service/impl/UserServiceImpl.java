@@ -12,6 +12,8 @@ import com.pancm.dao.UserDao;
 import com.pancm.pojo.User;
 import com.pancm.service.UserService;
 
+import java.sql.SQLException;
+
 /**
  * 
  * @Title: UserServiceImpl 
@@ -83,7 +85,9 @@ public class UserServiceImpl implements UserService {
 			System.out.println("查询的数据1:" + udao.findById(user.getId()));
 			deal1(user);
 			deal2(user);
+			deal3(user);
 		} catch (Exception e) {
+			System.out.println("发生异常,进行手动回滚！");
 			// 手动回滚事物
 			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 			e.printStackTrace();
@@ -92,20 +96,33 @@ public class UserServiceImpl implements UserService {
 
 	}
 
-	@Transactional(rollbackFor = Exception.class)
-	public void deal1(User user) throws Exception {
+	public void deal1(User user) throws SQLException {
 		udao.insert(user);
 		System.out.println("查询的数据2:" + udao.findById(user.getId()));
 	}
 
-	@Transactional(rollbackFor = Exception.class)
-	public void deal2(User user) throws Exception {
-		user.setAge(19);
-		user.setName("xuwujing2");
-		udao.update(user);
-		System.out.println("查询的数据3:" + udao.findById(user.getId()));
-		throw new Exception("手动模拟一个异常！");
+	public void deal2(User user)  throws SQLException{
+		if(user.getAge()<20){
+			//SQL异常
+			udao.insert(user);
+		}else{
+			user.setAge(21);
+			udao.update(user);
+			System.out.println("查询的数据3:" + udao.findById(user.getId()));
+		}
 	}
+
+
+	@Transactional(rollbackFor = SQLException.class)
+	public void deal3(User user)  {
+		if(user.getAge()>20){
+			//SQL异常
+			udao.insert(user);
+		}
+
+	}
+
+
 
 	@Override
 	public boolean test4(User user) {
@@ -146,14 +163,6 @@ public class UserServiceImpl implements UserService {
 		return false;
 	}
 
-	@Override
-	public boolean test5(User user) {
-		/*
-		 * 调用其他service层的事物控制
-		 */
-		
-		
-		return false;
-	}
+
 
 }

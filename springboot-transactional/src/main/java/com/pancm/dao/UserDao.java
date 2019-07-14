@@ -24,10 +24,10 @@ public interface UserDao{
 	
 	
 	  @Insert("insert into t_user(id,name,age) values (#{id},#{name},#{age})")
-	  void insert(User user) throws SQLException;
+	  void insert(User user) ;
 
 	 @Update("update t_user set name=#{name}, age=#{age} where id=#{id}")
-	  void update(User user) throws SQLException;
+	  void update(User user) ;
 
 	@Select("SELECT * FROM t_user where id=#{id}")
 	 User findById(long id);

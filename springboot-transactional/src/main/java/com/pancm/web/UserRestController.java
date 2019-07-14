@@ -34,6 +34,7 @@ public class UserRestController {
 
 	@PostMapping("/test1")
     public boolean test1(@RequestBody User user) {
+		System.out.println("请求参数:" + user);
 		try {
 			userService.test1(user);
 		} catch (Exception e) {
@@ -45,7 +46,8 @@ public class UserRestController {
     }
     
 	@PostMapping("/test2")
-    public boolean test2(@RequestBody User user) {	
+    public boolean test2(@RequestBody User user) {
+		System.out.println("请求参数:" + user);
 		userService.test2(user);
 		System.out.println("最后查询的数据:" + userDao.findById(user.getId()));
         return true;
@@ -53,14 +55,16 @@ public class UserRestController {
 	
 	
 	@PostMapping("/test3")
-    public boolean test3(@RequestBody User user) {	
+    public boolean test3(@RequestBody User user) {
+		System.out.println("请求参数:" + user);
 		userService.test3(user);
 		System.out.println("最后查询的数据:" + userDao.findById(user.getId()));
         return true;
     }
 	
 	@PostMapping("/test4")
-    public boolean test4(@RequestBody User user) {	
+    public boolean test4(@RequestBody User user) {
+		System.out.println("请求参数:" + user);
 		userService.test4(user);
 		System.out.println("最后查询的数据:" + userDao.findById(user.getId()));
         return true;

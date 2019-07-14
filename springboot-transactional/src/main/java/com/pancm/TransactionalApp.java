@@ -19,7 +19,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class TransactionalApp
 {
 		
-    public static void main( String[] args ) throws Exception
+    public static void main( String[] args )
     {
 		SpringApplication.run(TransactionalApp.class, args);
 		System.out.println("Transactional 程序正在运行...");
