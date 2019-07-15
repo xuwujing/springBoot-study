@@ -60,6 +60,8 @@ springBoot-study 是本人在学习SpringBoot的一些工程！
 
 - [springboot-exceptionHandler](https://github.com/xuwujing/springBoot-study/tree/master/springboot-exceptionHandler):SpringBoot实现全局异常的统一处理的项目,可以对自定的异常以及系统异常进行分类处理。
 
+- [springboot-transactional](https://github.com/xuwujing/springBoot-study/tree/master/springboot-transactional):SpringBoot实现事物控制使用的示例教程。
+
 - [springboot2-webflux](https://github.com/xuwujing/springBoot-study/tree/master/springboot2-webflux):SpringBoo2.x 结合webflux(异步非阻塞开发框架)的 版本使用示例。
 
 - [springboot2-elasticsearch](https://github.com/xuwujing/springBoot-study/tree/master/springboot2-elasticsearch):SpringBoo2.x 结合ElasticSearch 6.x 版本使用的示例。
@@ -95,5 +97,5 @@ springBoot-study 是本人在学习SpringBoot的一些工程！
 
 -  [SpringBoot整合Swagger和Actuator](https://www.cnblogs.com/xuwujing/p/11042674.html) 
 
-
+-  [SpringBoot事物Transaction实战讲解教程](https://www.cnblogs.com/xuwujing/p/11184162.html) 
 
