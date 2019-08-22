@@ -20,7 +20,7 @@ import com.pancm.storm.spout.KafkaInsertDataSpout;
  * @author pancm
  * @date 2018年5月8日
  */
-@Component
+
 public class TopologyApp {
 	private  final Logger logger = LoggerFactory.getLogger(TopologyApp.class);
 
@@ -36,7 +36,7 @@ public class TopologyApp {
 		//设置一个应答者
 		conf.setNumAckers(1);
 		//设置一个work
-		conf.setNumWorkers(1);
+		conf.setNumWorkers(3);
 		try {
 			// 有参数时，表示向集群提交作业，并把第一个参数当做topology名称
 			// 没有参数时，本地提交

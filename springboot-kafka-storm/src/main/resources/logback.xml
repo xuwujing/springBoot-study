@@ -23,7 +23,11 @@
 			</Pattern>
 		</layout>
 	</appender>
-		
+
+	<logger name="org.apache.kafka" level="WARN"/>
+	<logger name="o.a.k.c.consumer" level="WARN"/>
+	<logger name="org.apache.zookeeper" level="WARN"/>
+
 	<root level="INFO">
 		<appender-ref ref="STDOUT"/>
 		<appender-ref ref="FILE" />
