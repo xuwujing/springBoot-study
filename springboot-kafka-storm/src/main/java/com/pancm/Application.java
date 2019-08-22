@@ -26,7 +26,6 @@ public class Application{
 		ConfigurableApplicationContext context = SpringApplication.run(Application.class, args);
 		GetSpringBean springBean=new GetSpringBean();
 		springBean.setApplicationContext(context);
-
 	}
 	
 }

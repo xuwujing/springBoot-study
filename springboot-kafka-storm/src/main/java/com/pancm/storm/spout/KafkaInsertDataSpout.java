@@ -51,7 +51,7 @@ public class KafkaInsertDataSpout extends BaseRichSpout{
 	private ConsumerRecords<String, String> msgList;
 
 
-	public static ApplicationConfiguration app;
+	private ApplicationConfiguration app;
 	
 	
 	

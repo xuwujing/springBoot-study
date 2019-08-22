@@ -1,5 +1,6 @@
 package com.pancm.util;
 
+import com.pancm.SpringBootApp;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -23,7 +24,9 @@ public class GetSpringBean implements ApplicationContextAware{
 	}
 
 	public static <T> T getBean(Class<T> c) {
-
+		if(context==null){
+			SpringBootApp.run("pancm");
+		}
 		return context.getBean(c);
 	}
 

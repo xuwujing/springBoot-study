@@ -40,7 +40,7 @@ public class InsertBolt extends BaseRichBolt{
 		private static final Logger logger = LoggerFactory.getLogger(InsertBolt.class);
 
 
-	   private UserService userService;
+	    private UserService userService;
 		
 
 		@SuppressWarnings("rawtypes")
