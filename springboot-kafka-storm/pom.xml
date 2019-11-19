@@ -20,7 +20,7 @@
 		<slf4j.version>1.7.25</slf4j.version>
 	    <logback.version>1.2.3</logback.version>
 	    <kafka.version>1.0.0</kafka.version>
-	    <storm.version>1.2.1</storm.version>
+	    <storm.version>1.2.3</storm.version>
 	    <fastjson.version>1.2.41</fastjson.version>
 	    <druid>1.1.8</druid>
 	</properties>
