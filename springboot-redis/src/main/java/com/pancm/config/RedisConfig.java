@@ -42,17 +42,24 @@ public class RedisConfig {
 	@Value("${redis.timeBetweenEvictionRunsMillis}")
 	private long timeBetweenEvictionRunsMillis;
 
-	@Value("${redis.testOnBorrow}")
-	private boolean testOnBorrow;
-
-	@Value("${redis.testWhileIdle}")
-	private boolean testWhileIdle;
+//	@Value("${redis.testOnBorrow}")
+//	private boolean testOnBorrow;
+//
+//	@Value("${redis.testWhileIdle")
+//	private boolean testWhileIdle;
 
 	@Value("${redis.cluster.max-redirects}")
 	private Integer mmaxRedirectsac;
 
 	@Value("${redis.password}")
 	private String redispwd;
+
+	@Value("${spring.redis.host}")
+	private String host;
+
+	@Value("${spring.redis.port}")
+	private Integer port;
+
 
 	/**
 	 * JedisPoolConfig 连接池
@@ -75,9 +82,9 @@ public class RedisConfig {
 		// 逐出扫描的时间间隔(毫秒) 如果为负数,则不运行逐出线程, 默认-1
 		jedisPoolConfig.setTimeBetweenEvictionRunsMillis(timeBetweenEvictionRunsMillis);
 		// 是否在从池中取出连接前进行检验,如果检验失败,则从池中去除连接并尝试取出另一个
-		jedisPoolConfig.setTestOnBorrow(testOnBorrow);
+//		jedisPoolConfig.setTestOnBorrow(testOnBorrow);
 		// 在空闲时检查有效性, 默认false
-		jedisPoolConfig.setTestWhileIdle(testWhileIdle);
+//		jedisPoolConfig.setTestWhileIdle(testWhileIdle);
 		return jedisPoolConfig;
 	}
 
@@ -89,16 +96,18 @@ public class RedisConfig {
 	 */
 	@Bean
 	public JedisConnectionFactory JedisConnectionFactory(JedisPoolConfig jedisPoolConfig) {
-		JedisConnectionFactory JedisConnectionFactory = new JedisConnectionFactory(jedisPoolConfig);
+		JedisConnectionFactory jedisConnectionFactory = new JedisConnectionFactory(jedisPoolConfig);
 		/*
 		  *    设置密码，如果为空，则不设置
 		  *  可在 redis.conf 文件中设置: requirepass 密码
 		 */
 		
 		if (redispwd == null || redispwd.length() == 0) {
-			JedisConnectionFactory.setPassword(redispwd);
+			jedisConnectionFactory.setPassword(redispwd);
 		}
-		return JedisConnectionFactory;
+		jedisConnectionFactory.setHostName(host);
+		jedisConnectionFactory.setPort(port);
+		return jedisConnectionFactory;
 	}
 
 	/**
