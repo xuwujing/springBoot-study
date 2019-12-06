@@ -81,6 +81,7 @@ public class RedisConfig {
 		jedisPoolConfig.setNumTestsPerEvictionRun(numTestsPerEvictionRun);
 		// 逐出扫描的时间间隔(毫秒) 如果为负数,则不运行逐出线程, 默认-1
 		jedisPoolConfig.setTimeBetweenEvictionRunsMillis(timeBetweenEvictionRunsMillis);
+		jedisPoolConfig.setBlockWhenExhausted(true);
 		// 是否在从池中取出连接前进行检验,如果检验失败,则从池中去除连接并尝试取出另一个
 //		jedisPoolConfig.setTestOnBorrow(testOnBorrow);
 		// 在空闲时检查有效性, 默认false
@@ -137,7 +138,7 @@ public class RedisConfig {
 		redisTemplate.setHashValueSerializer(new GenericJackson2JsonRedisSerializer());
 		redisTemplate.setValueSerializer(new GenericJackson2JsonRedisSerializer());
 		// 开启事务
-		redisTemplate.setEnableTransactionSupport(true);
+//		redisTemplate.setEnableTransactionSupport(true);
 		// 将连接工厂设置到模板类中
 		redisTemplate.setConnectionFactory(factory);
 	}
