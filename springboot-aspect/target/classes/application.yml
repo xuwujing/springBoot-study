@@ -1,0 +1,7 @@
+server:
+  port: 8182
+
+info:
+  app:
+   name:springboot-aspect
+   version:1.0
