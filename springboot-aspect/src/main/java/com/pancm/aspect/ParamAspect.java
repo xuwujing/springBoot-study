@@ -2,11 +2,16 @@ package com.pancm.aspect;
 
 
 import com.pancm.pojo.User;
-import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.pancm.result.ResultBody;
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
+
+import java.io.UnsupportedEncodingException;
+import java.util.Base64;
 
 
 /**
@@ -20,38 +25,67 @@ import org.springframework.stereotype.Component;
 @Component
 public class ParamAspect {
 
-    private final Logger log = LoggerFactory.getLogger(this.getClass());
 
     @Pointcut("execution(public * com.pancm.web.*.*(..))")
     public void doOperation() {
 
-        log.info("参数检验AOP");
     }
 
-    @Around("doOperation()")
-    public Object doBefore(ProceedingJoinPoint joinPoint) throws Throwable {
+
+    /**
+     * @Title: before
+     * @Description: 前置通知处理方法
+     *    在处理之前调用，比如参数、权限校验
+     * @param joinPoint
+     */
+    @Before("doOperation()")
+    public void before(JoinPoint joinPoint) throws Throwable{
         Object[] objs = joinPoint.getArgs();
         for (Object obj : objs) {
             User user = (User) obj;
             System.out.println("请求的user:"+user);
-            user.setAge(17);
-            return joinPoint.proceed(objs);
+            user.setName(base64DeStr(user.getName()));
         }
-        return joinPoint.proceed(objs);
     }
+
+
+
+
+//    @Around("doOperation()")
+//    public Object doBefore(ProceedingJoinPoint joinPoint) throws Throwable {
+//        Object[] objs = joinPoint.getArgs();
+//        for (Object obj : objs) {
+//            User user = (User) obj;
+//            System.out.println("请求的user:"+user);
+//            user.setAge(17);
+//            return joinPoint.proceed(objs);
+//        }
+//        return joinPoint.proceed(objs);
+//    }
 
 
 
     @AfterReturning(returning = "object", pointcut = "doOperation()")
     public void doAfterReturning(Object object) {
-        System.out.println("=="+object);
+        ResultBody resultBody = (ResultBody) object;
+        String str =null;
+        try {
+             str=base64EnStr(resultBody.getResult());
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        resultBody.setResult(str);
+    }
 
-//        RequestVo responseVo = (RequestVo) object;
-//        byte[] a = Base64Utils.encode(String.valueOf(responseVo.getScont()).getBytes());
-//        responseVo.setMsg(new String(a ));
-//        responseVo.setScont("123");
 
-//        log.info("请求返回值【{}】", object.toString());
+    public  String base64EnStr(String str) throws UnsupportedEncodingException {
+        return Base64.getEncoder().encodeToString(str.getBytes("UTF-8"));
+    }
+
+
+    public static String base64DeStr(String encodeStr) throws UnsupportedEncodingException {
+        byte[] decodeStr = Base64.getDecoder().decode(encodeStr);
+        return new String(decodeStr, "UTF-8");
     }
 
 }

@@ -1,6 +1,8 @@
 package com.pancm.pojo;
 
 
+import com.alibaba.fastjson.JSONObject;
+
 /**
  * 
 * Title: User
@@ -60,7 +62,7 @@ public class User {
 	}
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", age=" + age + "]";
+		return JSONObject.toJSONString(this);
 	}
 	 
 	
