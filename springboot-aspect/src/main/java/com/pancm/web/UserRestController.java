@@ -25,7 +25,8 @@ public class UserRestController {
 
 
     @GetMapping("/user")
-    public ResultBody findByUser(User user) {
+    public ResultBody findByUser(User  user) {
+        System.out.println("用户查询接口请求的参数:"+user);
         ResultBody resultBody = new ResultBody();
         List<User> userList =new ArrayList<>();
         User user2=new User();
@@ -35,6 +36,7 @@ public class UserRestController {
         userList.add(user2);
         resultBody.setCode("0");
         resultBody.setResult(userList.toString());
+        System.out.println("用户查询接口响应的参数:"+resultBody);
         return resultBody;
     }
 

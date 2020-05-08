@@ -4,10 +4,8 @@ package com.pancm.aspect;
 import com.pancm.pojo.User;
 import com.pancm.result.ResultBody;
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.AfterReturning;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
 import java.io.UnsupportedEncodingException;
@@ -42,26 +40,27 @@ public class ParamAspect {
     public void before(JoinPoint joinPoint) throws Throwable{
         Object[] objs = joinPoint.getArgs();
         for (Object obj : objs) {
-            User user = (User) obj;
-            System.out.println("请求的user:"+user);
-            user.setName(base64DeStr(user.getName()));
+            User user =(User) obj;
+            System.out.println("前置通知接受的参数:"+user);
+            String name =base64DeStr(user.getName());
+            user.setName(name);
         }
     }
 
 
 
 
-//    @Around("doOperation()")
-//    public Object doBefore(ProceedingJoinPoint joinPoint) throws Throwable {
-//        Object[] objs = joinPoint.getArgs();
+    @Around("doOperation()")
+    public Object doBefore(ProceedingJoinPoint joinPoint) throws Throwable {
+        Object[] objs = joinPoint.getArgs();
 //        for (Object obj : objs) {
-//            User user = (User) obj;
-//            System.out.println("请求的user:"+user);
-//            user.setAge(17);
-//            return joinPoint.proceed(objs);
+//            User user =(User) obj;
+//            String name =base64DeStr(user.getName());
+//            user.setName(name);
+//          return joinPoint.proceed(objs);
 //        }
-//        return joinPoint.proceed(objs);
-//    }
+        return joinPoint.proceed(objs);
+    }
 
 
 
@@ -75,6 +74,7 @@ public class ParamAspect {
             e.printStackTrace();
         }
         resultBody.setResult(str);
+        System.out.println("前置通知响应的参数:"+resultBody);
     }
 
 

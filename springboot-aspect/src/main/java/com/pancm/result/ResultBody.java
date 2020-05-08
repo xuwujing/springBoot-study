@@ -1,5 +1,7 @@
 package com.pancm.result;
 
+import com.alibaba.fastjson.JSONObject;
+
 /**
  *
  * @Title: ResultBody
@@ -51,5 +53,10 @@ public class ResultBody {
 
 	public void setResult(String result) {
 		this.result = result;
+	}
+
+	@Override
+	public String toString() {
+		return JSONObject.toJSONString(this);
 	}
 }
