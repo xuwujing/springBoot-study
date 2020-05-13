@@ -26,7 +26,6 @@ public class ParamAspect {
 
     @Pointcut("execution(public * com.pancm.web.*.*(..))")
     public void doOperation() {
-
     }
 
 
@@ -47,20 +46,6 @@ public class ParamAspect {
         }
     }
 
-
-
-
-    @Around("doOperation()")
-    public Object doBefore(ProceedingJoinPoint joinPoint) throws Throwable {
-        Object[] objs = joinPoint.getArgs();
-//        for (Object obj : objs) {
-//            User user =(User) obj;
-//            String name =base64DeStr(user.getName());
-//            user.setName(name);
-//          return joinPoint.proceed(objs);
-//        }
-        return joinPoint.proceed(objs);
-    }
 
 
 
