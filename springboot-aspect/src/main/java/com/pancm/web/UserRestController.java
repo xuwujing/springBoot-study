@@ -39,8 +39,4 @@ public class UserRestController {
         System.out.println("用户查询接口响应的参数:"+resultBody);
         return resultBody;
     }
-
-
-
-    
 }

@@ -4,7 +4,6 @@ package com.pancm.aspect;
 import com.pancm.pojo.User;
 import com.pancm.result.ResultBody;
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
@@ -21,7 +20,7 @@ import java.util.Base64;
  **/
 @Aspect
 @Component
-public class ParamAspect {
+public class AspectTest {
 
 
     @Pointcut("execution(public * com.pancm.web.*.*(..))")
@@ -59,7 +58,7 @@ public class ParamAspect {
             e.printStackTrace();
         }
         resultBody.setResult(str);
-        System.out.println("前置通知响应的参数:"+resultBody);
+        System.out.println("后通知响应的参数:"+resultBody);
     }
 
 
