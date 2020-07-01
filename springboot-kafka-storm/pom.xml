@@ -16,7 +16,7 @@
 		<java.version>1.8</java.version>
 		<springboot.version>1.5.9.RELEASE</springboot.version>
         <mybatis-spring-boot>1.2.0</mybatis-spring-boot>
-        <mysql-connector>5.1.44</mysql-connector>
+        <mysql-connector>8.0.16</mysql-connector>
 		<slf4j.version>1.7.25</slf4j.version>
 	    <logback.version>1.2.3</logback.version>
 	    <kafka.version>1.0.0</kafka.version>
