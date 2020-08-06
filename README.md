@@ -68,6 +68,9 @@ springBoot-study 是本人在学习SpringBoot的一些工程！
 
 - [springboot2-docker](https://github.com/xuwujing/springBoot-study/tree/master/springboot2-docker):SpringBoo2.x 结合Docker版本使用的示例。
 
+- [springboot-sql2dictionary](https://github.com/xuwujing/springBoot-study/tree/master/springboot-sql2dictionary):SpringBoot结合Screw实现数据字典生成的项目，执行提供的sql语句，运行ScrewTest类即可查看。
+
+
 ## 文章列表
 
 [SpringBoot系列博客:](https://www.cnblogs.com/xuwujing/category/1145997.html)
