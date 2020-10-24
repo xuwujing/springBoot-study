@@ -49,6 +49,7 @@ public class UserRestController {
     @ApiImplicitParam(name = "user", value = "用户详细实体user", required = true, dataType = "User")
 	@PostMapping("/user")
 	@Check(value="name")
+	//加上此注解表示会记录操作的日志
 	@LogAnnotation
     public boolean insert(@RequestBody User user) {
 		logger.info("开始新增用户信息！请求参数:{}",user);
