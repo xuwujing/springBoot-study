@@ -134,14 +134,14 @@ public class MasterDataSourceConfig {
     	//如果连接失败，则直接退出程序!
     	if(!testCon(dataSource)){
     		logger.error("数据库连接失败!程序退出!");
-    		System.exit(1);
+//    		System.exit(1);
     	}
     	//连接成功并且是明文的话,就直接回写密文
     	if(password2==null){
 	    	SetSystemProperty ssp = new SetSystemProperty();
 	    	Map<String, String> map = new HashMap<String, String>();
 	    	map.put("spring.datasource.password", AESUtil.encrypt(password));
-			ssp.updateProperties("application.properties", map, "password Encode");
+			ssp.updateProperties("application.yml", map, "password Encode");
 			logger.error("密文回写成功!");
     	}
         return dataSource;

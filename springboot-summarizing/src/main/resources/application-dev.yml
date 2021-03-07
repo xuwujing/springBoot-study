@@ -1,0 +1,56 @@
+banner:
+  charset: UTF-8
+logging:
+  level:
+    com:
+      pancm:
+        dao: debug
+redis:
+  maxIdle: 5.0
+  maxTotal: 5.0
+  maxWaitMillis: 1000.0
+  minEvictableIdleTimeMillis: 300000.0
+  numTestsPerEvictionRun: 3.0
+  testOnBorrow: 'true'
+  testWhileIdle: 'true'
+  timeBetweenEvictionRunsMillis: 30000.0
+server:
+  port: 8180
+  tomcat:
+    uri-encoding: UTF-8
+spring:
+  datasource:
+    connectionProperties: 'druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000  '
+    driverClassName: com.mysql.jdbc.Driver
+    filters: 'stat,wall,log4j  '
+    initialSize: 5.0
+    maxActive: 20.0
+    maxPoolPreparedStatementPerConnectionSize: 20.0
+    maxWait: 60000.0
+    minEvictableIdleTimeMillis: 300000.0
+    minIdle: 5.0
+    password: 123456
+    poolPreparedStatements: 'true  '
+    testOnBorrow: 'false  '
+    testOnReturn: 'false  '
+    testWhileIdle: 'true  '
+    timeBetweenEvictionRunsMillis: 60000.0
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://192.168.8.2:3306/springBoot?useUnicode=true&characterEncoding=utf8
+    username: root
+    validationQuery: 'SELECT 1 FROM DUAL  '
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+    multipart:
+      maxFileSize: 100Mb
+      maxRequestSize: 100Mb
+  messages:
+    encoding: UTF-8
+  redis:
+    cluster:
+      max-redirects: 3
+      nodes: 192.169.0.61:7000,192.169.0.62:7000,192.169.0.63:7000
+    password: ''

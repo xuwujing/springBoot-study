@@ -52,7 +52,7 @@ public class WriteBackConfig {
 		InputStream in = null;
 		Properties prop = null;
 		try {
-			in = new FileInputStream(new File("application.properties"));
+			in = new FileInputStream(new File("application.yml"));
 			prop = new SafeProperties();
 			prop.load(in);
 			LOG.warn("回写密文到配置文件,conf=" + conf + ",confParam=" + confParam);
