@@ -21,7 +21,7 @@
 		<mysql-connector>5.1.39</mysql-connector>
 		<druid>1.1.10</druid>
 		<fastjson>1.2.41</fastjson>
-		<quartz>2.3.0</quartz>
+		<quartz>2.3.2</quartz>
 		<commonslang3>3.7</commonslang3>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
