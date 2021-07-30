@@ -35,7 +35,12 @@ public class WebSocketTunnel extends GuacamoleWebSocketTunnelEndpoint {
     protected GuacamoleTunnel createTunnel(Session session, EndpointConfig endpointConfig) throws GuacamoleException {
         System.out.println("session:" + session);
         System.out.println("endpointConfig:" + endpointConfig);
-
+        // 获取url的值
+//        Integer height = Integer.valueOf(session.getRequestParameterMap().get("height").get(0));
+//        Integer width = Integer.valueOf(session.getRequestParameterMap().get("width").get(0));
+//        GuacamoleClientInformation information = new GuacamoleClientInformation();
+//        information.setOptimalScreenHeight(height);
+//        information.setOptimalScreenWidth(width);
         String hostname = "192.168.0.1"; //guacamole server地址
         int port = 4822; //guacamole server端口
         GuacamoleConfiguration configuration = new GuacamoleConfiguration();
@@ -46,13 +51,26 @@ public class WebSocketTunnel extends GuacamoleWebSocketTunnelEndpoint {
         configuration.setParameter("password", "123456");
         configuration.setParameter("ignore-cert", "true");
 
+
+
+        String fileName = getNowTime() + ".guac";//文件名
+        String outputFilePath = "/home/guacamole";
+        //添加会话录制--录屏
+        configuration.setParameter("recording-path", outputFilePath);
+        configuration.setParameter("create-recording-path", "true");
+        configuration.setParameter("recording-name", fileName);
+
         GuacamoleSocket socket = new ConfiguredGuacamoleSocket(
                 new InetGuacamoleSocket(hostname, port),
-                configuration
+                configuration,
+//                information
         );
 
         GuacamoleTunnel tunnel = new SimpleGuacamoleTunnel(socket);
         return tunnel;
     }
 
+    private String getNowTime() {
+        return LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss"));
+    }
 }

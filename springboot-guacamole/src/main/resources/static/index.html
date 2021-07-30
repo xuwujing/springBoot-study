@@ -46,6 +46,10 @@
                 new Guacamole.HTTPTunnel("tunnel")
             );
 
+            var guac = new Guacamole.Client(
+                new Guacamole.WebSocketTunnel("webSocket?height=768&width=1024&")
+             );
+
             // Add client to display div
             display.appendChild(guac.getDisplay().getElement());
 
