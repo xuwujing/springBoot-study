@@ -58,11 +58,12 @@ public class WebSocketTunnel extends GuacamoleWebSocketTunnelEndpoint {
         information.setOptimalScreenHeight(height);
         information.setOptimalScreenWidth(width);
         //guacamole server地址 r端口
-        String hostname = "192.168.9.32";
+        String hostname = "192.168.0.1";
         int port = 4822;
         GuacamoleConfiguration configuration = new GuacamoleConfiguration();
         configuration.setProtocol("rdp");
-        configuration.setParameter("hostname", "192.168.6.93");
+        // 远程windows服务的地址
+        configuration.setParameter("hostname", "192.168.0.2");
         configuration.setParameter("port", "3389");
         configuration.setParameter("username", "administrator");
         configuration.setParameter("password", "123456");
