@@ -1,4 +1,4 @@
-package com.zans.config;
+package com.pancm.config;
 
 import org.apache.guacamole.GuacamoleException;
 import org.apache.guacamole.net.GuacamoleSocket;
@@ -12,7 +12,14 @@ import org.apache.guacamole.servlet.GuacamoleHTTPTunnelServlet;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 
-
+/**
+* @Title: HttpTunnelServlet
+* @Description:
+* @Version:1.0.0
+* @Since:jdk1.8
+* @author pancm
+* @Date  2021/7/2
+**/
 @WebServlet(urlPatterns = "/tunnel")
 public class HttpTunnelServlet extends GuacamoleHTTPTunnelServlet {
 

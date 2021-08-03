@@ -2,4 +2,4 @@ spring:
   profiles:
     active: local
   application:
-    name: leakproof-server
+    name: springboot-guacamole

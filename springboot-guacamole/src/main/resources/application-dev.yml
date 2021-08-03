@@ -1,20 +1,7 @@
 server:
-  port: 21000
+  port: 9632
   servlet:
     context-path: /api
 
 
-spring:
-  datasource:
-    guard:
-      driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://192.168.2.4:3306/guard_scan_demo?autoReconnect=true&failOverReadOnly=false&characterEncoding=utf-8&useUnicode=true&zeroDateTimeBehavior=convertToNull
-      username: guard
-      password: txsqldb@123456
-
-
-logging:
-  config: logback.xml
-  level:
-    com.zans.portal.dao : debug
 
