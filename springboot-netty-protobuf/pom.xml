@@ -14,7 +14,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
 		<netty.version>4.1.42.Final</netty.version>
-		<protobuf.version>3.5.1</protobuf.version>
+		<protobuf.version>3.16.1</protobuf.version>
 		<springboot>1.5.9.RELEASE</springboot>
 		<fastjson>1.2.41</fastjson>
 		<maven.compiler.source>1.8</maven.compiler.source>
