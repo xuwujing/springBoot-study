@@ -15,7 +15,7 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <java.version>1.8</java.version>
     <fastjson>1.2.41</fastjson>
-    <springboot>1.5.15.RELEASE</springboot>
+    <springboot>2.5.12</springboot>
   </properties>
 
   <dependencies>
