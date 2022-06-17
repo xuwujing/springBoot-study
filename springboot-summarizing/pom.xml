@@ -20,7 +20,7 @@
 		<mybatis-spring-boot>1.2.0</mybatis-spring-boot>
 		<mysql-connector>5.1.39</mysql-connector>
 		<druid>1.1.10</druid>
-		<fastjson>1.2.41</fastjson>
+		<fastjson>1.2.83</fastjson>
 		<quartz>2.3.2</quartz>
 		<commonslang3>3.7</commonslang3>
 		<maven.compiler.source>1.8</maven.compiler.source>
