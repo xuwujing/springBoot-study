@@ -72,6 +72,9 @@ springBoot-study 是本人在学习SpringBoot的一些工程！
 
 - [springboot-prometheus](https://github.com/xuwujing/springBoot-study/tree/master/springboot-prometheus):SpringBoot结合prometheus实现监控项目。
 
+- [springboot-guacamole](https://github.com/xuwujing/springBoot-study/tree/master/springboot-guacamole):SpringBoot结合guacamole实现堡垒机远程桌面控制功能。
+
+
 ## 文章列表
 
 [SpringBoot系列博客:](https://www.cnblogs.com/xuwujing/category/1145997.html)
@@ -102,4 +105,6 @@ springBoot-study 是本人在学习SpringBoot的一些工程！
 -  [SpringBoot整合Swagger和Actuator](https://www.cnblogs.com/xuwujing/p/11042674.html) 
 
 -  [SpringBoot事物Transaction实战讲解教程](https://www.cnblogs.com/xuwujing/p/11184162.html) 
+
+-  [SpringBoot切面Aop的demo简单讲解](https://www.cnblogs.com/xuwujing/p/12927081.html) 
 
