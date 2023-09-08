@@ -197,13 +197,16 @@
 		<!-- springmvc 版本 -->
 		<!-- <dependency> <groupId>com.baomidou</groupId> <artifactId>mybatis-plus</artifactId> 
 			<version>3.0.5</version> </dependency> -->
-
+		<dependency>
+			<groupId>cn.hutool</groupId>
+			<artifactId>hutool-all</artifactId>
+			<version>5.3.7</version>
+		</dependency>
 	</dependencies>
 
 
 	<build>
 		<defaultGoal>compile</defaultGoal>
-		<sourceDirectory>src</sourceDirectory>
 		<finalName>springboot-summarizing</finalName>
 		<plugins>
 			<plugin>
