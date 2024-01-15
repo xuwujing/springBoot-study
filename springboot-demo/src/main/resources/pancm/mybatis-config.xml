@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- mybatis-config.xml增加别名处理 -->
+    <!--typeAliases为某个Java类型起别名,别名不区分大小写
+        type：指定起别名类的全类名，默认别名就是类名小写，user
+        alias：起新的别名
+    -->
+    <typeAliases>
+<!--        <package name="com.zans.portal.vo"/>-->
+    </typeAliases>
+</configuration>
+
