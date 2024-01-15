@@ -58,7 +58,7 @@ public class BasePage {
     protected String orderString;
 
     public String getOrderBy() {
-        if (!StringUtils.isEmpty(this.sortName) && StringUtils.isEmpty(this.sortOrder)) {
+        if (!StringUtils.isEmpty(this.sortName) && !StringUtils.isEmpty(this.sortOrder)) {
             String orderBy = this.sortName + " " + this.sortOrder;
             if (!StringUtils.isEmpty(this.defaultOrder) && !orderBy.equals(defaultOrder)) {
                 orderBy += ", " + defaultOrder;

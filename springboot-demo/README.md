@@ -31,8 +31,11 @@ springBoot-demo 是一个SpringBoot的基础框架项目，可以在此项目上
 springBoot-demo
 ├── pom.xml
 ├── README.md
-├── build-dev.xml
-├── README.md
+├── build-dev.bat    ant打包脚本启动命令
+├── build-dev.xml    ant打包脚本
+├── git-info.bat     git信息获取
+├── start.sh         linux启动脚本
+├── stop.sh          linux停止动脚本
 └── src
     ├── main
     │   ├── java
