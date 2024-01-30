@@ -23,7 +23,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 		<jest.version>6.3.1</jest.version>
-		<log4j>2.13.3</log4j>
+		<log4j>2.17.1</log4j>
 	</properties>
 
 
