@@ -16,7 +16,7 @@
 		<netty.version>4.1.42.Final</netty.version>
 		<protobuf.version>3.5.1</protobuf.version>
 		<springboot>1.5.9.RELEASE</springboot>
-		<fastjson>1.2.41</fastjson>
+		<fastjson>1.2.83</fastjson>
 		<maven.compiler.source>1.8</maven.compiler.source>
    		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
