@@ -108,6 +108,11 @@
             <artifactId>mapper-spring-boot-starter</artifactId>
             <version>${tk.mybatis.boot.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.0.5</version>
+        </dependency>
         <!-- mybatis-generator-core 反向生成java代码，解决dtd 标红的问题-->
         <dependency>
             <groupId>org.mybatis.generator</groupId>

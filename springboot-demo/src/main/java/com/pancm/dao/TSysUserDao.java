@@ -1,23 +1,22 @@
 package com.pancm.dao;
 
-import com.pancm.model.User;
-import com.pancm.vo.UserVO;
+import com.pancm.model.TSysUser;
+import com.pancm.vo.TSysUserVO;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Mapper;
-import tk.mybatis.mapper.common.BaseMapper;
-
 import java.util.List;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
  /**
-* @Title: 用户表(User)表数据库访问层
+* @Title: 用户表(TSysUser)表数据库访问层
 * @Description: 
 * @Version:1.0.0 
 * @Since:jdk1.8 
 * @author pancm
-* @date 2024-01-15 15:27:04
+* @date 2024-04-01 09:30:54
 */
 @Mapper
-public interface UserDao  {
+public interface TSysUserDao extends BaseMapper<TSysUser> {
 
     /**
      * 通过ID查询单条数据
@@ -25,56 +24,56 @@ public interface UserDao  {
      * @param id 主键
      * @return 实例对象
      */
-    UserVO queryById(Long id);
+    TSysUserVO queryById(String id);
 
    
     /**
      * 通过实体查询一条数据
      *
-     * @param userVO 实例对象
+     * @param tSysUserVO 实例对象
      * @return 对象列表
      */
-    UserVO findOne(UserVO userVO);
+    TSysUserVO findOne(TSysUserVO tSysUserVO);
 
     /**
      * 通过实体作为筛选条件查询
      *
-     * @param userVO 实例对象
+     * @param tSysUserVO 实例对象
      * @return 对象列表
      */
-    List<UserVO> queryAll(UserVO userVO);
+    List<TSysUserVO> queryAll(TSysUserVO tSysUserVO);
 
     /**
      * 新增数据
      *
-     * @param user 实例对象
+     * @param tSysUser 实例对象
      * @return 影响行数
      */
-    int insert(User user);
+    int insert(TSysUser tSysUser);
 
     /**
      * 批量新增数据（MyBatis原生foreach方法）
      *
-     * @param entities List<User> 实例对象列表
+     * @param entities List<TSysUser> 实例对象列表
      * @return 影响行数
      */
-    int insertBatch(@Param("entities") List<User> entities);
+    int insertBatch(@Param("entities") List<TSysUser> entities);
 
     /**
      * 批量新增或按主键更新数据（MyBatis原生foreach方法）
      *
-     * @param entities List<User> 实例对象列表
+     * @param entities List<TSysUser> 实例对象列表
      * @return 影响行数
      */
-    int insertOrUpdateBatch(@Param("entities") List<User> entities);
+    int insertOrUpdateBatch(@Param("entities") List<TSysUser> entities);
 
     /**
      * 修改数据
      *
-     * @param user 实例对象
+     * @param tSysUser 实例对象
      * @return 影响行数
      */
-    int update(User user);
+    int update(TSysUser tSysUser);
 
     /**
      * 通过主键删除数据
@@ -82,7 +81,7 @@ public interface UserDao  {
      * @param id 主键
      * @return 影响行数
      */
-    int deleteById(Long id);
+    int deleteById(String id);
 
 }
 
