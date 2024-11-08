@@ -1,0 +1,15 @@
+spring:
+  profiles:
+    active: local
+  application:
+    name: springboot-log
+log:
+  defender:
+    enable: true # 启用logback-defender
+    include-logger-prefix: com.ideaaedi.logback # 通过logger所属类的全类名前缀，指定脱敏范围（,多个实用逗号分割）
+    opt: default_json # 指定脱敏器
+    config-json:
+      strategies: # 指定脱敏策略
+        com.ideaaedi.logback.defender.strategy.SimpleDefenderStrategy__ACCOUNT_NO: account,accountNo
+        com.ideaaedi.logback.defender.strategy.SimpleDefenderStrategy__EMAIL: email,mail,emailList
+        com.ideaaedi.logback.defender.strategy.SimpleDefenderStrategy__PHONE_NUMBER: phone,mobile,telphone

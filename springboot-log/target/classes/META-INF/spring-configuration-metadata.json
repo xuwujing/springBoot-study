@@ -1,0 +1,12 @@
+{
+  "groups": [
+    {
+      "name": "spring.datasource.pancm",
+      "type": "javax.sql.DataSource",
+      "sourceType": "com.pancm.config.PancmConfiguration",
+      "sourceMethod": "pancmDataSource()"
+    }
+  ],
+  "properties": [],
+  "hints": []
+}
