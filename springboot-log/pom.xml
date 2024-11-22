@@ -218,11 +218,15 @@
 
     <build>
         <finalName>springboot-log</finalName>
+        <defaultGoal>compile</defaultGoal>
+        <sourceDirectory>src</sourceDirectory>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
+                    <fork>true</fork>
+                    <mainClass>com.pancm.App</mainClass>
                     <excludes>
                         <exclude>
                             <groupId>org.projectlombok</groupId>
@@ -233,5 +237,6 @@
             </plugin>
         </plugins>
     </build>
+
 
 </project>

@@ -45,6 +45,7 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
 			 falg=true;
 		} catch (Exception e) {
 			logger.error("更新"+entity+"失败!原因是:",e);
+
 		}
 		return falg;
 	}
