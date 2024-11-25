@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pancm.dao.SysUserRoleDao">
+
+    <resultMap type="com.pancm.vo.SysUserRoleVO" id="SysUserRoleMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="roleName" column="role_name" jdbcType="VARCHAR"/>
+        <result property="userEnable" column="user_enable" jdbcType="INTEGER"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="creatorUser" column="creator_user" jdbcType="VARCHAR"/>
+        <result property="modifyTime" column="modify_time" jdbcType="TIMESTAMP"/>
+        <result property="modifierUser" column="modifier_user" jdbcType="VARCHAR"/>
+        <result property="deleted" column="deleted" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="SysUserRoleMap">
+        select
+idrole_nameuser_enablecreate_timecreator_usermodify_timemodifier_userdeleted
+        from sys_user_role
+        where id = #{id}
+    </select>
+    
+     <!--通过实体查询一条数据-->
+    <select id="findOne" resultMap="SysUserRoleMap">
+        select
+idrole_nameuser_enablecreate_timecreator_usermodify_timemodifier_userdeleted        from sys_user_role
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="roleName != null and roleName != ''">
+                and role_name = #{roleName}
+            </if>
+            <if test="userEnable != null">
+                and user_enable = #{userEnable}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="creatorUser != null and creatorUser != ''">
+                and creator_user = #{creatorUser}
+            </if>
+            <if test="modifyTime != null">
+                and modify_time = #{modifyTime}
+            </if>
+            <if test="modifierUser != null and modifierUser != ''">
+                and modifier_user = #{modifierUser}
+            </if>
+            <if test="deleted != null">
+                and deleted = #{deleted}
+            </if>
+        </where>
+        limit 1
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="SysUserRoleMap">
+        select
+idrole_nameuser_enablecreate_timecreator_usermodify_timemodifier_userdeleted
+        from sys_user_role
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="roleName != null and roleName != ''">
+                and role_name = #{roleName}
+            </if>
+            <if test="userEnable != null">
+                and user_enable = #{userEnable}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="creatorUser != null and creatorUser != ''">
+                and creator_user = #{creatorUser}
+            </if>
+            <if test="modifyTime != null">
+                and modify_time = #{modifyTime}
+            </if>
+            <if test="modifierUser != null and modifierUser != ''">
+                and modifier_user = #{modifierUser}
+            </if>
+            <if test="deleted != null">
+                and deleted = #{deleted}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into sys_user_role(role_name, user_enable, create_time, creator_user, modify_time, modifier_user, deleted)
+        values (#{roleName}, #{userEnable}, #{createTime}, #{creatorUser}, #{modifyTime}, #{modifierUser}, #{deleted})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into sys_user_role(role_name, user_enable, create_time, creator_user, modify_time, modifier_user, deleted)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+        (#{entity.roleName}, #{entity.userEnable}, #{entity.createTime}, #{entity.creatorUser}, #{entity.modifyTime}, #{entity.modifierUser}, #{entity.deleted})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into sys_user_role(role_name, user_enable, create_time, creator_user, modify_time, modifier_user, deleted)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.roleName}, #{entity.userEnable}, #{entity.createTime}, #{entity.creatorUser}, #{entity.modifyTime}, #{entity.modifierUser}, #{entity.deleted})
+        </foreach>
+        on duplicate key update
+role_name = values(role_name) , user_enable = values(user_enable) , create_time = values(create_time) , creator_user = values(creator_user) , modify_time = values(modify_time) , modifier_user = values(modifier_user) , deleted = values(deleted)     </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update sys_user_role
+        <set>
+            <if test="roleName != null and roleName != ''">
+                role_name = #{roleName},
+            </if>
+            <if test="userEnable != null">
+                user_enable = #{userEnable},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="creatorUser != null and creatorUser != ''">
+                creator_user = #{creatorUser},
+            </if>
+            <if test="modifyTime != null">
+                modify_time = #{modifyTime},
+            </if>
+            <if test="modifierUser != null and modifierUser != ''">
+                modifier_user = #{modifierUser},
+            </if>
+            <if test="deleted != null">
+                deleted = #{deleted},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from sys_user_role where id = #{id}
+    </delete>
+
+</mapper>
+
