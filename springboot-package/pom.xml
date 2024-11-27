@@ -15,7 +15,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 		<mybatis-spring-boot>1.2.0</mybatis-spring-boot>
-		<springboot.version>1.5.9.RELEASE</springboot.version>
+		<springboot.version>2.5.12</springboot.version>
 		<mysql-connector>5.1.44</mysql-connector>
 		<logback>1.2.3</logback>
 		<slf4j>1.7.25</slf4j>
