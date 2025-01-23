@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="springboot-excel" default="zip" basedir=".">
+	<property name="build" value="build" />
+	<property name="target" value="target" />
+	<property name="source" value="src/main/resources"/>
+	<property name="jar_version" value="springboot-excel_V1.0" />
+	<property name="routine" value="build/${jar_version}/程序包"/>
+
+	<record name="ant.log" loglevel="info" append="no" action="start"/>
+
+	<target name="clean">
+		<delete dir="${target}" />
+		<delete dir="${build}" />
+		<delete dir="${routine}" />
+	</target>
+
+	<target name="create-path" depends="clean">
+		<mkdir dir="${build}" />
+		<mkdir dir="${build}/${jar_version}" />
+	</target>
+
+
+	<target name="mvn_package" depends="create-path">
+		<exec executable="cmd.exe" >
+			<arg line="/c git-info.bat"/>
+		</exec>
+		<exec executable="cmd" failonerror="true">
+			<arg line="/c mvn clean package -P dev" />
+		</exec>
+	</target>
+
+
+
+
+
+	<target name="copyAll" depends="mvn_package">
+		<copy todir="${routine}" file="${target}/springboot-excel.jar"></copy>
+		<copy todir="${routine}" file="${source}/application.yml"></copy>
+		<copy todir="${routine}" file="${source}/application-dev.yml"></copy>
+		<copy todir="${routine}" file="${source}/version.txt"></copy>
+		<copy todir="${routine}" file="start.sh"></copy>
+		<copy todir="${routine}" file="stop.sh"></copy>
+        <rename src="${routine}/version.txt" dest="${routine}/springboot-excel-version.txt"/>
+    </target>
+
+	<!--文件打包-->
+	 <target name="zip" depends="copyAll">
+        <zip destfile="build/${jar_version}.zip" basedir="${build}" excludes=".svn"/>
+    </target>
+
+	<target name="cleanFiles" depends="zip">
+		<delete dir="${build}/${jar_version}" />
+	</target>
+
+</project>

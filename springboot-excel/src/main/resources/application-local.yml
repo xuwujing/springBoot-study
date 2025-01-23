@@ -1,0 +1,14 @@
+server:
+  port: 9877
+  servlet:
+    context-path: /api
+
+
+spring:
+  datasource:
+    pancm:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1:3306/pcm?autoReconnect=true&failOverReadOnly=false&characterEncoding=utf-8&useUnicode=true&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai&useSSL=false
+      username: root
+      password: 123456
+
