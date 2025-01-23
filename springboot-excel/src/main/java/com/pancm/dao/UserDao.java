@@ -44,6 +44,10 @@ public interface UserDao  {
      */
     List<UserVO> queryAll(UserVO userVO);
 
+     /**
+      * 查询总数
+      * @return
+      */
      int queryAllCount(UserVO userVO);
     /**
      * 新增数据

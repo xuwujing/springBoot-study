@@ -3,3 +3,7 @@ spring:
     active: local
   application:
     name: springboot-excel
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB

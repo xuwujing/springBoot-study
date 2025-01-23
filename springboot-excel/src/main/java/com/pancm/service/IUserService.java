@@ -2,6 +2,7 @@ package com.pancm.service;
 
 import com.pancm.vo.UserVO;
 import com.pancm.vo.ApiResult;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -67,7 +68,7 @@ public interface IUserService {
       * @param response
       * @return
       */
-     ApiResult export(UserVO userVO, HttpServletRequest request, HttpServletResponse response);
+     void export(UserVO userVO, HttpServletRequest request, HttpServletResponse response);
 
 
      /**
@@ -78,5 +79,20 @@ public interface IUserService {
       * @param response
       * @return
       */
-     ApiResult exportBatch(UserVO userVO, HttpServletRequest request, HttpServletResponse response);
+     void exportBatch(UserVO userVO, HttpServletRequest request, HttpServletResponse response);
+
+     /**
+      * 生成数据
+      * @param size
+      * @return
+      */
+     ApiResult generatedData(Integer size);
+
+     /**
+      * 导入数据
+      * @param file
+      * @param request
+      * @return
+      */
+     ApiResult importExcel(MultipartFile file, HttpServletRequest request);
  }

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -102,17 +103,33 @@ public class UserController {
     }
 
 
-    @ApiOperation(value = "/export", notes = "用户导出成Excel")
+    @ApiOperation(value = "用户表生成数据",notes = "用户表生成数据")
+    @RequestMapping(value = "generatedData", method = RequestMethod.GET)
+    public ApiResult generatedData( @RequestParam("size") Integer size) {
+        return userService.generatedData(size);
+    }
+
+
+
+    @ApiOperation(value = "用户导出成Excel", notes = "用户导出成Excel")
     @RequestMapping(value = "/export", method = {RequestMethod.GET})
-    public ApiResult export(@RequestBody UserVO userVO, HttpServletRequest request, HttpServletResponse response){
-        return userService.export(userVO, request, response);
+    public void export(@RequestBody UserVO userVO, HttpServletRequest request, HttpServletResponse response){
+         userService.export(userVO, request, response);
     }
 
 
-    @ApiOperation(value = "/exportBatch", notes = "用户导出成Excel,量大的时候")
+    @ApiOperation(value = "用户导出成Excel,量大的时候", notes = "用户导出成Excel,量大的时候")
     @RequestMapping(value = "/exportBatch", method = {RequestMethod.GET})
-    public ApiResult exportBatch(@RequestBody UserVO userVO, HttpServletRequest request, HttpServletResponse response){
-        return userService.exportBatch(userVO, request, response);
+    public void exportBatch(@RequestBody UserVO userVO, HttpServletRequest request, HttpServletResponse response){
+         userService.exportBatch(userVO, request, response);
     }
+
+    @ApiOperation(value = "用户导入Excel", notes = "用户导入Excel")
+    @PostMapping("/import")
+    public ApiResult importExcel(@RequestParam("file") MultipartFile file,
+                                          HttpServletRequest request) {
+        return userService.importExcel(file, request);
+    }
+
 
 }

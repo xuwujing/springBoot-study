@@ -29,7 +29,7 @@ public class Application {
         String ip = InetAddress.getLocalHost().getHostAddress();
         String port = env.getProperty("server.port");
         String path = env.getProperty("server.servlet.context-path");
-        String name = env.getProperty("server.application.name");
+        String name = env.getProperty("spring.application.name");
         log.info("\n----------------------------------------------------------\n\t" +
                 "Application " + name + " is running! Access URLs:\n\t" +
                 "Local: \t\thttp://localhost:" + port + path + "/\n\t" +

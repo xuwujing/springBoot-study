@@ -87,10 +87,10 @@ id, name, sex, age, create_time, create_by, update_time, update_by
         </where>
     </select>
 
-    <select id="queryAllCount" resultType="java.lang.Integer">>
-        select
-        count(1) as c
-        from user
+    <select id="queryAllCount" resultType="java.lang.Integer">
+        SELECT
+        count(1)
+        FROM user
         <where>
             <if test="id != null">
                 and id = #{id}

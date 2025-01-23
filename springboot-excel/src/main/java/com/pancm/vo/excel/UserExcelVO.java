@@ -2,6 +2,7 @@ package com.pancm.vo.excel;
 
 import cn.idev.excel.annotation.ExcelProperty;
 import com.alibaba.fastjson.JSONObject;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.pancm.vo.BasePage;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -9,6 +10,7 @@ import lombok.Data;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.Objects;
 
 /**
 * @Title: 用户表(User)请求响应对象
